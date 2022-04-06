@@ -12,13 +12,17 @@ Esta página te permite comprar y vender plantas. Es un proyecto para Duoc UC.
 
 `Trabajando`: ⚒️
 
+`No comenzado`: 🛑
+
 `No completado`: ❌
 
 #### Tareas
 
-| Tarea             | Jenniffer | Ariel | Rodrigo |
-| :---------------- | :-------: | :---: | :-----: |
-| Mockup            |     ✅     |   ✅   |    ✅    |
-| Construcción HTML |     ✅     |   ✅   |    ✅    |
-| Construcción CSS  |     💠     |   ✅   |    ✅    |
+| Tarea                      | Jenniffer | Ariel | Rodrigo |
+| :------------------------- | :-------: | :---: | :-----: |
+| Mockup                     |     ✅     |   ✅   |    ✅    |
+| Construcción HTML          |     ✅     |   ✅   |    ✅    |
+| Construcción CSS           |     💠     |   ✅   |    ✅    |
+| Modelo de Datos            |     🛑     |   🛑   |    💠    |
+| Construcción Base de Datos |     💠     |   🛑   |    💠    |
 
