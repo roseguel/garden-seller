@@ -1,7 +1,7 @@
 body {
+    
     background: linear-gradient(180deg, #ECFCF7 -7.61%, #68E3BE 57.68%, #3B8E75 110.19%);
     margin: 0 auto;
-    height: 800vw;
 }
 
 #logo_header {
@@ -121,6 +121,60 @@ body {
     flex-direction: row;
 }
 
+.footer {
+    height: 100vh;
+    margin-top: 0em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.logo {
+    width: 150px;
+    height: 63px;
+    
+    background: #CCEDE5;
+    border-radius: 31.5px;
+}
+
+.botones {
+    display: flex;
+    flex-direction: column;
+}
+
+.boton-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 1.5em;
+    width: 262px;
+    height: 46px;
+    border: 3px solid #F5FFFD;
+    color: white;
+    box-sizing: border-box;
+    filter: drop-shadow(0px 0px 1320.48px #F5FFFD) drop-shadow(0px 0px 754.56px #F5FFFD) drop-shadow(0px 0px 440.16px #F5FFFD) drop-shadow(0px 0px 220.08px #F5FFFD) drop-shadow(0px 0px 62.88px #F5FFFD) drop-shadow(0px 0px 31.44px #F5FFFD);
+    border-radius: 17px;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.ingresar {
+    border: 3px solid #624ABE;
+    color: #624ABE;
+    box-sizing: border-box;
+    border-radius: 17px;
+}
+
+.boton-footer h4 {
+    text-align: center;
+}
+
+#div_relleno {
+    width: 100vw;
+    height: 200vh;
+}
+
 @media screen and (max-width: 800px) {
     #categories-1, #categories-2 {
         justify-content: space-around;
@@ -129,3 +183,5 @@ body {
         margin: 1vh 1vh 1vh 1vh;
     }
 }
+
+
