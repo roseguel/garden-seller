@@ -1,0 +1,131 @@
+body {
+    background: linear-gradient(180deg, #ECFCF7 -7.61%, #68E3BE 57.68%, #3B8E75 110.19%);
+    margin: 0 auto;
+    height: 800vw;
+}
+
+#logo_header {
+    justify-self: left;
+    background-color: #47BC99;
+    height: 80%;
+    width: 5em;
+    text-align: center;
+    border-radius: 31.5px;
+}
+
+#categories {
+    margin: 1em auto;
+    width: 90vw;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#categories-1 {
+    margin: 0em auto;
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+}
+
+#categories-2 {
+    margin: 0em auto;
+    padding-top: 1em;
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+}
+
+#cat {
+    margin: 1em 3em 2em 3em;
+    height: 8vh;
+    width: 8vh;
+    background: linear-gradient(180deg, #9CDFCA 0%, rgba(217, 252, 241, 0) 100%);
+    box-shadow: 0px 1vh 1vh rgba(0, 0, 0, 0.25);
+    border-radius: 100%;
+}
+
+#cat:hover {
+    transform: scale(110%);
+}
+
+#recomendados {
+    margin: 10vh auto;
+    height: 40vh;
+    width: 90%;
+    background: #F5FFFD;
+    border-radius: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#title_recomendados {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1em;
+    align-self: flex-start;
+    position: absolute;
+    margin-top: -5vh;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    background-color: #95D6C2;
+    height: 10vh;
+    width: 70vw;
+}
+
+#recomended_elements {
+    margin-top: 3vh;
+    background-color: #F5FFFD;
+    height: 70%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#back_element {
+    margin: 0 auto;
+    padding: 0 0 0 0;
+    background: linear-gradient(180deg, #ACF5DF 0%, #81BBAA 100%);
+    height: 24vh;
+    width: 24vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    border-radius: 2em;
+}
+
+#back_element:hover {
+    transform: scale(105%);
+    box-shadow: 0px 1vh 1vh rgba(0, 0, 0, 0.25);
+}
+
+#data_element {
+    background: #CCEDE5;
+    height: 8vh;
+    width: 100%;
+    border-radius: 0px 0px 2em 2em;
+    padding: 1vh 1vh 1vh 2vh;
+}
+
+.row_element {
+    margin-top: 2em;
+    display: flex;
+    flex-direction: row;
+}
+
+@media screen and (max-width: 800px) {
+    #categories-1, #categories-2 {
+        justify-content: space-around;
+    }
+    #cat {
+        margin: 1vh 1vh 1vh 1vh;
+    }
+}
