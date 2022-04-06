@@ -26,3 +26,5 @@ Esta página te permite comprar y vender plantas. Es un proyecto para Duoc UC.
 | Modelo de Datos            |     🛑     |   🛑   |    💠    |
 | Construcción Base de Datos |     💠     |   🛑   |    💠    |
 
+## Diseño
+https://www.figma.com/file/aaE8ebfdFJJoUX4tbpcK67/Untitled?node-id=0%3A1
