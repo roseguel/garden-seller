@@ -1,0 +1,56 @@
+body {
+    background: linear-gradient(180deg, #ECFCF7 -7.61%, #68E3BE 57.68%, #3B8E75 110.19%);
+}
+
+@media screen and (max-width: 800px) {
+    .carousel-control-prev, .carousel-control-next {
+        visibility: hidden;
+        display: none;
+    }
+}
+
+.back:hover {
+    transform: scale(110%);
+}
+
+.carousel-inner {
+    margin-top: 2.5em;
+}
+
+.carousel-item img {
+    border-radius: 50px;
+}
+
+.logo {
+    display: flex;
+    background-color: #CCEDE5;
+    box-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 2.5em;
+    width: 25vh;
+    height: 25vh;
+    border-radius: 100px;
+}
+
+.informacion {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2em;
+}
+
+.informacion p {
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 1em;
+    max-width: 50em;
+    white-space: pre-line;
+}
+
+.carousel-item img {
+    height: 20em;
+    width: 20em;
+}
