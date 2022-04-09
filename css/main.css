@@ -47,11 +47,22 @@ body {
 }
 
 #recomendados {
+    overflow-x: scroll;
     margin-top: 5vh;
+    margin-bottom: 5vh;
     height: 30vh;
     width: 80vw;
     border: 1px solid #000;
     display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+#prod_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
 }
 
 #en_venta {
@@ -63,28 +74,65 @@ body {
 }
 
 #productos {
-    justify-items: center;
+    overflow: auto;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
     border: 1px solid #000;
     margin: 0 auto;
     height: 90vh;
     width: 90vw;
+    flex-wrap: wrap;
 }
 
-#prod {
+.prod {
     border: 1px solid #000;
-    height: 35vw;
-    width: 35vw;
+    height: 18vh;
+    width: 18vh;
+    margin-left: 2vh;
+    margin-right: 2vh;
     display: flex;
     align-items: flex-end;
+}
+
+.prod-rec {
+    height: 18vh;
+    width: 18vh;
 }
 
 #prod_data {
     height: 35%;
     width: 100%;
     border: 1px solid #000;
+}
+
+#extra {
+    border: 1px solid #000;
+    height: 90vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#gustos {
+    overflow-x: scroll;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    height: 30vh;
+    width: 80vw;
+    border: 1px solid #000;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+#vendedores_recomendados {
+    margin-top: 10vh;
+    height: 35vh;
+    width: 100vw;
+    border: 1px solid #000;
+    display: flex;
 }
 
 #indice {
