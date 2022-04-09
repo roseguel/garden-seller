@@ -7,15 +7,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Buy Bee</title>
   <link rel="stylesheet" href="css/main.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
 </head>
 
 <body>
-    <nav id="nav" >aqui va el nav</nav>
+    <nav id="nav" >
+        <div id="logo">logo</div>
+        <input id="buscar" type="text" placeholder="Suculentas">
+    </nav>
     <div id="inicio">
         <div id="categories">
             <div id="categories-row"  id="row">
@@ -32,6 +33,7 @@
             </div>
         </div>
         <div id="recomendados">
+            <div id="titulo_rec">Recomendados</div>
             <div id="prod_container">
                 <div class="prod prod-rec"><div id="prod_data"></div></div>
                 <div class="prod prod-rec"><div id="prod_data"></div></div>
@@ -57,7 +59,8 @@
         </div>
     </div>
     <div id="extra">
-        <div id="gustos">
+        <div id="recomendados">
+            <div id="titulo_gus">Basado en tus gustos</div>
             <div id="prod_container">
                 <div class="prod prod-rec"><div id="prod_data"></div></div>
                 <div class="prod prod-rec"><div id="prod_data"></div></div>
@@ -69,11 +72,61 @@
                 <div class="prod prod-rec"><div id="prod_data"></div></div>
             </div>
         </div>
-        <div id="vendedores_recomendados"></div>
+        <div id="vendedores_recomendados">
+            <div id="titulo_rec_ven">Vendedores Recomendados</div>
+            <div id="contenido">
+
+            </div>
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <div class="car_el" id="el_1">
+                        <div class="fondo">
+                            <div class="info"></div>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="car_el" id="el_2">
+                        <div class="fondo">
+                            <div class="info"></div>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="car_el" id="el_3">
+                        <div class="fondo">
+                            <div class="info"></div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+        </div>
+        <div id="ver_mas">ver mas</div>
     </div>
     
     <div id="indice">
-        <div id="botones_indice"></div>
+        <div id="ind_logo">logo</div>
+        <div id="botones_indice">
+            <div class="fin_bot">Mi Cuenta</div>
+            <div class="fin_bot">Quienes Somos</div>
+            <div class="fin_bot">Ayuda</div>
+            <div class="fin_bot ingresar">Ingresar</div>
+        </div>
     </div>
 </body>
 </html>

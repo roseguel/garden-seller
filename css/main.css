@@ -1,3 +1,33 @@
+@media (min-width: 600px) {
+    body::-webkit-scrollbar {
+        width: 0.5em;
+      }
+       
+    body::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(71, 188, 153, 1);
+    }
+       
+    body::-webkit-scrollbar-thumb {
+        background-color: #47BC99;
+        outline: 1px solid #41A486;
+    }
+
+    div::-webkit-scrollbar {
+        width: 0.5em;
+        height: 0.5em;
+      }
+       
+    div::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(71, 188, 153, 0);
+    }
+       
+    div::-webkit-scrollbar-thumb {
+       border-radius: 0.2em;
+        background-color: #47BC99;
+        outline: 1px solid #41A486;
+    }
+}
+
 html {
     width: 100vw;
 }
@@ -9,14 +39,42 @@ body {
 }
 
 #nav {
-    border: 1px solid #000;
+    font-family: 'Quicksand';
     height: 6vh;
     width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+#logo {
+    margin-left: 1.5vh;
+    height: 4vh;
+    width: 10vh;
+    background: #47BC99;
+    border-radius: 0.3em;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+}
+
+#buscar {
+    width: 40vw;
+    margin-left: auto;
+    margin-right: 1vw;
+    border-radius: 0.5em;
+    background-color:  #F2F2F2;
+    padding-left: 1vh;
+}
+
+input { 
+    border: 1px;
+
 }
 
 #inicio {
-    border: 1px solid #000;
-    height: 70vh;
+    height: 75vh;
     width: 100%;
     display: flex;
     align-items: center;
@@ -47,15 +105,46 @@ body {
 }
 
 #recomendados {
+    background-color: #F5FFFD;
+    border-radius: 2vh;
     overflow-x: scroll;
-    margin-top: 5vh;
-    margin-bottom: 5vh;
+    margin-top: 10vh;
     height: 30vh;
     width: 80vw;
-    border: 1px solid #000;
     display: flex;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
+
+}
+
+#titulo_rec {
+    border-radius: 2vh;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Quicksand';
+    margin-top: -3vh;
+    width: 20vh;
+    height: 6vh;
+    background-color: #95D6C2;
+    position: absolute;
+    align-self: flex-start;
+}
+
+#titulo_gus {
+    border-radius: 2vh;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Quicksand';
+    margin-top: -3vh;
+    width: 30vh;
+    height: 6vh;
+    background-color: #95D6C2;
+    position: absolute;
+    align-self: flex-start;
 }
 
 #prod_container {
@@ -66,7 +155,6 @@ body {
 }
 
 #en_venta {
-    border: 1px solid #000;
     height: 100vh;
     width: 100vw;
     display: flex;
@@ -85,14 +173,19 @@ body {
     flex-wrap: wrap;
 }
 
+
+
 .prod {
     border: 1px solid #000;
-    height: 18vh;
-    width: 18vh;
+    height: 16vh;
+    width: 16vh;
     margin-left: 2vh;
     margin-right: 2vh;
     display: flex;
     align-items: flex-end;
+    border-radius: 2vh;
+    background: linear-gradient(180deg, #ACF5DF 0%, #81BBAA 100%);
+    box-shadow: 0px 1vh 1vh rgba(0, 0, 0, 0.25);
 }
 
 .prod-rec {
@@ -101,13 +194,14 @@ body {
 }
 
 #prod_data {
+    background: #CCEDE5;
     height: 35%;
     width: 100%;
     border: 1px solid #000;
+    border-radius: 0 0 2vh 2vh;
 }
 
 #extra {
-    border: 1px solid #000;
     height: 90vh;
     width: 100vw;
     display: flex;
@@ -131,21 +225,138 @@ body {
     margin-top: 10vh;
     height: 35vh;
     width: 100vw;
-    border: 1px solid #000;
     display: flex;
+    justify-content: center;
+}
+
+#ver_mas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Quicksand';
+    color: #624ABE;
+    border-radius: 0.5em;
+    width: 15vh;
+    height: 6vh;
+    border: 0.1em solid #624ABE;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+#ver_mas:hover {
+    color: #5BC7A7;
+    background-color: #624ABE;
+}
+
+#ver_mas:active {
+    filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.25));
+}
+
+#titulo_rec_ven {
+    border-radius: 2vh;
+    color: #3D645C;
+    font-weight: 700;
+    font-size: 3vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Quicksand';
+    width: 40vh;
+    height: 6vh;
+    position: absolute;
+    align-self: flex-start;
+}
+
+.fondo {
+    background: linear-gradient(180deg, #ACF5DF 0%, #81BBAA 100%);
+    height: 20vh;
+    width: 60vw;
+    align-items: flex-end;
+    display: flex;
+    border-radius: 1em;
+}
+
+.info {
+    width: 100%;
+    height: 30%;
+    background-color: #CCEDE5;
+    border-radius: 0 0 1em 1em;
+}
+
+.car_el {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35vh;
+    width: 100vw;
 }
 
 #indice {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid #000;
-    height: 100vh;
+    height: 80vh;
     width: 100vw;
+    flex-direction: column;
 }
 
 #botones_indice {
-    border: 1px solid #000;
-    height: 80vh;
+    height: 50vh;
     width: 90vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.fin_bot {
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    color: #F5FFFD;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1em;
+    margin: 2vh;
+    height: 8vh;
+    width: 40vh;
+    border: 0.15em solid #F5FFFD;
+}
+
+.fin_bot:hover {
+    background-color: #F5FFFD;
+    color: #53B093;
+}
+
+.fin_bot:active {
+    filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.25));
+}
+
+#ind_logo {
+    margin-bottom: 3vh;
+    height: 7vh;
+    width: 20vh;
+    background: #CCEDE5;
+    border-radius: 1em;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+}
+
+.ingresar {
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    color: #624ABE;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1em;
+    margin: 2vh;
+    height: 8vh;
+    width: 40vh;
+    border: 0.15em solid #624ABE;
+}
+
+.ingresar:hover {
+    background-color: #624ABE;
+    color: #53B093;
 }
