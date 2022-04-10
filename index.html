@@ -13,9 +13,12 @@
 </head>
 
 <body>
+  <div id="mobile-layout">
     <div id="menu_movil">mobile menu</div>
-
-    <nav id="nav" >
+    <div id="venta-container">
+      <div id="venta">Quieres vender algo?</div>
+    </div>
+    <nav id="nav">
         <div id="logo">logo</div>
         <input id="buscar" type="text" placeholder="Suculentas">
     </nav>
@@ -60,6 +63,81 @@
                 <div class="prod"><div id="prod_data"></div></div>
         </div>
     </div>
+  </div>
+  <div id="desktop-layout">
+    <div id="menu_movil">Quieres vender algo?</div>
+    <nav id="nav">
+      <div id="logo">logo</div>
+      <div id="quienes-somos-nav" onclick="location.href='quienes-somos.html';">Quienes somos</div>
+      <div id="cuenta-nav">Mi cuenta</div>
+      <input id="buscar" type="text" placeholder="Suculentas">
+      <div id="cart"><img src="assets/images/Cart.png" alt=""></div>
+    </nav>
+    <div id="inicio">
+        <div id="categories">
+          <h1>categorias</h1>
+          <div class="row-1">
+            <div id="cat" class="col-sm-3">Flores Hogareñas</div>
+            <div id="cat" class="col-sm-3">Flores Silvestres</div>
+            <div id="cat" class="col-sm-3">Arboles Silvestres</div>
+            <div id="cat" class="col-sm-3">Arboles Pequeños</div>
+          </div>
+          
+          <div class="row-2">
+            <div id="cat" class="col-sm-3">Cactáceas</div>
+            <div id="cat" class="col-sm-3">Plantas frutales</div>
+            <div id="cat" class="col-sm-3">Hongos</div>
+            <div id="cat" class="col-sm-3">Semillas</div>
+          </div>
+          
+        </div>
+        <div id="recomendados">
+          <div id="titulo_rec">Recomendados</div>
+          <div id="prod_container">
+              <div class="prod prod-rec"><div id="prod_data"></div></div>
+              <div class="prod prod-rec"><div id="prod_data"></div></div>
+              <div class="prod prod-rec"><div id="prod_data"></div></div>
+              <div class="prod prod-rec"><div id="prod_data"></div></div>
+              <div class="prod prod-rec"><div id="prod_data"></div></div>
+              <div class="prod prod-rec"><div id="prod_data"></div></div>
+              <div class="prod prod-rec"><div id="prod_data"></div></div>
+              <div class="prod prod-rec"><div id="prod_data"></div></div>
+          </div>
+        </div>
+    </div>
+    <div id="en_venta">
+        <div id="productos">
+                <div class="prod"><div id="prod_data"></div></div>
+                <div class="prod"><div id="prod_data"></div></div>
+                <div class="prod"><div id="prod_data"></div></div>
+                <div class="prod"><div id="prod_data"></div></div>
+                <div class="prod"><div id="prod_data"></div></div>
+                <div class="prod"><div id="prod_data"></div></div>
+                <div class="prod"><div id="prod_data"></div></div>
+                <div class="prod"><div id="prod_data"></div></div>
+                <div class="prod"><div id="prod_data"></div></div>
+                <div class="prod"><div id="prod_data"></div></div>
+                <div class="prod"><div id="prod_data"></div></div>
+                <div class="prod"><div id="prod_data"></div></div>
+                <div class="prod"><div id="prod_data"></div></div>
+                <div class="prod"><div id="prod_data"></div></div>
+                <div class="prod"><div id="prod_data"></div></div>
+                <div class="prod"><div id="prod_data"></div></div>
+                <div class="prod"><div id="prod_data"></div></div>
+                <div class="prod"><div id="prod_data"></div></div>
+                <div class="prod"><div id="prod_data"></div></div>
+                <div class="prod"><div id="prod_data"></div></div>
+                <div class="prod"><div id="prod_data"></div></div>
+                <div class="prod"><div id="prod_data"></div></div>
+                <div class="prod"><div id="prod_data"></div></div>
+                <div class="prod"><div id="prod_data"></div></div>
+                <div class="prod"><div id="prod_data"></div></div>
+                <div class="prod"><div id="prod_data"></div></div>
+                <div class="prod"><div id="prod_data"></div></div>
+        </div>
+    </div>
+  </div>
+
     <div id="extra">
         <div id="recomendados">
             <div id="titulo_gus">Basado en tus gustos</div>
@@ -120,15 +198,14 @@
         </div>
         <div id="ver_mas">ver mas</div>
     </div>
-    
-    <div id="indice">
-        <div id="ind_logo">logo</div>
-        <div id="botones_indice">
-            <div class="fin_bot">Mi Cuenta</div>
-            <div onclick="location.href='quienes-somos.html';" class="fin_bot">Quienes Somos</div>
-            <div class="fin_bot">Ayuda</div>
-            <div class="fin_bot ingresar">Ingresar</div>
-        </div>
-    </div>
+  <div id="indice">
+      <div id="ind_logo">logo</div>
+      <div id="botones_indice">
+          <div class="fin_bot">Mi Cuenta</div>
+          <div onclick="location.href='quienes-somos.html';" class="fin_bot">Quienes Somos</div>
+          <div class="fin_bot">Ayuda</div>
+          <div class="fin_bot ingresar">Ingresar</div>
+      </div>
+  </div>
 </body>
 </html>
