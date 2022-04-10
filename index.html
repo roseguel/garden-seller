@@ -6,105 +6,129 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Buy Bee</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/main.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand col-sm-2" id="logo_header" href="#">Logo</a>
-      <form class="d-flex col-sm-2">
-        <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search">
-      </form>
-    </div>
-  </nav>
-  <div id="categories">
-    <div id="categories-1">
-      <div id="cat" class="col-sm-3"></div>
-      <div id="cat" class="col-sm-3"></div>
-      <div id="cat" class="col-sm-3"></div>
-      <div id="cat" class="col-sm-3"></div>
-    </div>
-    <div id="categories-2">
-      <div id="cat" class="col-sm-3"></div>
-      <div id="cat" class="col-sm-3"></div>
-      <div id="cat" class="col-sm-3"></div>
-      <div id="cat" class="col-sm-3"></div>
-    </div>
-  </div>
+    <div id="menu_movil">mobile menu</div>
 
-  <div id="recomendados">
-    <h1 id="title_recomendados">Recomendados</h1>
-    <div id="recomended_elements">
-      <div id="back_element">
-        titulaso
-        <div id="data_element">
-          <img style="padding: 0 1vh 0 0;" src="assets/images/Like.png">
-          Datos
+    <nav id="nav" >
+        <div id="logo">logo</div>
+        <input id="buscar" type="text" placeholder="Suculentas">
+    </nav>
+    <div id="inicio">
+        <div id="categories">
+            <div id="categories-row"  id="row">
+              <div id="cat" class="col-sm-3"></div>
+              <div id="cat" class="col-sm-3"></div>
+              <div id="cat" class="col-sm-3"></div>
+              <div id="cat" class="col-sm-3"></div>
+            </div>
+            <div id="categories-row" id="row">
+              <div id="cat" class="col-sm-3"></div>
+              <div id="cat" class="col-sm-3"></div>
+              <div id="cat" class="col-sm-3"></div>
+              <div id="cat" class="col-sm-3"></div>
+            </div>
         </div>
-      </div>
+        <div id="recomendados">
+            <div id="titulo_rec">Recomendados</div>
+            <div id="prod_container">
+                <div class="prod prod-rec"><div id="prod_data"></div></div>
+                <div class="prod prod-rec"><div id="prod_data"></div></div>
+                <div class="prod prod-rec"><div id="prod_data"></div></div>
+                <div class="prod prod-rec"><div id="prod_data"></div></div>
+                <div class="prod prod-rec"><div id="prod_data"></div></div>
+                <div class="prod prod-rec"><div id="prod_data"></div></div>
+                <div class="prod prod-rec"><div id="prod_data"></div></div>
+                <div class="prod prod-rec"><div id="prod_data"></div></div>
+            </div>
+        </div>
     </div>
-  </div>
+    <div id="en_venta">
+        <div id="productos">
+                <div class="prod"><div id="prod_data"></div></div>
+                <div class="prod"><div id="prod_data"></div></div>
+                <div class="prod"><div id="prod_data"></div></div>
+                <div class="prod"><div id="prod_data"></div></div>
+                <div class="prod"><div id="prod_data"></div></div>
+                <div class="prod"><div id="prod_data"></div></div>
+                <div class="prod"><div id="prod_data"></div></div>
+                <div class="prod"><div id="prod_data"></div></div>
+        </div>
+    </div>
+    <div id="extra">
+        <div id="recomendados">
+            <div id="titulo_gus">Basado en tus gustos</div>
+            <div id="prod_container">
+                <div class="prod prod-rec"><div id="prod_data"></div></div>
+                <div class="prod prod-rec"><div id="prod_data"></div></div>
+                <div class="prod prod-rec"><div id="prod_data"></div></div>
+                <div class="prod prod-rec"><div id="prod_data"></div></div>
+                <div class="prod prod-rec"><div id="prod_data"></div></div>
+                <div class="prod prod-rec"><div id="prod_data"></div></div>
+                <div class="prod prod-rec"><div id="prod_data"></div></div>
+                <div class="prod prod-rec"><div id="prod_data"></div></div>
+            </div>
+        </div>
+        <div id="vendedores_recomendados">
+            <div id="titulo_rec_ven">Vendedores Recomendados</div>
+            <div id="contenido">
 
-  <div id="general_elements">
-    <div id="row-1" class="row_element">
-      <div id="back_element">
-        titulaso
-        <div id="data_element">datos</div>
-      </div>
-      <div id="back_element">
-        titulaso
-        <div id="data_element">datos</div>
-      </div>
+            </div>
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <div class="car_el" id="el_1">
+                        <div class="fondo">
+                            <div class="info"></div>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="car_el" id="el_2">
+                        <div class="fondo">
+                            <div class="info"></div>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="car_el" id="el_3">
+                        <div class="fondo">
+                            <div class="info"></div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+        </div>
+        <div id="ver_mas">ver mas</div>
     </div>
-    <div id="row-2" class="row_element">
-      <div id="back_element">
-        titulaso
-        <div id="data_element">datos</div>
-      </div>
-      <div id="back_element">
-        titulaso
-        <div id="data_element">datos</div>
-      </div>
+    
+    <div id="indice">
+        <div id="ind_logo">logo</div>
+        <div id="botones_indice">
+            <div class="fin_bot">Mi Cuenta</div>
+            <div onclick="location.href='quienes-somos.html';" class="fin_bot">Quienes Somos</div>
+            <div class="fin_bot">Ayuda</div>
+            <div class="fin_bot ingresar">Ingresar</div>
+        </div>
     </div>
-    <div id="row-3" class="row_element">
-      <div id="back_element">
-        titulaso
-        <div id="data_element">datos</div>
-      </div>
-      <div id="back_element">
-        titulaso
-        <div id="data_element">datos</div>
-      </div>
-    </div>
-  </div>
-  <div id="div_relleno">
-
-  </div>
-  <div class="footer">
-    <div class="logo">
-      <h1 style="margin-top: 0.5em; margin-left: 1.5em;">Logo</h1>
-    </div>
-    <div class="botones">
-      <div class="boton-footer">
-        <h4>Mi cuenta</h4>
-      </div>
-      <div class="boton-footer">
-        <h4>Quienes somos</h4>
-      </div>
-      <div class="boton-footer">
-        <h4>Ayuda</h4>
-      </div>
-      <div class="boton-footer ingresar">
-        <h4>Ingresar</h4>
-      </div>
-    </div>
-  </div>
 </body>
-
 </html>
