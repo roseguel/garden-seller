@@ -1,3 +1,6 @@
+/*
+Escritorio
+*/
 @media (min-width: 950px) {
     #mobile-layout {
         display: none;
@@ -8,13 +11,15 @@
     }
 
     #menu_movil {
-        margin-left: 5vh;
+        cursor: pointer;
+        transition: all .2s ease-in-out;
+        margin-left: 2vh;
         display: flex;
         justify-content: center;
         align-items: center;
         z-index: 100;
         height: 5vh;
-        width: 10vw;
+        width: 14vw;
         background-color: #624ABE;
         color: #D9F9EF;
         position: fixed;
@@ -23,17 +28,27 @@
         border-radius: 2em;
     }
 
+    #menu_movil:hover {
+        transform: scale(105%);
+        transition: all .2s ease-in-out;
+    }
+
     #cuenta-nav {
+        transition: all .2s ease-in-out;
+        cursor: pointer;
         padding: 1vh;
         margin: 1.5vh;
     }
 
     #quienes-somos-nav {
+        cursor: pointer;
+        transition: all .2s ease-in-out;
         padding: 1vh;
         margin: 1.5vh;
     }
 
     #cuenta-nav:hover {
+        transition: all .2s ease-in-out;
         background-color: #624ABE;
         color: #D9F9EF;
         border-radius: 2em;
@@ -42,6 +57,7 @@
     }
 
     #quienes-somos-nav:hover {
+        transition: all .2s ease-in-out;
         background-color: #624ABE;
         color: #D9F9EF;
         border-radius: 2em;
@@ -58,6 +74,7 @@
     }
 
     #cart {
+        cursor: pointer;
         margin-right: 3vh;
     }
 
@@ -110,6 +127,8 @@
     }
 
     #cat {
+        cursor: pointer;
+        transition: all .2s ease-in-out;
         font-family: 'Quicksand';
         margin: 1em;
         text-align: center;
@@ -126,6 +145,7 @@
     }
     
     #cat:hover {
+        transition: all .2s ease-in-out;
         color: #5BC7A7;
         background-color:#624ABE;
     }
@@ -201,6 +221,14 @@
     .prod-rec {
         height: 18vh;
         width: 18vh;
+        cursor: pointer;
+        transition: all .2s ease-in-out;
+    }
+    
+    .prod-rec:hover {
+        transform: scale(110%);
+        cursor: pointer;
+        transition: all .2s ease-in-out;
     }
     
     #prod_data {
@@ -253,6 +281,10 @@
         outline: 1px solid #41A486;
     }
 }
+
+/*
+Movil
+*/
 
 @media (max-width: 950px) {
     #mobile-layout {
@@ -441,6 +473,7 @@
     }  
 
     #venta {
+        transition: all .2s ease-in-out;
         position: fixed;
         display: flex;
         justify-content: center;
@@ -452,6 +485,11 @@
         box-shadow: 0px -1px 2px rgba(0, 0, 0, 0.25);
         border-radius: 2em;
         top: 85vh;
+    }
+
+    #venta:hover {
+        transform: scale(110%);
+        transition: all .2s ease-in-out;
     }
 
     #venta-container {
@@ -473,6 +511,7 @@ body {
 
 #nav {
     font-family: 'Quicksand';
+    padding-top: 1em;
     height: 6vh;
     width: 100%;
     display: flex;
@@ -480,6 +519,7 @@ body {
 }
 
 #logo {
+    cursor: pointer;
     margin-left: 1.5vh;
     margin-right: 1.5vh;
     height: 4vh;
@@ -530,6 +570,8 @@ body {
 }
 
 #ver_mas {
+    cursor: pointer;
+    transition: all .2s ease-in-out;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -543,6 +585,7 @@ body {
 }
 
 #ver_mas:hover {
+    transition: all .2s ease-in-out;
     color: #5BC7A7;
     background-color: #624ABE;
 }
@@ -609,6 +652,8 @@ body {
 }
 
 .fin_bot {
+    cursor: pointer;
+    transition: all .2s ease-in-out;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     color: #F5FFFD;
     display: flex;
@@ -622,6 +667,7 @@ body {
 }
 
 .fin_bot:hover {
+    transition: all .2s ease-in-out;
     background-color: #F5FFFD;
     color: #53B093;
 }

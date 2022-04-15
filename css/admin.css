@@ -1,0 +1,38 @@
+#nav {
+    padding-top: 1em;
+}
+
+#logo {
+    cursor: pointer;
+    margin-left: 1.5vh;
+    margin-right: 1.5vh;
+    height: 4vh;
+    width: 10vh;
+    background: #47BC99;
+    border-radius: 0.3em;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+}
+
+.panelAdmin {
+    padding-top: 2em;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.tablas {
+    margin-left: 1vh;
+    margin-right: 1vh;
+    margin-top: 2em;
+}
