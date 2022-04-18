@@ -1,0 +1,64 @@
+html {
+    width: 100vw;
+}
+
+body {
+    width: 100%;
+    overflow-x: hidden;
+    background: linear-gradient(180deg, #ECFCF7 -7.61%, #68E3BE 57.68%, #3B8E75 110.19%);
+ 
+}
+
+.phproduct {
+    border-radius: 30px;
+    height: 16em;
+    width: 16em;
+    filter: grayscale(100%);
+}
+
+.exit {
+    width: 35px;
+    height: 35px;
+    margin-left: 1.5vh;
+    margin-top: 1.5vh;
+}
+
+#top {
+    display: flex;
+    flex-direction: column;
+}
+
+.titulo {
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 31px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 1vh;
+    margin-bottom: 1em;
+}
+
+.mas{
+    width: 35px;
+    height: 35px;
+    margin-left: 15vh;
+    margin-top: 1vh;
+}
+
+.producto{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+
+
+form{
+    width: 60%;
+}
