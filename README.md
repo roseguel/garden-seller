@@ -39,8 +39,8 @@ Favor de ocupar esta zona para avisar de el estado actual de las secciones en la
 
 | Seccion                    | Diseño |  logica |
 | :-------------------------| :----: | :-----: |
-| Login                     |   ✅   |   ✅   |
-| Regtistro                 |   📌   |   ❌   |
+| Login                     |   ✅   |   📌   |
+| Regtistro                 |   ✅   |   ❌   |
 
 ---
 ## Diseño

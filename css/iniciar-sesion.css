@@ -2,8 +2,8 @@
     width: 10vh;
     height: 10vh;
     position: absolute;
-    top: 2vh;
-    left: 2vh;
+    top: 3vh;
+    left: 3vh;
 }
 
 div {
@@ -42,7 +42,7 @@ Movil
         border-radius: 1em;
         background-color: #47BC99;
         width: 85%;
-        height: 60vh;
+        height: 65vh;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -73,7 +73,7 @@ Movil
     
     #logo {
         border-radius: 3em;
-        top: 15vh;
+        top: 12vh;
         position: absolute;
         display: flex;
         justify-content: center;
@@ -130,7 +130,7 @@ escritorio
         border-radius: 1em;
         background-color: #47BC99;
         width: 40%;
-        height: 45vh;
+        height: 50vh;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -161,7 +161,7 @@ escritorio
     
     #logo {
         border-radius: 3em;
-        top: 15vh;
+        top: 10vh;
         position: absolute;
         display: flex;
         justify-content: center;
