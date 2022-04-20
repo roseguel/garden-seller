@@ -1,3 +1,4 @@
+
 /*
 Escritorio
 */
@@ -302,24 +303,31 @@ Movil
     }
 
     #menu_movil {
+        justify-content: center;
         display: -webkit-box;
         display: -webkit-flex;
         display: flex;
         -webkit-box-align: center;
         -webkit-align-items: center;
         align-items: center;
+        justify-content: center;
         position: fixed;
         left: 0;
         bottom: 0;
         width: 100%;
         height: 54px;
         padding: 0 12px;
-        background-color: #FFF;
+        background-color: #D9F8EF;
         z-index: 999;
         box-shadow: 0 1px 3px 0;
         box-sizing: border-box;
     }
     
+    #menu_movil a {
+        margin-left: 10vw;
+        margin-right: 10vw;
+    }
+
     #nav {
         font-family: 'Quicksand';
         height: 6vh;
@@ -684,6 +692,7 @@ body {
     height: 8vh;
     width: 40vh;
     border: 0.15em solid #F5FFFD;
+    text-decoration: none;
 }
 
 .fin_bot:hover {
