@@ -10,6 +10,32 @@ div {
     font-family: 'Quicksand';
 }
 
+h1 {
+    margin-top: 5vh;
+}
+
+#condiciones {
+    height: 2vh;
+    display:flex;
+    flex-direction: row;
+    align-items: center;    
+    margin: 1vh;
+}
+
+#condiciones p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0 0 0;
+    margin-left: 0.5vh;
+}
+
+#condiciones p a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0 0 0;
+}
 /*
 Movil
 */
@@ -42,7 +68,7 @@ Movil
         border-radius: 1em;
         background-color: #47BC99;
         width: 85%;
-        height: 60vh;
+        height: 80vh;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -73,7 +99,7 @@ Movil
     
     #logo {
         border-radius: 3em;
-        top: 15vh;
+        top: 5vh;
         position: absolute;
         display: flex;
         justify-content: center;
@@ -130,7 +156,7 @@ escritorio
         border-radius: 1em;
         background-color: #47BC99;
         width: 40%;
-        height: 45vh;
+        height: 70vh;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -142,7 +168,6 @@ escritorio
         width: 90%;
         margin: 0.5vh;
     }
-    
     
     #submit {
         margin: 2vh;
@@ -161,7 +186,7 @@ escritorio
     
     #logo {
         border-radius: 3em;
-        top: 15vh;
+        top: 10vh;
         position: absolute;
         display: flex;
         justify-content: center;

@@ -11,22 +11,34 @@
     <title>Iniciar sesion</title>
 </head>
 <body>
-    <a id="salir" href="index.html"><img src="assets/images/Back.png" ></a>
+    <a id="salir" href="iniciar-sesion.html"><img src="assets/images/Back.png" ></a>
     <div id="todo">
         <div id="elementos">
             <div id="logo">logo</div>
+            
+            <h1>Crear cuenta</h1>
             <form action="index.html" method="post">
-                <div class="mb-3" id="input-box">
+                <div class="mb-3" id="input-box"> <!--Nombre completo-->
+                    <label for="formGroupExampleInput" class="form-label">Nombre completo</label>
+                    <input type="email" class="form-control" id="formGroupExampleInput" placeholder="Wacoldo Alejandro Perez">
+                </div>
+                <div class="mb-3" id="input-box"> <!--Nombre de Usuario-->
+                    <label for="formGroupExampleInput" class="form-label">Nombre de usuario</label>
+                    <input type="email" class="form-control" id="formGroupExampleInput" placeholder="Wacoldon">
+                </div>
+                <div class="mb-3" id="input-box"> <!--Correo Electronico-->
                     <label for="formGroupExampleInput" class="form-label">Correo Electronico</label>
                     <input type="email" class="form-control" id="formGroupExampleInput" placeholder="Wacoldo@Correo.cl">
                 </div>
-                <div class="mb-3" id="input-box">
+                <div class="mb-3" id="input-box"> <!--Contraseña-->
                     <label for="formGroupExampleInput2" class="form-label">Contraseña</label>
                     <input type="password" class="form-control" id="formGroupExampleInput2" placeholder="Wacoldin123">
                 </div>
-                <input type="submit" value="Iniciar Sesion" id="submit">
-                <a href="">Olvidaste tu contraseña?</a>
-                <a href="">No tienes una cuenta? Registrate.</a>
+                <div id="condiciones">
+                    <input type="checkbox">
+                    <p>Aceptas los <a href="">terminos y condiciones?</a></p>
+                </div>
+                <input type="submit" value="Registrarte" id="submit">
             </form>
         </div>
     </div>
