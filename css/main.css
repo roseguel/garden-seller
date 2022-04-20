@@ -659,6 +659,7 @@ body {
     height: 80vh;
     width: 100vw;
     flex-direction: column;
+    margin-bottom: 10vh;
 }
 
 #botones_indice {
