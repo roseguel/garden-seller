@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+    <link rel="stylesheet" href="css/registro.css">
+    <title>Iniciar sesion</title>
+</head>
+<body>
+    <a id="salir" href="iniciar-sesion.html"><img src="assets/images/Back.png" ></a>
+    <div id="todo">
+        <div id="elementos">
+            <div id="logo">logo</div>
+            
+            <h1>Crear cuenta</h1>
+            <form action="index.html" method="post">
+                <div class="mb-3" id="input-box"> <!--Nombre completo-->
+                    <label for="formGroupExampleInput" class="form-label">Nombre completo</label>
+                    <input required type="text" class="form-control" id="formGroupExampleInput" placeholder="Wacoldo Alejandro Perez">
+                </div>
+                <div class="mb-3" id="input-box"> <!--Nombre de Usuario-->
+                    <label for="formGroupExampleInput" class="form-label">Nombre de usuario</label>
+                    <input required type="text" class="form-control" id="formGroupExampleInput" placeholder="Wacoldon">
+                </div>
+                <div class="mb-3" id="input-box"> <!--Correo Electronico-->
+                    <label for="formGroupExampleInput" class="form-label">Correo Electronico</label>
+                    <input required type="email" class="form-control" id="formGroupExampleInput" placeholder="Wacoldo@Correo.cl">
+                </div>
+                <div class="mb-3" id="input-box"> <!--Contraseña-->
+                    <label for="formGroupExampleInput2" class="form-label">Contraseña</label>
+                    <input required type="password" class="form-control" id="formGroupExampleInput2" placeholder="Wacoldin123">
+                </div>
+                <div id="condiciones">
+                    <input type="checkbox">
+                    <p>Aceptas los <a href="">terminos y condiciones?</a></p>
+                </div>
+                <input type="submit" value="Registrarte" id="submit">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
