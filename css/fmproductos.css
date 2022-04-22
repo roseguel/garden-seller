@@ -68,7 +68,6 @@ Movil
     #placeHoldersFotos {
         display: flex;
         flex-direction: row;
-        max-width: 30em;
     }
 
     .publicar {
@@ -91,6 +90,7 @@ Movil
     .fileFormLabel {
         background: #95D6C2;
         border-radius: 31.5px;
+        margin-right: 1vh;
     }
 
     .publicar button {
@@ -164,10 +164,36 @@ PC
         border-radius: 14px;
     }
 
+    .eliminarImagen {
+        transition: all .2s ease-in-out;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        width: 20px;
+        height: 20px;
+        background: #72AB9A;
+        border-radius: 31.5px;
+        margin-right: 1vh;
+    }
+
+    .eliminarImagen:hover {
+        transition: all .2s ease-in-out;
+        cursor: pointer;
+        transform: scale(110%);
+    }
+
+    .archivo_subido {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        background: #95D6C2;
+        border-radius: 31.5px;
+        padding: 0vh 2vh 0vh 2vh;
+        margin-right: 1vh;
+    }
+
     #placeHoldersFotos {
         display: flex;
         flex-direction: row;
-        max-width: 30em;
     }
 
     .publicar {
@@ -180,7 +206,6 @@ PC
         display: flex;
         justify-content: flex-start;
         margin-top: 2vh;
-        max-width: 2em;
     }
 
     .fotos input {
