@@ -16,14 +16,15 @@
         <div id="elementos">
             <div id="logo">logo</div>
             <h1>Iniciar sesion</h1>
+            <!-- Hay que hacerlo con Forms en lo posible. -->
             <form action="index.html" method="post">
                 <div class="mb-3" id="input-box">
                     <label for="formGroupExampleInput" class="form-label">Correo Electronico</label>
-                    <input type="email" class="form-control" id="formGroupExampleInput" placeholder="Wacoldo@Correo.cl">
+                    <input required type="email" class="form-control" id="formGroupExampleInput" placeholder="Wacoldo@Correo.cl">
                 </div>
                 <div class="mb-3" id="input-box">
                     <label for="formGroupExampleInput2" class="form-label">Contraseña</label>
-                    <input type="password" class="form-control" id="formGroupExampleInput2" placeholder="Wacoldin123">
+                    <input required type="password" class="form-control" id="formGroupExampleInput2" placeholder="Wacoldin123">
                 </div>
                 <input type="submit" value="Iniciar Sesion" id="submit">
                 <a href="">Olvidaste tu contraseña?</a>
