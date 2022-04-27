@@ -11,30 +11,34 @@
     <title>Iniciar sesion</title>
 </head>
 <body>
-    <a id="salir" href="iniciar-sesion.html"><img src="assets/images/Back.png" ></a>
+    <a id="salir" href="registrar.html"><img src="assets/images/Back.png" ></a>
     <div id="todo">
         <div id="elementos">
             <div id="logo">logo</div>
             
-            <h1>Crear cuenta</h1>
-            <form action="registro-personal.html" method="post">
+            <h1>Datos personales</h1>
+            <form action="index.html" method="post">
+                <div class="mb-3" id="input-box"> <!--Nombre completo-->
+                    <label for="formGroupExampleInput" class="form-label">Nombres</label>
+                    <input required type="text" class="form-control" id="formGroupExampleInput" placeholder="Wacoldo Alejandro Perez">
+                </div>
                 <div class="mb-3" id="input-box"> <!--Nombre de Usuario-->
-                    <label for="formGroupExampleInput" class="form-label">Nombre de usuario</label>
+                    <label for="formGroupExampleInput" class="form-label">Apellidos</label>
                     <input required type="text" class="form-control" id="formGroupExampleInput" placeholder="Wacoldon">
                 </div>
                 <div class="mb-3" id="input-box"> <!--Correo Electronico-->
-                    <label for="formGroupExampleInput" class="form-label">Correo Electronico</label>
-                    <input required type="email" class="form-control" id="formGroupExampleInput" placeholder="Wacoldo@Correo.cl">
+                    <label for="formGroupExampleInput" class="form-label">Rut</label>
+                    <input required type="text" class="form-control" id="formGroupExampleInput" placeholder="21.257.282-9">
                 </div>
                 <div class="mb-3" id="input-box"> <!--Contraseña-->
-                    <label for="formGroupExampleInput2" class="form-label">Contraseña</label>
-                    <input required type="password" class="form-control" id="formGroupExampleInput2" placeholder="Wacoldin123">
+                    <label for="formGroupExampleInput2" class="form-label">Fecha de nacimiento</label>
+                    <input required type="date" class="form-control" id="formGroupExampleInput2" >
                 </div>
-                <div class="mb-3" id="input-box"> <!--Contraseña-->
-                    <label for="formGroupExampleInput2" class="form-label">Confirmar contraseña</label>
-                    <input required type="password" class="form-control" id="formGroupExampleInput2" placeholder="Wacoldin123">
+                <div id="condiciones">
+                    <input type="checkbox">
+                    <p>Aceptas los <a href="">terminos y condiciones?</a></p>
                 </div>
-                <input type="submit" value="Continuar" id="submit">
+                <input type="submit" value="Registrarte" id="submit">
             </form>
         </div>
     </div>

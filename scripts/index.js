@@ -1,4 +1,4 @@
-logged = false;
+logged = true;
 
 function irAPagina(pagina) {
     switch (pagina) {
