@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Buy Bee</title>
   <link rel="stylesheet" href="css/main.css">
+  <script src="scripts/index.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
@@ -15,12 +16,12 @@
 <body>
   <div id="mobile-layout">
     <div id="menu_movil">
-      <a href="perfil.html"><img src="assets/images/Bottom-menu/Profile.png" alt="ups"></a>
-      <a href="carrito.html"><img src="assets/images/Bottom-menu/Cart.png" alt="ups"></a>
-      <a href="guardados.html"><img src="assets/images/Bottom-menu/Heart.png" alt="blame rodrigo for this"></a>
+      <div onclick="irAPagina('perfil')"><img src="assets/images/Bottom-menu/Profile.png" alt="ups"></div>
+      <div onclick="irAPagina('carrito')"><img src="assets/images/Bottom-menu/Cart.png" alt="ups"></div>
+      <div onclick="irAPagina('guardados')"><img src="assets/images/Bottom-menu/Heart.png" alt="blame rodrigo for this"></div>
     </div>
     <div id="venta-container">
-      <div id="venta">Quieres vender algo?</div>
+      <div onclick="irAPagina('publicarproducto')" id="venta">Quieres vender algo?</div>
     </div>
     <nav id="nav">
         <div id="logo">logo</div>
@@ -28,7 +29,7 @@
     </nav>
     <div id="inicio">
         <div id="categories">
-            <div id="categories-row"  id="row">
+            <div id="categories-row" id="row">
               <div id="cat" class="col-sm-3"></div>
               <div id="cat" class="col-sm-3"></div>
               <div id="cat" class="col-sm-3"></div>
@@ -69,13 +70,13 @@
     </div>
   </div>
   <div id="desktop-layout">
-    <div id="menu_movil">Quieres vender algo?</div>
+    <div onclick="irAPagina('publicarproducto')" id="menu_movil">Quieres vender algo?</div>
     <nav id="nav">
       <div id="logo">logo</div>
       <div id="quienes-somos-nav" onclick="location.href='quienes-somos.html';">Quienes somos</div>
-      <div id="cuenta-nav">Mi cuenta</div>
+      <div onclick="irAPagina('perfil')" id="cuenta-nav">Mi cuenta</div>
       <input id="buscar" type="text" placeholder="Suculentas">
-      <a href="carrito.html" id="cart"><img src="assets/images/Cart.png" alt=""></a>
+      <div onclick="irAPagina('carrito')" id="cart"><img src="assets/images/Cart.png" alt=""></div>
     </nav>
     <div id="inicio">
         <div id="categories">
@@ -205,7 +206,7 @@
   <div id="indice">
       <div id="ind_logo">logo</div>
       <div id="botones_indice">
-          <a href="iniciar-sesion.html" class="fin_bot">Mi Cuenta</a>
+          <div onclick="irAPagina('perfil')" class="fin_bot">Mi Cuenta</a>
           <div onclick="location.href='quienes-somos.html';" class="fin_bot">Quienes Somos</div>
           <div class="fin_bot">Ayuda</div>
           <a href="iniciar-sesion.html" class="fin_bot ingresar">Ingresar</a>

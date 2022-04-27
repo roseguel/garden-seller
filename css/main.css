@@ -323,7 +323,7 @@ Movil
         box-sizing: border-box;
     }
     
-    #menu_movil a {
+    #menu_movil div {
         margin-left: 10vw;
         margin-right: 10vw;
     }
@@ -382,6 +382,7 @@ Movil
     }
     
     #cat {
+        transition: all .2s ease-in-out;
         margin: 2vw;
         height: 8vh;
         width: 8vh;
