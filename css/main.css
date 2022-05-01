@@ -1,4 +1,6 @@
 
+
+
 /*
 Escritorio
 */
@@ -326,6 +328,7 @@ Movil
     #menu_movil div {
         margin-left: 10vw;
         margin-right: 10vw;
+        text-decoration: none;
     }
 
     #nav {
