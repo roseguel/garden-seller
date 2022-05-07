@@ -1,24 +1,24 @@
 function cargarCiudades() {
-    document.getElementById("region").innerHTML = ``;
-    var regiones = {
+    document.getElementById("ciudad").innerHTML = ``;
+    var ciudades = {
         "url": "https://countriesnow.space/api/v0.1/countries/states",
         "method": "GET",
         "timeout": 0,
     };
 
-    $.getJSON(regiones).done(function (response) {
-        pais = document.getElementById("pais").value;
+    $.getJSON(ciudades).done(function (response) {
         paisCode = 0;
         for (let x = 0; x < response.data.length; x++) {
-            if (response.data[x].name == pais) {
+            if (response.data[x].name.toLowerCase() == "chile") {
                 paisCode = x;
                 break;
             }
         }
         for (let x = 0; x < response.data[paisCode].states.length; x++) {
             let htmlxd = `<option value="${response.data[paisCode].states[x].name}">${response.data[paisCode].states[x].name}</option>`
-            document.getElementById("region").innerHTML += htmlxd;
+            document.getElementById("ciudad").innerHTML += htmlxd;
         }
+        document.getElementById("ciudad").innerHTML += `<option selected>Region</option>`;
     });
 }
 
@@ -31,10 +31,9 @@ function cargarComunas() {
     };
 
     $.getJSON(comunas).done(function (response) {
-        pais = document.getElementById("pais").value;
         paisCode = 0;
         for (let x = 0; x < response.data.length; x++) {
-            if (response.data[x].country == pais) {
+            if (response.data[x].country.toLowerCase() == "chile") {
                 paisCode = x;
                 break;
             }
@@ -43,5 +42,6 @@ function cargarComunas() {
             let htmlxd = `<option value="${response.data[paisCode].cities[x]}">${response.data[paisCode].cities[x]}</option>`
             document.getElementById("comuna").innerHTML += htmlxd;
         }
+        document.getElementById("comuna").innerHTML += `<option selected>Comuna</option>`;
     });
 }

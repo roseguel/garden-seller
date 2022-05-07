@@ -16,22 +16,8 @@
   <title>Ayuda</title>
 </head>
 
-<body>
+<body onload="cargarCiudades()">
   <!-- Script -->
-  <script>
-    var pais = {
-      "url": "https://countriesnow.space/api/v0.1/countries/capital",
-      "method": "GET",
-      "timeout": 0,
-    };
-
-    $.getJSON(pais).done(function (response) {
-      for (let x = 0; x < response.data.length; x++) {
-        let htmlxd = `<option value="${response.data[x].name}">${response.data[x].name}</option>`
-        document.getElementById("pais").innerHTML += htmlxd;
-      }
-    });
-  </script>
   <!-- Fin Script -->
   <a id="salir" href="carrito.html"><img src="assets/images/Back.png"></a>
   <div id="elementos">
@@ -42,14 +28,11 @@
         <input required type="text" class="form-control" id="formGroupExampleInput"
           placeholder="Wacoldo Alejandro Martinez">
       </div>
-      <select onchange="cargarCiudades()" class="form-select" id="pais" aria-label="País">
-        <option selected>País</option>
+      <select onchange="cargarComunas()" class="form-select" id="ciudad" aria-label="Region">
       </select>
-      <div class="mb-3" id="input-box">
-        <!--Nombre de Usuario-->
-        <label for="formGroupExampleInput" class="form-label">Ciudad</label>
-        <input required type="text" class="form-control" id="formGroupExampleInput" placeholder="Hualpen">
-      </div>
+      <select class="form-select" id="comuna" aria-label="Comuna">
+        <option selected>Comuna</option>
+      </select>
       <div class="mb-3" id="input-box">
         <!--Nombre de Usuario-->
         <label for="formGroupExampleInput" class="form-label">Calle</label>

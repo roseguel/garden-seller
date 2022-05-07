@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +9,7 @@
     <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
     <link rel="stylesheet" href="css/registro.css">
     <title>Iniciar sesion</title>
+    <script src="scripts/registro.js"></script>
 </head>
 <body>
     <a id="salir" href="registrar.html"><img src="assets/images/Back.png" ></a>
@@ -17,20 +18,23 @@
             <div id="logo">logo</div>
             
             <h1>Datos personales</h1>
-            <form action="index.html" method="post">
+            <!--A pesar de que marque error en el evento "onsubmit", no corrijan, está bien así
+            la extensión de Visual Studio Code marca eso como error. Pero, es una funcionalidad para
+            cancelar el submit de un form si es que una función retorna falso-->
+            <form action="index.html" method="post" onsubmit="return validarRegistroPersonal();">
                 <div class="mb-3" id="input-box"> <!--Nombre completo-->
                     <label for="formGroupExampleInput" class="form-label">Nombres</label>
                     <input required type="text" class="form-control" id="formGroupExampleInput" placeholder="Wacoldo Alejandro Perez">
                 </div>
-                <div class="mb-3" id="input-box"> <!--Nombre de Usuario-->
+                <div class="mb-3" id="input-box"> <!--Apellidos-->
                     <label for="formGroupExampleInput" class="form-label">Apellidos</label>
                     <input required type="text" class="form-control" id="formGroupExampleInput" placeholder="Wacoldon">
                 </div>
-                <div class="mb-3" id="input-box"> <!--Correo Electronico-->
+                <div class="mb-3" id="input-box"> <!--Rut-->
                     <label for="formGroupExampleInput" class="form-label">Rut</label>
-                    <input required type="text" class="form-control" id="formGroupExampleInput" placeholder="21.257.282-9">
+                    <input onfocus="formatearRut(false)" onblur="formatearRut(true)" id="inputRut" required type="text" class="form-control" id="formGroupExampleInput" placeholder="21.257.282-9">
                 </div>
-                <div class="mb-3" id="input-box"> <!--Contraseña-->
+                <div class="mb-3" id="input-box"> <!--Fecha Nacimiento-->
                     <label for="formGroupExampleInput2" class="form-label">Fecha de nacimiento</label>
                     <input required type="date" class="form-control" id="formGroupExampleInput2" >
                 </div>
@@ -38,6 +42,9 @@
                     <input type="checkbox">
                     <p>Aceptas los <a href="">terminos y condiciones?</a></p>
                 </div>
+                <label id="labelSubmitConfirmarRegistro" for="submit" class="form-label">
+                    <img id="errorImg" src="assets/images/Error.png">
+                </label>
                 <input type="submit" value="Registrarte" id="submit">
             </form>
         </div>
