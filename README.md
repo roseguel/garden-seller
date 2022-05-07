@@ -23,11 +23,12 @@ Esta página te permite comprar y vender plantas. Es un proyecto para Duoc UC.
 | Mockup                     |     ✅     |   ✅   |    ✅    |
 | Construcción HTML          |     ✅     |   ✅   |    ✅    |
 | Construcción CSS           |     ✅     |   ✅   |    ✅    |
-| Modelo de Datos            |     🛑     |   🛑   |    💠    |
-| Construcción Base de Datos |     💠     |   🛑   |    💠    |
-| Página Crud                |     💠     |   🛑   |    💠    |
-| Formulario Productos       |     🛑     |   💠   |    💠    |
-| Formulario cuenta       |     💠     |   💠   |    🛑    |
+| Modelo de Datos            |     ✅     |   ✅   |    💠    |
+| Construcción Base de Datos |     💠     |   ✅   |    💠    |
+| Página Crud                |     💠     |   ✅   |    💠    |
+| Formulario Productos       |     ✅     |   💠   |    💠    |
+| Formulario cuenta          |     💠     |   💠   |    🛑    |
+| Validacion de Formularios  |     ✅     |   ✅   |    💠    |
 
 ---
 ## Estados
