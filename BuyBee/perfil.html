@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+    <link rel="stylesheet" href="css/perfil.css">
+    <title>Perfil</title>
+    <script src="scripts/perfil.js"></script>
+    <script src="scripts/jquery.js"></script>
+</head>
+
+<body>
+    <a id="salir" href="index.html"><img src="assets/images/Exit.png"></a>
+    <div id="elementos">
+        <h1>Perfil</h1>
+        <div id="foto">
+            <div id="sinFotoDePerfil">
+                <input accept=".png,.jpg" onchange="cambiarFoto()" class="form-control form-control-sm" id="imagenForm" type="file">
+                <label for="imagenForm" class="fileFormLabel">
+                    <img id="agregarFotoPerfil" src="assets/images/AgregarFoto.png">
+                </label>
+            </div>
+            <div id="conFotoDePerfil">
+                <img id="fotoDePerfil" src="">
+                <img id="editarFotoPerfil" src="assets/images/Editar.png">
+            </div>
+            <script>
+                // Cambio la "opacity" (no se como se dice en español) via JQuery para el efecto bonito
+                $("#editarFotoPerfil").hover(function () {
+                    if ($(window).width() >= 950) {
+                        $("#fotoDePerfil").css("opacity", 0.2);
+                    }
+                }, function () {
+                    if ($(window).width() >= 950) {
+                        $("#fotoDePerfil").css("opacity", 1);
+                    }
+                });
+                /*
+                 Aquí, utilizo el evento "click" de JQuery y "obligo" via JavaScript a que el
+                cliente haga click en el input de imagen anterior, sin necesidad de que se muestre, con
+                la función "click()"
+                */
+                $("#editarFotoPerfil").click(function (){
+                    $("#imagenForm").click()
+                });
+            </script>
+        </div>
+        <a id="button-box" href="">Historial de compras</a>
+        <a id="button-box" href="">Productos en venta</a>
+        <a class="ayuda" href="ayuda.html">Ayuda</a>
+        <a class="cerrar" href="iniciar-sesion.html">Cerrar sesion</a>
+    </div>
+</body>
+
+</html>
