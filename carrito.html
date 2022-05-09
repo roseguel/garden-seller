@@ -16,11 +16,29 @@
 <body>
     <a id="salir" href="index.html"><img src="assets/images/Exit.png" ></a>
     <div id="caja_productos">
-
+        <div class="carrito_producto">
+            <div class="carrito_prod_top">
+                <img class="carrito_prod_img" src="assets/images/florazul.jpg">
+                <div class="carrito_prod_infobox">
+                    <div class="carrito_prod_info">
+                        <p class="carrito_prod_nombre">Flor Azul</p>
+                        <p class="carrito_prod_precio">CLP$ 5.000</p>
+                    </div>
+                    <div class="carrito_prod_cantidad">
+                        <img class="carrito_prod_restar" src="assets/images/Restar.png">
+                        <div class="carrito_prod_cantidad_nro">0</div>
+                        <img class="carrito_prod_añadir" src="assets/images/Añadir.png">
+                    </div>
+                </div>
+            </div>
+            <div class="carrito_prod_footer">
+                El costo de envío es de CLP$ 4.000
+            </div>
+        </div>
     </div>
-    <form action="/action_page.php" id="formulario">
+    <form action="envio.html" id="formulario">
         <div class="codigo">
-          <input type="email" class="form-control" id="dato-form" placeholder="Codigo de descuento" name="email">
+          <input type="text" class="form-control" id="codigo_descuento_form" placeholder="Codigo de descuento" name="codigodescuento">
         </div>
         <div class="total_producto">
             <button id="confirmar" type="Total Producto" class="btn btn-primary">CLP $</button>

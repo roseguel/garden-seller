@@ -9,6 +9,7 @@
     <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
     <link rel="stylesheet" href="css/registro.css">
     <title>Iniciar sesion</title>
+    <script src="scripts/registro.js"></script>
 </head>
 <body>
     <a id="salir" href="iniciar-sesion.html"><img src="assets/images/Back.png" ></a>
@@ -17,7 +18,10 @@
             <div id="logo">logo</div>
             
             <h1>Crear cuenta</h1>
-            <form action="registro-personal.html" method="post">
+            <!--A pesar de que marque error en el evento "onsubmit", no corrijan, está bien así
+            la extensión de Visual Studio Code marca eso como error. Pero, es una funcionalidad para
+            cancelar el submit de un form si es que una función retorna falso-->
+            <form action="registro-personal.html" method="post" onsubmit="return chequearContraseña(event)">
                 <div class="mb-3" id="input-box"> <!--Nombre de Usuario-->
                     <label for="formGroupExampleInput" class="form-label">Nombre de usuario</label>
                     <input required type="text" class="form-control" id="formGroupExampleInput" placeholder="Wacoldon">
@@ -28,12 +32,16 @@
                 </div>
                 <div class="mb-3" id="input-box"> <!--Contraseña-->
                     <label for="formGroupExampleInput2" class="form-label">Contraseña</label>
-                    <input required type="password" class="form-control" id="formGroupExampleInput2" placeholder="Wacoldin123">
+                    <input id="contra" required type="password" class="form-control" id="formGroupExampleInput2" placeholder="Wacoldin123">
                 </div>
                 <div class="mb-3" id="input-box"> <!--Contraseña-->
                     <label for="formGroupExampleInput2" class="form-label">Confirmar contraseña</label>
-                    <input required type="password" class="form-control" id="formGroupExampleInput2" placeholder="Wacoldin123">
+                    <input id="contra2" required type="password" class="form-control" id="formGroupExampleInput2" placeholder="Wacoldin123">
                 </div>
+                <label id="labelSubmitRegistrar" for="submit" class="form-label">
+                    <img id="errorImg" src="assets/images/Error.png">
+                    Las contraseñas no coinciden.
+                </label>
                 <input type="submit" value="Continuar" id="submit">
             </form>
         </div>
