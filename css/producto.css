@@ -1,0 +1,130 @@
+#salir {
+    width: 10vh;
+    height: 10vh;
+    position: absolute;
+    top: 3vh;
+    left: 3vh;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    background: linear-gradient(161.63deg, #ECFCF7 0.48%, #0CA577 104.27%);
+    width: 100%;
+    height: 100%;
+    margin: 0 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+html {
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+}
+
+/*
+Escritorio
+*/
+@media (min-width: 950px) {
+    #imagen {
+        margin-top: 11vh;
+        width: 20vw;
+        height: 20vw;
+        background-color: #0CA577;
+        border-radius: 2em;
+    }
+
+    #imagen img{
+        width: 100%;
+        height: 100%;
+        background-color: #0CA577;
+        border-radius: 2em;
+    }
+    
+    h1 {
+        font-family: 'Quicksand';
+        font-weight: 700;
+        color: #F5FFFD;
+    }
+
+    h2 {
+        font-family: 'Quicksand';
+        color: #F5FFFD;
+    }
+
+    p {
+        color: #F5FFFD;
+        margin-top: -1vh;
+        text-align: center;
+        width: 30vw;
+        font-family: 'Quicksand';
+    }
+
+    #enviar {
+        color: #F5FFFD;
+        font-family: 'Quicksand';
+        font-weight: 200;
+        background-color: #624ABE;
+        width: 30vw;
+        height: 6vh;
+        border-radius: 1em;
+        border: 0;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    }
+}
+
+/*
+movil
+*/
+@media (max-width: 950px) {
+
+    #imagen {
+        margin-top: 11vh;
+        width: 90vw;
+        height: 90vw;
+        background-color: #0CA577;
+        border-radius: 2em;
+    }
+
+    #imagen img{
+        width: 100%;
+        height: 100%;
+        background-color: #0CA577;
+        border-radius: 2em;
+    }
+    
+    h1 {
+        font-family: 'Quicksand';
+        font-weight: 700;
+        color: #F5FFFD;
+    }
+
+    h2 {
+        font-family: 'Quicksand';
+        color: #F5FFFD;
+    }
+
+    p {
+        color: #F5FFFD;
+        margin-top: -1vh;
+        text-align: center;
+        width: 90vw;
+        font-family: 'Quicksand';
+    }
+
+    #enviar {
+        color: #F5FFFD;
+        font-family: 'Quicksand';
+        font-weight: 200;
+        background-color: #624ABE;
+        width: 80vw;
+        height: 6vh;
+        border-radius: 1em;
+        border: 0;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    }
+}
