@@ -25,33 +25,222 @@ body {
 div {
     font-family: 'Quicksand';
 }
+/*
+Movil
+*/
 
-#caja_productos {
-    margin-top: 10vh;
-    height: 90vh;
-    width: 80vw;
-    background-color: #ECFCF7;
-}
-
-#formulario {
-   width: 80vw;
-   margin: 3vh;
-}
-
-.total_producto {
+@media (max-width: 950px) {
+    #caja_productos {
+        margin-top: 10vh;
+        height: 90vh;
+        width: 80vw;
+        background-color: #ECFCF7;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    #formulario {
+       width: 80vw;
+       margin: 3vh;
+    }
+    
+    .total_producto {
         display: flex;
         justify-content: center;
         align-items: center;
         margin-top: 3vh;
         width: 80vw;
+    }
+    
+    #confirmar {
+        background-color: #624ABE;
+        margin-bottom: 1.5em;
+        border: 3px solid #624ABE;
+        box-sizing: border-box;
+        border-radius: 17px;
+        width: 80vw;
+    
+    }
+
+    .carrito_prod_top {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .carrito_prod_infobox {
+        display: flex;
+        flex-direction: column;
+        width: 70vw;
+    }
+
+    .carrito_producto {
+        background-color: #8BC9B7; 
+        width: 70vw;
+        margin-top: 2vh;
+        display: flex;
+        flex-direction: column;
+        border-radius: 12px 12px 12px 12px;
+    }
+
+    .carrito_prod_img{
+        width: 24vw;
+        height: 24vw;
+        border-radius: 12px 0px 0px 0px;
+    }
+
+    .carrito_prod_nombre{
+        font-size: small;
+        margin-left: 1vh;
+        color: #F5FFFD;
+    }
+
+    .carrito_prod_precio{
+        font-size: large;
+        margin-top: -3vh;
+        font-weight: bold;
+        margin-left: 1vh;
+        color: #F5FFFD;
+    }
+
+    .carrito_prod_añadir {
+        margin-right: 1vh;
+    }
+
+    .carrito_prod_cantidad {
+        display: flex;
+        align-self: flex-end;
+        align-items: center;
+    }
+
+    .carrito_prod_cantidad_nro {
+        color: #296C59;
+        background: #F5FFFD;
+        border: 1px solid #296C59;
+        border-radius: 3px;
+        padding-right: 0.75vh;
+        padding-left: 0.75vh;
+        margin-left: 1vh;
+        margin-right: 1vh;
+    }
+
+    .carrito_prod_footer {
+        background: #624ABE;
+        border-radius: 0px 0px 12px 12px;
+        font-family: 'Quicksand';
+        font-size: x-small;
+        color: #F5FFFD;
+        padding: 1vh;
+    }
 }
 
-#confirmar {
-    background-color: #624ABE;
-    margin-bottom: 1.5em;
-    border: 3px solid #624ABE;
-    box-sizing: border-box;
-    border-radius: 17px;
-    width: 80vw;
+/* PC */
+@media (min-width: 950px) {
+    #caja_productos {
+        margin-top: 10vh;
+        height: 90vh;
+        width: 40vw;
+        background-color: #ECFCF7;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 10px;
+    }
+    
+    #codigo_descuento_form{
+        border-radius: 17px;
+    }
+    #formulario {
+       width: 20vw;
+       margin: 3vh;
+       
+    }
+    
+    .total_producto {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 3vh;
+        width: 20vw;
+    }
+    
+    #confirmar {
+        background-color: #624ABE;
+        margin-bottom: 1.5em;
+        border: 3px solid #624ABE;
+        box-sizing: border-box;
+        border-radius: 17px;
+        width: 20vw;
+    
+    }
 
+    .carrito_prod_top {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .carrito_prod_infobox {
+        display: flex;
+        flex-direction: column;
+        width: 35vw;
+    }
+
+    .carrito_producto {
+        background-color: #8BC9B7; 
+        width: 35vw;
+        margin-top: 2vh;
+        display: flex;
+        flex-direction: column;
+        border-radius: 12px 12px 12px 12px;
+    }
+
+    .carrito_prod_img{
+        width: 6vw;
+        height: 6vw;
+        border-radius: 12px 0px 0px 0px;
+    }
+
+    .carrito_prod_nombre{
+        font-size: small;
+        margin-left: 1vh;
+        color: #F5FFFD;
+    }
+
+    .carrito_prod_precio{
+        font-size: large;
+        margin-top: -3vh;
+        font-weight: bold;
+        margin-left: 1vh;
+        color: #F5FFFD;
+    }
+
+    .carrito_prod_añadir {
+        margin-right: 1vh;
+    }
+
+    .carrito_prod_cantidad {
+        display: flex;
+        align-self: flex-end;
+        align-items: center;
+    }
+
+    .carrito_prod_cantidad_nro {
+        color: #296C59;
+        background: #F5FFFD;
+        border: 1px solid #296C59;
+        border-radius: 3px;
+        padding-right: 0.75vh;
+        padding-left: 0.75vh;
+        margin-left: 1vh;
+        margin-right: 1vh;
+    }
+
+    .carrito_prod_footer {
+        background: #624ABE;
+        border-radius: 0px 0px 12px 12px;
+        font-family: 'Quicksand';
+        font-size: x-small;
+        color: #F5FFFD;
+        padding: 1vh;
+    }
 }
