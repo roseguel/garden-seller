@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+    <link rel="stylesheet" href="css/registro.css">
+    <title>Iniciar sesion</title>
+    <script src="scripts/registro.js"></script>
+</head>
+<body>
+    <a id="salir" href="iniciar-sesion.html"><img src="assets/images/Back.png" ></a>
+    <div id="todo">
+        <div id="elementos">
+            <div id="logo">logo</div>
+            
+            <h1>Crear cuenta</h1>
+            <!--A pesar de que marque error en el evento "onsubmit", no corrijan, está bien así
+            la extensión de Visual Studio Code marca eso como error. Pero, es una funcionalidad para
+            cancelar el submit de un form si es que una función retorna falso-->
+            <form action="registro-personal.html" method="post" onsubmit="return chequearContraseña(event)">
+                <div class="mb-3" id="input-box"> <!--Nombre de Usuario-->
+                    <label for="formGroupExampleInput" class="form-label">Nombre de usuario</label>
+                    <input required type="text" class="form-control" id="formGroupExampleInput" placeholder="Wacoldon">
+                </div>
+                <div class="mb-3" id="input-box"> <!--Correo Electronico-->
+                    <label for="formGroupExampleInput" class="form-label">Correo Electronico</label>
+                    <input required type="email" class="form-control" id="formGroupExampleInput" placeholder="Wacoldo@Correo.cl">
+                </div>
+                <div class="mb-3" id="input-box"> <!--Contraseña-->
+                    <label for="formGroupExampleInput2" class="form-label">Contraseña</label>
+                    <input id="contra" required type="password" class="form-control" id="formGroupExampleInput2" placeholder="Wacoldin123">
+                </div>
+                <div class="mb-3" id="input-box"> <!--Contraseña-->
+                    <label for="formGroupExampleInput2" class="form-label">Confirmar contraseña</label>
+                    <input id="contra2" required type="password" class="form-control" id="formGroupExampleInput2" placeholder="Wacoldin123">
+                </div>
+                <label id="labelSubmitRegistrar" for="submit" class="form-label">
+                    <img id="errorImg" src="assets/images/Error.png">
+                    Las contraseñas no coinciden.
+                </label>
+                <input type="submit" value="Continuar" id="submit">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
