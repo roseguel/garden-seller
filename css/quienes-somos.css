@@ -12,11 +12,18 @@ a {
 
 body {
     background: linear-gradient(180deg, #ECFCF7 -7.61%, #68E3BE 57.68%, #3B8E75 110.19%);
-    height: 100vh;
+    height: 200vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    overflow-x: hidden;
+}
+
+#flores {
+    height: 30vh;
+    margin: 2em;
+    border-radius: 2em;
 }
 
 @media screen and (max-width: 800px) {
@@ -57,6 +64,7 @@ body {
     justify-content: center;
     align-items: center;
     margin-top: 2em;
+    margin-bottom: 20vh;
 }
 
 h1 {
@@ -79,4 +87,79 @@ h1 {
 .carousel-item img {
     height: 20em;
     width: 20em;
+}
+
+#indice {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    flex-direction: column;
+    margin-bottom: 10vh;
+}
+
+#botones_indice {
+    height: 50vh;
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.fin_bot {
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    color: #F5FFFD;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1em;
+    margin: 2vh;
+    height: 8vh;
+    width: 40vh;
+    border: 0.15em solid #F5FFFD;
+    text-decoration: none;
+}
+
+.fin_bot:hover {
+    transition: all .2s ease-in-out;
+    background-color: #F5FFFD;
+    color: #53B093;
+}
+
+.fin_bot:active {
+    filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.25));
+}
+
+#ind_logo {
+    margin-bottom: 3vh;
+    height: 7vh;
+    width: 20vh;
+    background: #CCEDE5;
+    border-radius: 1em;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+}
+
+.ingresar {
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    color: #624ABE;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1em;
+    margin: 2vh;
+    height: 8vh;
+    width: 40vh;
+    border: 0.15em solid #624ABE;
+}
+
+.ingresar:hover {
+    background-color: #624ABE;
+    color: #53B093;
 }
