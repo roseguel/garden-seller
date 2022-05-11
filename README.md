@@ -24,25 +24,12 @@ Esta página te permite comprar y vender plantas. Es un proyecto para Duoc UC.
 | Construcción HTML          |     ✅     |   ✅   |    ✅    |
 | Construcción CSS           |     ✅     |   ✅   |    ✅    |
 | Modelo de Datos            |     ✅     |   ✅   |    💠    |
-| Construcción Base de Datos |     💠     |   ✅   |    💠    |
+| Construcción Base de Datos |     💠     |   🛑   |    💠    |
 | Página Crud                |     💠     |   ✅   |    💠    |
 | Formulario Productos       |     ✅     |   💠   |    💠    |
-| Formulario cuenta          |     💠     |   💠   |    🛑    |
+| Formulario cuenta          |     💠     |   💠   |    ✅    |
 | Validacion de Formularios  |     ✅     |   ✅   |    💠    |
-
----
-## Estados
-Favor de ocupar esta zona para avisar de el estado actual de las secciones en las que estén trabajando **para así poder tener certeza en que nos falta**
-
-+ Sin iniciar: ❌
-+ en proceso: 📌
-+ terminado: ✅
-
-| Seccion                    | Diseño |  logica |
-| :-------------------------| :----: | :-----: |
-| Login                     |   ✅   |   📌   |
-| Regtistro                 |   ✅   |   ❌   |
-
+| Migración a App de Django  |     💠     |   🛑   |    💠    |
 ---
 ## Diseño
 https://www.figma.com/file/aaE8ebfdFJJoUX4tbpcK67/Untitled?node-id=0%3A1

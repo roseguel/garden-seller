@@ -1,6 +1,3 @@
-
-
-
 /*
 Escritorio
 */
@@ -11,10 +8,6 @@ Escritorio
 
     #desktop-layout {
         display: inline;
-    }
-
-    #venta {
-        height: 100vh;
     }
 
     #menu_movil {
@@ -88,7 +81,8 @@ Escritorio
 
     #inicio {
         margin-top: 20vh;
-        height: 90vh;
+        margin-bottom: -5vw;
+        height: 100vh;
         width: 100vw;
         display: flex;
         align-items: center;
@@ -450,13 +444,6 @@ Movil
         flex-direction: row;
     }
     
-    #en_venta {
-        height: 100vh;
-        width: 100vw;
-        display: flex;
-        align-items: center;
-    }
-    
     #productos {
         overflow: auto;
         display: flex;
@@ -573,7 +560,8 @@ body {
     padding-left: 1vh;
 }
 #extra {
-    height: 90vh;
+    margin-top: 0vw;
+    height: 50vh;
     width: 100vw;
     display: flex;
     align-items: center;
