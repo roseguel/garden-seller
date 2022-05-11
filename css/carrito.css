@@ -29,6 +29,7 @@ div {
 Movil
 */
 
+/* Movil */
 @media (max-width: 950px) {
     #caja_productos {
         margin-top: 10vh;
@@ -62,7 +63,7 @@ Movil
         width: 80vw;
     
     }
-
+  
     .carrito_prod_top {
         display: flex;
         flex-direction: row;
@@ -195,8 +196,8 @@ Movil
     }
 
     .carrito_prod_img{
-        width: 6vw;
-        height: 6vw;
+        width: 8vw;
+        height: 8vw;
         border-radius: 12px 0px 0px 0px;
     }
 
@@ -216,19 +217,33 @@ Movil
 
     .carrito_prod_añadir {
         margin-right: 1vh;
+        cursor: pointer;
+    }
+
+    .carrito_prod_añadir:hover {
+        transform: scale(110%);
+    }
+
+    .carrito_prod_restar {
+        cursor: pointer;
+    }
+    
+    .carrito_prod_restar:hover {
+        transform: scale(110%);
     }
 
     .carrito_prod_cantidad {
         display: flex;
         align-self: flex-end;
         align-items: center;
+        margin-top: 1.5vh;
     }
 
     .carrito_prod_cantidad_nro {
         color: #296C59;
         background: #F5FFFD;
         border: 1px solid #296C59;
-        border-radius: 3px;
+        border-radius: 4px;
         padding-right: 0.75vh;
         padding-left: 0.75vh;
         margin-left: 1vh;
