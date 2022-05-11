@@ -25,6 +25,9 @@ body {
 div {
     font-family: 'Quicksand';
 }
+/*
+Movil
+*/
 
 /* Movil */
 @media (max-width: 950px) {
@@ -60,7 +63,7 @@ div {
         width: 80vw;
     
     }
-
+  
     .carrito_prod_top {
         display: flex;
         flex-direction: row;
@@ -245,7 +248,6 @@ div {
         padding-left: 0.75vh;
         margin-left: 1vh;
         margin-right: 1vh;
-        width: 4.5vh;
     }
 
     .carrito_prod_footer {
