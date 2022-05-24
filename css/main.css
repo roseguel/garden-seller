@@ -221,10 +221,18 @@ Escritorio
     }
     
     .prod-rec {
-        height: 18vh;
+        height: 17vh;
         width: 18vh;
         cursor: pointer;
         transition: all .2s ease-in-out;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .prod_imagen {
+        width: 18vh;
+        height: 14vh;
+        border-radius: 12px 12px 0px 0px;
     }
     
     .prod-rec:hover {
@@ -281,6 +289,20 @@ Escritorio
        border-radius: 0.2em;
         background-color: #47BC99;
         outline: 1px solid #41A486;
+    }
+
+    .carrito_prod_nombre{
+        font-size: small;
+        margin-left: 1vh;
+        color: #39433F;
+    }
+
+    .carrito_prod_precio{
+        font-size: medium;
+        margin-top: -3vh;
+        font-weight: bold;
+        margin-left: 1vh;
+        color: #39433F;
     }
 }
 
@@ -472,6 +494,12 @@ Movil
     .prod-rec {
         height: 18vh;
         width: 18vh;
+    }
+
+    .prod_imagen {
+        width: 18vh;
+        height: 18vh;
+        border-radius: 12px 12px 0px 0px;
     }
     
     #prod_data {
