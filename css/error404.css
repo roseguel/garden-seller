@@ -1,0 +1,30 @@
+/*
+Movil
+*/
+.abejita{
+    width: 50vh;
+    height: 50vh;
+}
+
+@media (max-width: 950px){
+    .abejita{
+        width: 30vh;
+        height: 30vh;
+    }
+
+}
+.titulo{
+    font-family: 'Quicksand';
+    text-align: center;
+    color: red;
+    font-weight: 600;
+    border-bottom: solid 2px;
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8em;
+}
