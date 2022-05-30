@@ -226,13 +226,13 @@ Escritorio
 
     .carrito_prod_nombre{
         font-size: small;
+        margin: 0 0 0 0;
         margin-left: 1vh;
         color: #39433F;
     }
 
     .carrito_prod_precio{
         font-size: medium;
-        margin-top: -3vh;
         font-weight: bold;
         margin-left: 1vh;
         color: #39433F;
