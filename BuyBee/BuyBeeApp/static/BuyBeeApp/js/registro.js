@@ -30,7 +30,10 @@ function formatearRut(blur) {
 function validarRegistroPersonal() {
     /* Valido via RegEx si el rut cumple con el formato indicado. */
     rut = document.getElementById("inputRut").value
-    if (rut.search("(.|..)\....\....-[0-9(k)]") < 0) {
+    if (!(rut == 8 || rut == 9)) {
         return false;
     }
+    //if (rut.search("(.|..)\....\....-[0-9(k)]") < 0) {
+    //    return false;
+    //}
 }

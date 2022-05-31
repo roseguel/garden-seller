@@ -43,14 +43,17 @@ Escritorio
     }
     
     #foto {
+        /*
         margin-bottom: 5vh;
+        */
         display: flex;
         justify-content: center;
         align-items: center;
         background: #CCEDE5;
-        height: 35vh;
+        height: 100%;
         width: 35vh;
         border-radius: 50%;
+        margin-top: 4vh;
     }
 
     #agregarFotoPerfil:hover {
@@ -61,14 +64,6 @@ Escritorio
     #agregarFotoPerfil {
         transition: all .2s ease-in-out;
         cursor: pointer;
-    }
-
-    #imagenForm {
-        display: none;
-    }
-
-    #conFotoDePerfil {
-        display: none;
     }
 
     #fotoDePerfil {
@@ -83,7 +78,7 @@ Escritorio
         opacity: 0;
         height: 10vh;
         width: 10vh;
-        margin-left: 13vh;
+        margin-left: -23vh;
         margin-top: 12vh;
         transition: all .2s ease-in-out;
     }
@@ -127,7 +122,7 @@ Escritorio
         text-align: center;
         width: 20vw;
         height: 6vh;
-        margin-top: 10vh;
+        margin-top: 4vh;
         border-radius: 1.6em;
         border: 3px solid #FB3958;
         box-sizing: border-box;
@@ -175,6 +170,131 @@ Escritorio
         filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0));
         transform: scale(90%);
     }
+
+    /* Nuevo */
+
+    #informacion-usuario {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 4vh;
+    }
+
+    #editar-informacion {
+        display: none;
+        width: 5vh;
+        height: 5vh;
+        margin-left: 2vh;
+        transition: all .2s ease-in-out;
+    }
+    
+    #editar-informacion:hover {
+        cursor: pointer;
+        transition: all .2s ease-in-out;
+    }
+    
+    #editar-informacion:active {
+        transform: scale(80%);
+        cursor: pointer;
+        transition: all .1s ease-in-out;
+    }
+
+    /* Modal */
+    #modal {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        z-index: 1;
+        padding-top: 100px;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    #cuerpo-modal {
+        margin-top: -6em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #47BC99;
+        width: 25em;
+        height: 30em;
+        border-radius: 2em;
+    }
+
+    #modal-datos {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #modal-datos label {
+        align-self: flex-start;
+    }
+
+    #modal-contraseña {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: 2px #95D6C2 solid;
+        border-radius: 12px;
+        padding: 1vh;
+        margin-top: 1vh;
+    }
+
+    #modal-contraseña label {
+        align-self: flex-start;
+    }
+
+    .input-modal {
+        margin: 1vh 0vh 1vh 0vh;
+    }
+
+    #submit {
+        margin: 2vh;
+        height: 6vh;
+        width: 20vh;
+        background: #624ABE;
+        border: 3px solid #624ABE;
+        border-radius: 1em;
+        color: #F5FFFD;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    }
+    
+    .form-control {
+        width: 24em;
+    }
+
+    #modal-top {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    }
+
+    #modal-top h3 {
+        align-self: center;
+        justify-self: center;
+        margin-left: 12vh;
+    }
+
+    #salir-modal {
+        transition: all .2s ease-in-out;
+        margin-left: 2vh;
+    }
+
+    #salir-modal:hover {
+        transition: all .2s ease-in-out;
+        cursor: pointer;
+        transform: scale(120%);
+    }
 }
 
 /*
@@ -197,7 +317,9 @@ movil
     }
     
     #foto {
+        /*
         margin-bottom: 5vh;
+        */
         display: flex;
         justify-content: center;
         align-items: center;
@@ -205,19 +327,12 @@ movil
         height: 25vh;
         width: 25vh;
         border-radius: 50%;
+        margin-top: 2vh;
     }
     
     #agregarFotoPerfil {
         transition: all .2s ease-in-out;
         cursor: pointer;
-    }
-
-    #imagenForm {
-        display: none;
-    }
-
-    #conFotoDePerfil {
-        display: none;
     }
 
     #fotoDePerfil {
@@ -268,7 +383,7 @@ movil
         text-align: center;
         width: 70vw;
         height: 6vh;
-        margin-top: 10vh;
+        margin-top: 4vh;
         border-radius: 1.6em;
         border: 3px solid #FB3958;
         box-sizing: border-box;
@@ -315,5 +430,124 @@ movil
     .ayuda:active {
         filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0));
         transform: scale(90%);
+    }
+
+    /* Nuevo */
+
+    #informacion-usuario {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 4vh;
+    }
+
+    #editar-informacion {
+        width: 4vh;
+        height: 4vh;
+        transition: all .2s ease-in-out;
+    }
+    
+    #editar-informacion:active {
+        transform: scale(80%);
+        cursor: pointer;
+        transition: all .1s ease-in-out;
+    }
+
+    /* Modal */
+    #modal {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        z-index: 1;
+        padding-top: 100px;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    #cuerpo-modal {
+        margin-top: -10em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #47BC99;
+        width: 20em;
+        height: 30em;
+        border-radius: 2em;
+    }
+
+    #modal-datos {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #modal-datos label {
+        align-self: flex-start;
+    }
+
+    #modal-contraseña {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: 2px #95D6C2 solid;
+        border-radius: 12px;
+        padding: 1vh;
+        margin-top: 1vh;
+    }
+
+    #modal-contraseña label {
+        align-self: flex-start;
+    }
+
+    .input-modal {
+        margin: 1vh 0vh 1vh 0vh;
+    }
+
+    #submit {
+        margin: 2vh;
+        height: 6vh;
+        width: 20vh;
+        background: #624ABE;
+        border: 3px solid #624ABE;
+        border-radius: 1em;
+        color: #F5FFFD;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    }
+    
+    .form-control {
+        width: 18em;
+    }
+
+    #modal-top {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    }
+
+    #modal-top h3 {
+        align-self: center;
+        justify-self: center;
+        margin-left: 4vh;
+    }
+
+    #salir-modal {
+        transition: all .2s ease-in-out;
+        margin-left: 2vh;
+    }
+
+    #salir-modal:active {
+        transition: all .2s ease-in-out;
+        cursor: pointer;
+        transform: scale(120%);
     }
 }

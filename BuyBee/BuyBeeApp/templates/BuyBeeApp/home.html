@@ -7,11 +7,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Buy Bee</title>
-  <link rel="stylesheet" href="{% static 'BuyBeeApp/css/main.css' %}">
-  <script src="{% static 'BuyBeeApp/js/index.js' %}"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+  <link rel="stylesheet" href="{% static 'BuyBeeApp/css/main.css' %}">
+  <script src="{% static 'BuyBeeApp/js/index.js' %}"></script>
 </head>
 
 <body>
@@ -63,7 +63,11 @@
     <nav id="nav">
       <div id="logo">logo</div>
       <div id="quienes-somos-nav" onclick="location.href='{% url 'quienes-somos' %}';">Quienes somos</div>
-      <div onclick="irAPagina('perfil')" id="cuenta-nav">Mi cuenta</div>
+      {% if user.is_authenticated %}
+        <div onclick="window.open('perfil', '_self')" id="cuenta-nav">Mi cuenta</div>
+      {% else %}
+        <div onclick="window.open('iniciar-sesion', '_self')" id="cuenta-nav">Iniciar sesión</div>
+      {% endif %}
       <input id="buscar" type="text" placeholder="Suculentas">
       <div onclick="irAPagina('carrito')" id="cart"><img src="{% static 'BuyBeeApp/assets/images/Cart.png' %}" alt=""></div>
     </nav>
@@ -90,7 +94,7 @@
               <div class="prod prod-rec" onclick="window.open('producto/{{ producto.id }}', '_blank')">
                 <img class="prod_imagen" src="media/{{ producto.imagen.imagen }}">
                 <div id="prod_data">
-                  <p class="carrito_prod_nombre">{{producto.nombre}}...</p>
+                  <p class="carrito_prod_nombre">{{producto.nombre}}</p>
                   <p class="carrito_prod_precio">CLP$ {{producto.precio}}</p>
                 </div>
               </div>
@@ -149,10 +153,13 @@
   <div id="indice">
       <div id="ind_logo">logo</div>
       <div id="botones_indice">
-          <a href="perfil.html" class="fin_bot">Mi Cuenta</a>
+          {% if user.is_authenticated %}
+            <a href="{% url 'perfil' %}" class="fin_bot">Mi Cuenta</a>
+          {% else %}
+            <a href="{% url 'iniciar-sesion' %}" class="fin_bot ingresar">Ingresar</a>
+          {% endif %}
           <a href="{% url 'quienes-somos' %}" class="fin_bot">Quienes Somos</a>
           <a href="{% url 'ayuda' %}" class="fin_bot">Ayuda</a>
-          <a href="iniciar-sesion.html" class="fin_bot ingresar">Ingresar</a>
       </div>
   </div>
 </body>

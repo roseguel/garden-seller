@@ -5,10 +5,11 @@ from django.db import models
 # Create your models here.
 class Usuario(models.Model):
     rut = models.IntegerField(primary_key=True)
+    nombreusuario = models.CharField(max_length=128)
     nombres = models.CharField(max_length=128)
     apellidos = models.CharField(max_length=128)
     email = models.EmailField()
-    numero = models.IntegerField(blank=True)
+    numero = models.IntegerField(null=True)
     foto_perfil = models.ImageField(upload_to="fotosPerfil", null=True)
 
     def __str__(self):
