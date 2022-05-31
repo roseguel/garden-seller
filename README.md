@@ -33,3 +33,9 @@ Esta página te permite comprar y vender plantas. Es un proyecto para Duoc UC.
 ---
 ## Diseño
 https://www.figma.com/file/aaE8ebfdFJJoUX4tbpcK67/Untitled?node-id=0%3A1
+
+---
+
+# Dependencias
+
+Instala las dependencias con el comando **`pip install -r requirements.txt`**.
