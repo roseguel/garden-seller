@@ -64,7 +64,7 @@
     <div id="elementos">
         <h1>Perfil</h1>
         <div id="foto">
-            {% if usuario.foto_perfil is None %}
+            {% if usuario.foto_perfil == '' %}
                 <div id="sinFotoDePerfil">
                     <form method="POST" enctype="multipart/form-data" id="fotoPerfilForm">
                         {% csrf_token %}

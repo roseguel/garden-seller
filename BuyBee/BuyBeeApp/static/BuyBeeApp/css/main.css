@@ -126,32 +126,36 @@
         flex-direction: row;
     }
     
-    #cat {
-        cursor: pointer;
+    .cat {
         transition: all .2s ease-in-out;
-        font-family: 'Quicksand';
-        margin: 1em;
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-weight: 700;
-        font-size: 2vh;
-        height: 4vh;
-        border: 1px solid #624ABE;
-        color: #624ABE;
-        border-radius: 2em;
-        box-shadow: 0px 0.5vh 0.5vh rgba(0, 0, 0, 0.25);
-    }
-    
-    #cat:hover {
-        transition: all .2s ease-in-out;
-        color: #5BC7A7;
-        background-color:#624ABE;
+        margin: 3vw 4vw;
+        height: 16vh;
+        width: 16vh;
+        background: linear-gradient(180deg, #9CDFCA 0%, rgba(217, 252, 241, 0) 100%);
+        box-shadow: 0px 1vh 1vh rgba(0, 0, 0, 0.25);
+        border-radius: 100%;
+        padding: 0;
     }
 
-    #cat:active {
+    .cat span {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .cat:hover {
+        transition: all .2s ease-in-out;
+        transform: scale(110%);
+    }
+
+    .cat:active {
         box-shadow: 0px 0vh 0vh rgba(0, 0, 0, 0.25);
+    }
+
+    .cat img {
+        height: 16vh;
+        width: 16vh;
+        border-radius: 100%;
     }
 
     #recomendados {
@@ -330,7 +334,7 @@ Movil
         box-sizing: border-box;
     }
     
-    #menu_movil div {
+    #menu_movil a {
         margin-left: 10vw;
         margin-right: 10vw;
         text-decoration: none;
@@ -383,24 +387,36 @@ Movil
         margin-top: 5vh;
     }
     
-    #categories-row {
-        margin: 0 auto;
+    #categories h1 {
         display: flex;
-        flex-direction: row;
+        justify-content: center;
     }
     
-    #cat {
+    .cat {
         transition: all .2s ease-in-out;
-        margin: 2vw;
-        height: 8vh;
-        width: 8vh;
+        margin: 10vw 2vw;
+        height: 10vh;
+        width: 10vh;
         background: linear-gradient(180deg, #9CDFCA 0%, rgba(217, 252, 241, 0) 100%);
         box-shadow: 0px 1vh 1vh rgba(0, 0, 0, 0.25);
         border-radius: 100%;
+        padding: 0;
     }
-    
-    #cat:hover {
-        transform: scale(110%);
+
+    .cat span {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .cat:active {
+        box-shadow: 0px 0vh 0vh rgba(0, 0, 0, 0.25);
+    }
+
+    .cat img {
+        height: 10vh;
+        width: 10vh;
+        border-radius: 100%;
     }
     
     #recomendados {

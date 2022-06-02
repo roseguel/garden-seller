@@ -15,5 +15,3 @@ def shrinkProdName(nombreRaw):
     else:
         nombre = nombreRaw
     return nombre
-
-print(shrinkProdName("Cáctus"))

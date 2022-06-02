@@ -5,17 +5,21 @@ from scripts.metodos import formatNumberToPrice, shrinkProdName
 from django.contrib.auth import login, authenticate
 from django.http import QueryDict
 
-from BuyBeeApp.models import ProductoImagen, ProductoVenta, Usuario
+from BuyBeeApp.models import ProductoImagen, ProductoVenta, Usuario, Categoria
 
 # Create your views here.
 def home(r):
     prod_rec = ProductoVenta.objects.order_by('-vistas', '-compras').values()[:15]
+    categorias1 = Categoria.objects.values()[:4]
+    categorias2 = Categoria.objects.values()[4:8]
     for x in prod_rec:
         x["nombre"] = shrinkProdName(x["nombre"])
         x["imagen"] = ProductoImagen.objects.filter(producto_id=x["id"]).values()[0]
         x["precio"] = formatNumberToPrice(x["precio"])
     contexto={
-        "productos_recomendados": prod_rec
+        "productos_recomendados": prod_rec,
+        "categorias1": categorias1,
+        "categorias2": categorias2,
     }
     return render(r, "BuyBeeApp/home.html", contexto)
 
