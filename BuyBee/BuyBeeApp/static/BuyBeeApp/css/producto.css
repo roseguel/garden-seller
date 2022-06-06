@@ -31,9 +31,9 @@ Escritorio
 */
 @media (min-width: 950px) {
     #imagen {
-        margin: 6vw 0vw 0vw 0vw;
-        width: 25vw;
-        height: 25vw;
+        margin: 4vw 0vw 0vw 0vw;
+        width: 20vw;
+        height: 20vw;
         background-color: rgba(0, 0, 0, 0);
         border-radius: 2em;
         display: flex;
@@ -58,6 +58,7 @@ Escritorio
         font-family: 'Quicksand';
         font-weight: 700;
         color: #F5FFFD;
+        border-top: 2px #F5FFFD solid;
     }
 
     h2 {
@@ -84,6 +85,31 @@ Escritorio
         border: 0;
         filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     }
+    /* Nuevo */
+    #info-producto {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        color: #F5FFFD;
+    }
+
+    .info-producto-datos {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0vh 4vh;
+    }
+
+    .info-producto-datos img {
+        width: 1.5em;
+        height: 1.5em;
+    }
+
+    #vendedor span {
+        cursor: pointer;
+    }
 }
 
 /*
@@ -91,7 +117,7 @@ movil
 */
 @media (max-width: 950px) {
     #imagen {
-        margin: 30vw 0vw 15vw 0vw;
+        margin: 30vw 0vw 5vw 0vw;
         width: 50vw;
         height: 50vw;
         background-color: rgba(0, 0, 0, 0);
@@ -118,6 +144,7 @@ movil
         font-family: 'Quicksand';
         font-weight: 700;
         color: #F5FFFD;
+        border-top: 2px #F5FFFD solid;
     }
 
     h2 {
@@ -143,5 +170,31 @@ movil
         border-radius: 1em;
         border: 0;
         filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    }
+    /* Nuevo */
+    #info-producto {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        color: #F5FFFD;
+        margin-bottom: 4vh;
+    }
+
+    .info-producto-datos {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0vh 2vh;
+    }
+
+    .info-producto-datos img {
+        width: 1.5em;
+        height: 1.5em;
+    }
+
+    #vendedor span {
+        cursor: pointer;
     }
 }

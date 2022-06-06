@@ -32,17 +32,33 @@
                     </div>
                 {% endif %}
             {% endfor %}
-            <button class="carousel-control-prev" type="button" data-bs-target="#imagen" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#imagen" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+            {% if imagenes|length > 1 %}
+                <button class="carousel-control-prev" type="button" data-bs-target="#imagen" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#imagen" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            {% endif %}
         </div>
     </div>
-    <H1>{{ producto.nombre }}</H1>
+    <div id="info-producto">
+        <div id="comprados" class="info-producto-datos">
+            <img src="{% static 'BuyBeeApp/assets/images/Comprados.png' %}">
+            <span>{{ producto.compras }}</span>
+        </div>
+        <div id="vendedor" class="info-producto-datos" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Visitar Perfil del Vendedor">
+            <img src="{% static 'BuyBeeApp/assets/images/Vendedor.png' %}">
+            <span>{{ vendedor.nombreusuario }}</span>
+        </div>
+        <div id="vistos" class="info-producto-datos">
+            <img src="{% static 'BuyBeeApp/assets/images/Vistos.png' %}">
+            <span>{{ producto.vistas }}</span>
+        </div>
+    </div>
+    <h1>{{ producto.nombre }}</h1>
     <p>{{ producto.descripcion }}</p>
     <H2>CLP$ {{ producto.precio }}</H2>
     <form action="carrito.html" method="post">
