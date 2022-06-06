@@ -28,6 +28,13 @@
                     <label for="formGroupExampleInput2" class="form-label">Contraseña</label>
                     <input name="password" required type="password" class="form-control" id="formGroupExampleInput2" placeholder="Wacoldin123">
                 </div>
+                <!-- Reviso si hay errores en el Form -->
+                {% if form.non_field_errors %}
+                    <div id="errorField">
+                        <img id="errorImg" src="{% static 'BuyBeeApp/assets/images/Error.png' %}">
+                        <span id="errorSpan">Usuario y/o contraseña incorrecto(a)</span>
+                    </div>
+                {% endif %}
                 <input type="submit" value="Iniciar Sesion" id="submit">
                 <a href="">Olvidaste tu contraseña?</a>
                 <a href="{% url 'registrarse' %}">No tienes una cuenta? Registrate.</a>

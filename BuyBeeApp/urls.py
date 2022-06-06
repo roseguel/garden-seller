@@ -14,4 +14,5 @@ urlpatterns = [
     path('registro-personal', registropersonal, name="registro-personal"),
     path('perfil', perfil, name="perfil"),
     path('producto/<id_producto>', producto, name="producto"),
+    path('historial', historialCompras, name="historial"),
 ]

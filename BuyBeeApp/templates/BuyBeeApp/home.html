@@ -65,17 +65,17 @@
   </div>
   <div id="desktop-layout">
     <div onclick="irAPagina('publicarproducto')" id="menu_movil">Quieres vender algo?</div>
-    <nav id="nav">
-      <div id="logo">logo</div>
-      <div id="quienes-somos-nav" onclick="location.href='{% url 'quienes-somos' %}';">Quienes somos</div>
-      {% if user.is_authenticated %}
-        <div onclick="window.open('perfil', '_self')" id="cuenta-nav">Mi cuenta</div>
-      {% else %}
-        <div onclick="window.open('iniciar-sesion', '_self')" id="cuenta-nav">Iniciar sesión</div>
-      {% endif %}
-      <input id="buscar" type="text" placeholder="Suculentas">
-      <div onclick="irAPagina('carrito')" id="cart"><img src="{% static 'BuyBeeApp/assets/images/Cart.png' %}" alt=""></div>
-    </nav>
+      <nav id="nav">
+        <div id="logo">logo</div>
+        <div id="quienes-somos-nav" onclick="location.href='{% url 'quienes-somos' %}';">Quienes somos</div>
+        {% if user.is_authenticated %}
+          <div onclick="window.open('perfil', '_self')" id="cuenta-nav">Mi cuenta</div>
+        {% else %}
+          <div onclick="window.open('iniciar-sesion', '_self')" id="cuenta-nav">Iniciar sesión</div>
+        {% endif %}
+        <input id="buscar" type="text" placeholder="Suculentas">
+        <div onclick="irAPagina('carrito')" id="cart"><img src="{% static 'BuyBeeApp/assets/images/Cart.png' %}" alt=""></div>
+      </nav>
     <div id="inicio">
         <div id="categories">
           <h1>categorias</h1>
@@ -100,7 +100,7 @@
           <div id="titulo_rec">Recomendados</div>
           <div id="prod_container">
             {% for producto in productos_recomendados %}
-              <div class="prod prod-rec" onclick="window.open('producto/{{ producto.id }}', '_blank')">
+              <div class="prod prod-rec" onclick="window.open('producto/{{ producto.id }}', '_self')" data-bs-toggle="tooltip" data-bs-html="true" title="Precio: {{ producto.precio }}">
                 <img class="prod_imagen" src="media/{{ producto.imagen.imagen }}">
                 <div id="prod_data">
                   <p class="carrito_prod_nombre">{{producto.nombre}}</p>

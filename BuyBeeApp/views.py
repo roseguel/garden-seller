@@ -78,13 +78,18 @@ def perfil(r):
 
 def producto(r, id_producto):
     producto = get_object_or_404(ProductoVenta, id=id_producto)
+    producto.vistas += 1
+    producto.save()
     producto.precio = formatNumberToPrice(producto.precio)
     imagenes = ProductoImagen.objects.filter(producto_id=producto.id).values()
+
+    vendedor = get_object_or_404(Usuario, rut=producto.vendedor_id)
 
     contexto = {
         "producto": producto,
         "imagenes": imagenes,
-        "activa": imagenes[0]["id"]
+        "activa": imagenes[0]["id"],
+        "vendedor": vendedor
     }
 
     return render(r, "BuyBeeApp/producto.html", contexto)
@@ -130,3 +135,5 @@ def registropersonal(request):
             return redirect(to = "perfil")
     return render(request, "BuyBeeApp/registro-personal.html")
 
+def historialCompras(r):
+    return render(r, "BuyBeeApp/historial.html")
