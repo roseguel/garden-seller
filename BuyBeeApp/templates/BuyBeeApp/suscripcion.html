@@ -16,10 +16,18 @@
     <a id="salir" href="{% url 'home' %}"><img src="{% static 'BuyBeeApp/assets/images/Exit.png' %}"></a>
     <div id="primerEspacio">
         <div id="botonGeneral">
-            <div id="boton">
-                Suscribete
-            </div>
-            <p id="mensajeSuscripcion">Obten un [5%] de descuento con tu suscripcion</p>
+            <form method="post">
+                {% csrf_token %}
+                {% if usuario.suscrito%}
+                    <button type="submit" id="boton">Cancelar suscripción</button>
+                    <p id="mensajeSuscripcion"><input type="checkbox" id="check" required>Esta seguro de que quiere cancelar su suscripcion</p>
+                {% else %}
+                    <p id="mensajeSuscripcion"><input type="checkbox" id="check" required>Esta seguro de que quiere iniciar su suscripcion</p>
+                    <button type="submit" id="boton">Suscribete</button>
+                    <p id="mensajeSuscripcion">Obten un [5%] de descuento con tu suscripcion</p>
+
+                {% endif %}
+            </form>
         </div>
     </div>
     <h2>Que es [nombre]?</h2>

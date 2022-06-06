@@ -1,5 +1,5 @@
 from BuyBee.urls import path
-from BuyBeeApp.views import home, quienesSomos, ayuda, perfil, producto, iniciarSesion, registrarse, registropersonal, suscripcion
+from BuyBeeApp.views import home, quienesSomos, ayuda, perfil, producto, iniciarSesion, registrarse, registropersonal, suscripcion, historialCompras
 from django.contrib.auth.views import LoginView
 from django.urls import path, include
 

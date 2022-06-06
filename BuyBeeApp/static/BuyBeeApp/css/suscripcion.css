@@ -103,3 +103,31 @@ h2 {
     color: #F5FFFD;
     font-family: 'Quicksand';
 }
+
+#suscrito {
+    margin-bottom: 2em;
+    background-color: #6e6a81;
+    width: 20em;
+    height: 10vh;
+    border-radius: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Quicksand';
+    color: #F5FFFD;
+    font: 700;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#check {
+    margin: 1em;
+}

@@ -111,7 +111,15 @@ def registrarse(request):
     return render(request, "BuyBeeApp/registrarse.html")
     
 def suscripcion(request):
-    return render(request,"BuyBeeApp/suscripcion.html")
+    persona = get_object_or_404(Usuario, nombreusuario=request.user.username)
+    contexto = {
+        "usuario": persona
+    }
+    if request.method == "POST":
+        persona.suscrito = True if persona.suscrito is False else False
+        persona.save()
+        return render(request,"BuyBeeApp/suscripcion.html", contexto)
+    return render(request,"BuyBeeApp/suscripcion.html", contexto)
 
 @login_required(login_url="iniciar-sesion")
 def registropersonal(request):

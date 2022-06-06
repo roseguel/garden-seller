@@ -4,8 +4,8 @@ from BuyBeeApp.models import Categoria, EstadoEnvio, EstadoPedido, ProductoImage
 
 # Register your models here.
 class admUsuario(admin.ModelAdmin):
-    list_display=["rut", "nombres", "apellidos", "email", "numero", "foto_perfil"]
-    list_editable=["nombres", "apellidos", "email", "numero", "foto_perfil"]
+    list_display=["rut", "nombres", "apellidos", "email", "numero", "foto_perfil", "suscrito"]
+    list_editable=["nombres", "apellidos", "email", "numero", "foto_perfil", "suscrito"]
     
     class Meta:
         model= Usuario
@@ -46,7 +46,7 @@ class admEstadoPedido(admin.ModelAdmin):
     class Meta:
         model= EstadoPedido
 
-register = [Usuario, ProductoVenta, ProductoImagen, Categoria, Pedido, EstadoEnvio]
+register = [Usuario, ProductoVenta, ProductoImagen, Categoria, Pedido, EstadoPedido]
 classes = [admUsuario, admProductoVenta, admProductoImagen, admCategoria, admPedido, admEstadoPedido]
 for x in range(0, len(register), 1):
     admin.site.register(register[x], classes[x])
