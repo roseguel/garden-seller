@@ -1,0 +1,105 @@
+#salir {
+    width: 10vh;
+    height: 10vh;
+    position: absolute;
+    top: 3vh;
+    left: 3vh;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    background: linear-gradient(180deg, #ECFCF7 -7.61%, #68E3BE 57.68%, #3B8E75 110.19%);
+    height: 205vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    overflow-x: hidden;
+}
+
+.back:hover {
+    transform: scale(110%);
+}
+
+#primerEspacio {
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(180deg, #ECFCF7 -7.61%, #4BC7A1 70.31%);
+}
+
+#botonGeneral {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 60vh;
+    width: 100%;
+    height: 25vh;
+    background: linear-gradient(180deg, #6CD2B4 -7.61%, #4FDFB4 57.68%);
+    box-shadow: 0px 4px 45px rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+#boton {
+    margin-bottom: 2em;
+    background-color: #624ABE;
+    width: 20em;
+    height: 10vh;
+    border-radius: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Quicksand';
+    color: #F5FFFD;
+    font: 700;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+#mensajeSuscripcion {
+    font-family: 'Quicksand';
+    color: #624ABE;
+}
+
+#imagen {
+    width: 45vh;
+    height: 45vh;
+    background-color: #6CD2B4;
+    margin: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h2 {
+    width: 100%;
+    height: 15vh;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Quicksand';
+    color: #1E423B;
+}
+
+#text-1 {
+    width: 100vw;
+    padding: 0 2em;
+    text-align: center;
+    color: #1E423B;
+    font-family: 'Quicksand';
+
+}
+
+#text-2 {
+    width: 100vw;
+    padding: 0 2em;
+    text-align: center;
+    color: #F5FFFD;
+    font-family: 'Quicksand';
+}

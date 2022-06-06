@@ -105,6 +105,9 @@ def registrarse(request):
             return redirect(to = "registro-personal")
     return render(request, "BuyBeeApp/registrarse.html")
     
+def suscripcion(request):
+    return render(request,"BuyBeeApp/suscripcion.html")
+
 @login_required(login_url="iniciar-sesion")
 def registropersonal(request):
     if request.method=="POST":
@@ -126,3 +129,4 @@ def registropersonal(request):
             user.save()
             return redirect(to = "perfil")
     return render(request, "BuyBeeApp/registro-personal.html")
+
