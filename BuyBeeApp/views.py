@@ -118,7 +118,7 @@ def suscripcion(request):
     if request.method == "POST":
         persona.suscrito = True if persona.suscrito is False else False
         persona.save()
-        return render(request,"BuyBeeApp/suscripcion.html", contexto)
+        return redirect(to="perfil")
     return render(request,"BuyBeeApp/suscripcion.html", contexto)
 
 @login_required(login_url="iniciar-sesion")
