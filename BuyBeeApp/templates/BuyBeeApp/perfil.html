@@ -113,7 +113,11 @@
             </script>
         </div>
         <div id="informacion-usuario">
-            <h2 id="nombreapellido">{{ usuario.nombres }} {{ usuario.apellidos }}</h2>
+            {% if usuario.suscrito %}
+                <img id="suscripcion" src="{% static 'BuyBeeApp/assets/images/suscripcion.png' %}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ver suscripción"> <h2 id="nombreapellido">{{ usuario.nombres }} {{ usuario.apellidos }}</h2>
+            {% else %}
+                <h2 id="nombreapellido">{{ usuario.nombres }} {{ usuario.apellidos }}</h2>
+            {% endif %}
             <img id="editar-informacion" src="{% static 'BuyBeeApp/assets/images/Editar.png' %}">
             <script>
                 if ($(window).width() >= 950) {

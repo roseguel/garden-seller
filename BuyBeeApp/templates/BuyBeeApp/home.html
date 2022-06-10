@@ -52,7 +52,7 @@
               <div id="prod_container">
                 {% for producto in productos_recomendados %}
                 <div class="prod prod-rec">
-                  <img class="prod_imagen" src="{% static 'BuyBeeApp/assets/images/florazul.jpg' %}">
+                  <img class="prod_imagen" src="media/{{ producto.imagen.imagen }}">
                   <div id="prod_data">
                     <p class="carrito_prod_nombre">{{producto.nombre}}</p>
                     <p class="carrito_prod_precio">CLP$ {{producto.precio}}</p>
@@ -73,6 +73,7 @@
         {% else %}
           <div onclick="window.open('iniciar-sesion', '_self')" id="cuenta-nav">Iniciar sesión</div>
         {% endif %}
+        <div onclick="window.open('suscripcion', '_self')" id="suscripcion-nav">Suscripción</div>
         <input id="buscar" type="text" placeholder="Suculentas">
         <div onclick="irAPagina('carrito')" id="cart"><img src="{% static 'BuyBeeApp/assets/images/Cart.png' %}" alt=""></div>
       </nav>
@@ -163,12 +164,12 @@
       <div id="ind_logo">logo</div>
       <div id="botones_indice">
           {% if user.is_authenticated %}
-            <a href="{% url 'perfil' %}" class="fin_bot">Mi Cuenta</a>
+            <a href="{% url 'perfil' %}" class="fin_bot ingresar">Mi Cuenta</a>
           {% else %}
             <a href="{% url 'iniciar-sesion' %}" class="fin_bot ingresar">Ingresar</a>
           {% endif %}
-          <a href="{% url 'quienes-somos' %}" class="fin_bot">Quienes Somos</a>
-          <a href="{% url 'ayuda' %}" class="fin_bot">Ayuda</a>
+          <a href="{% url 'quienes-somos' %}" class="fin_bot quienes-somos">Quienes Somos</a>
+          <a href="{% url 'ayuda' %}" class="fin_bot ayuda">Ayuda</a>
       </div>
   </div>
 </body>
