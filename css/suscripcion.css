@@ -1,0 +1,203 @@
+#body{
+    background: #EDECEC;
+}
+
+
+/*
+PC
+*/
+
+@media (min-width: 950px){
+    #nav{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background-color: #CF8E8E;
+        color: rgb(255, 252, 252);
+        padding: 2vh 0vh;
+    }
+
+
+    .titulo {
+        font-weight: 300;
+    }
+
+    #salir{
+        position: absolute;
+        left: 3vh;
+    }
+    #info-sus{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .perrito{
+        width: 25vh;
+        height: 25vh;
+        margin-top: 6vh;
+        margin-bottom: 3vh;
+        border-radius: 100%;
+    }
+    /* edicion del nombre de la suscripcion*/
+    .nombre{
+        height: 6.5vh;
+        width: 7.5em;
+        border: 3px solid #9E8FD4;
+        color: #624ABE;
+        border-radius: 17px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 300;
+        font-size: 1.5em;
+    }
+
+    #elementos {
+        width: 30%;
+        display: flex;
+        padding: 1vh 1vh;
+        border: 3px solid #402A36;
+        border-radius: 17px;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-left: 75vh;
+        font-style: italic;
+        background-color: #FFFFFF;
+    }
+
+    .suscribirse {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .suscribirse button {
+        margin-top: 1vh;
+        margin-bottom: 1.5em;
+        color: #402A36;
+        background-color: #E47E7E;
+        border: 3px solid #402A36;
+        box-sizing: border-box;
+        border-radius: 17px;
+        color: #FFFFFF;
+    }
+
+    #palabras{
+        color: #402A36;
+        margin-top: 2vh;
+        margin-left: 85vh;
+    }
+
+    .pregunta{
+        color: #402A36;
+        margin-top: 2vh;
+        margin-left: 2vh;
+    }
+  
+}
+
+/*
+Movil
+*/
+
+@media (max-width: 950px){
+    #nav{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background-color: #CF8E8E;
+        color: rgb(255, 252, 252);
+        padding: 2vh 0vh;
+    }
+
+
+    .titulo {
+        font-weight: 300;
+    }
+
+    #salir{
+        position: absolute;
+        left: 1vh;
+    }
+    #info-sus{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .perrito{
+        width: 20vh;
+        height: 20vh;
+        margin-top: 6vh;
+        margin-bottom: 3vh;
+        border-radius: 100%;
+    }
+    /* edicion del nombre de la suscripcion*/
+    .nombre{
+        height: 6.5vh;
+        width: 7.5em;
+        border: 3px solid #9E8FD4;
+        color: #624ABE;
+        border-radius: 17px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 300;
+        font-size: 1em;
+    }
+
+    #elementos {
+        width: 80%;
+        display: flex;
+        padding: 1vh 1vh;
+        border: 2px solid #402A36;
+        border-radius: 17px;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-left: 5vh;
+        font-style: italic;
+        background-color: #FFFFFF;
+    }
+
+    .suscribirse {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .suscribirse button {
+        margin-top: 1vh;
+        margin-bottom: 1.5em;
+        color: #402A36;
+        background-color: #E47E7E;
+        border: 3px solid #402A36;
+        box-sizing: border-box;
+        border-radius: 17px;
+        color: #FFFF;
+    }
+
+    #palabras{
+        width: 100%;
+        height: 100%;
+        color: #402A36;
+        margin-top: 2vh;
+        margin-left: 1vh;
+    }
+
+    .pregunta{
+        width: 100%;
+        height: 100%;
+        color: #402A36;
+        margin-top: 2vh;
+        margin-left: 3vh;
+
+    }
+
+}
