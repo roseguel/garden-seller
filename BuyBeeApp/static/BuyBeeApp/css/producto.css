@@ -1,3 +1,11 @@
+:root {
+    --background: #D7D5D4; /*linear-gradient(161.63deg, #ECFCF7 0.48%, #0CA577 104.27%);*/
+    --titulo: #E47E7E; 
+    --prodata: #CF8E8E;
+    --darker: #8c4b58;
+    /*var(--nombre)*/
+}
+
 #salir {
     width: 10vh;
     height: 10vh;
@@ -11,7 +19,7 @@ a {
 }
 
 body {
-    background: linear-gradient(161.63deg, #ECFCF7 0.48%, #0CA577 104.27%);
+    background: #D7D5D4;
     width: 100%;
     height: 100%;
     margin: 0 0;
@@ -57,17 +65,17 @@ Escritorio
     h1 {
         font-family: 'Quicksand';
         font-weight: 700;
-        color: #F5FFFD;
-        border-top: 2px #F5FFFD solid;
+        color: #2e2e2e;
+        border-top: 2px #2e2e2e solid;
     }
 
     h2 {
         font-family: 'Quicksand';
-        color: #F5FFFD;
+        color: #2e2e2e;
     }
 
     p {
-        color: #F5FFFD;
+        color: #2e2e2e;
         margin-top: -1vh;
         text-align: center;
         width: 30vw;
@@ -75,7 +83,7 @@ Escritorio
     }
 
     #enviar {
-        color: #F5FFFD;
+        color: #2e2e2e;
         font-family: 'Quicksand';
         font-weight: 200;
         background-color: #624ABE;
@@ -91,7 +99,7 @@ Escritorio
         flex-direction: row;
         align-items: center;
         justify-content: center;
-        color: #F5FFFD;
+        color: #2e2e2e;
     }
 
     .info-producto-datos {
@@ -118,6 +126,7 @@ movil
 @media (max-width: 950px) {
     #imagen {
         margin: 30vw 0vw 5vw 0vw;
+        margin-bottom: 1em;
         width: 50vw;
         height: 50vw;
         background-color: rgba(0, 0, 0, 0);
@@ -143,17 +152,17 @@ movil
     h1 {
         font-family: 'Quicksand';
         font-weight: 700;
-        color: #F5FFFD;
-        border-top: 2px #F5FFFD solid;
+        color: #2e2e2e;
+        border-top: 2px #2e2e2e solid;
     }
 
     h2 {
         font-family: 'Quicksand';
-        color: #F5FFFD;
+        color: #2e2e2e;
     }
 
     p {
-        color: #F5FFFD;
+        color: #2e2e2e;
         margin-top: -1vh;
         text-align: center;
         width: 90vw;
@@ -161,7 +170,7 @@ movil
     }
 
     #enviar {
-        color: #F5FFFD;
+        color: #2e2e2e;
         font-family: 'Quicksand';
         font-weight: 200;
         background-color: #624ABE;
@@ -177,7 +186,7 @@ movil
         flex-direction: row;
         align-items: center;
         justify-content: center;
-        color: #F5FFFD;
+        color: #2e2e2e;
         margin-bottom: 4vh;
     }
 

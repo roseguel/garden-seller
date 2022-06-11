@@ -1,3 +1,11 @@
+:root {
+    --background: #D7D5D4; /*linear-gradient(161.63deg, #ECFCF7 0.48%, #0CA577 104.27%);*/
+    --titulo: #E47E7E; 
+    --prodata: #CF8E8E;
+    --darker: #8c4b58;
+    /*var(--nombre)*/
+}
+
 #salir {
     width: 10vh;
     height: 10vh;
@@ -11,7 +19,7 @@ a {
 }
 
 body {
-    background: linear-gradient(180deg, #ECFCF7 -7.61%, #68E3BE 57.68%, #3B8E75 110.19%);
+    background: var(--background);
     height: 200vh;
     display: flex;
     justify-content: center;
@@ -47,7 +55,7 @@ body {
 
 .logo {
     display: flex;
-    background-color: #CCEDE5;
+    background-color: #CF8E8E;
     box-shadow: 0px 1px rgba(0, 0, 0, 0.2);
     justify-content: center;
     align-items: center;

@@ -1,3 +1,11 @@
+:root {
+    --background: #D7D5D4; /*linear-gradient(161.63deg, #ECFCF7 0.48%, #0CA577 104.27%);*/
+    --titulo: #E47E7E; 
+    --prodata: #CF8E8E;
+    --darker: #8c4b58;
+    /*var(--nombre)*/
+}
+
 html {
     width: 100vw;
     height: 100vh;
@@ -7,7 +15,7 @@ body {
     width: 100%;
     height: 100vh;
     overflow-x: hidden;
-    background: linear-gradient(180deg, #ECFCF7 -7.61%, #68E3BE 57.68%, #3B8E75 110.19%);
+    background: var(--titulo);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -101,7 +109,7 @@ Movil
     }
 
     .fileFormLabel {
-        background: #95D6C2;
+        background: var(--background);
         border-radius: 31.5px;
         margin-right: 1vh;
     }
@@ -226,7 +234,7 @@ PC
     }
 
     .fileFormLabel {
-        background: #95D6C2;
+        background: var(--background);
         border-radius: 31.5px;
         cursor: pointer;
     }

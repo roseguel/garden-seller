@@ -1,10 +1,18 @@
+:root {
+    --background: #D7D5D4; /*linear-gradient(161.63deg, #ECFCF7 0.48%, #0CA577 104.27%);*/
+    --titulo: #E47E7E; 
+    --prodata: #CF8E8E;
+    --darker: #8c4b58;
+    /*var(--nombre)*/
+}
+
 html {
     width: 100vw;
     height: 100vh;
 }
 
 body {
-    background: linear-gradient(161.63deg, #ECFCF7 0.48%, #0CA577 104.27%);
+    background: var(--titulo);
     width: 100vw;
     height: 100vh;
     overflow: hidden;
@@ -53,7 +61,7 @@ Movil
     }
 
     .carrito_producto {
-        background-color: #8BC9B7; 
+        background-color: var(--background); 
         width: 70vw;
         margin-top: 2vh;
         display: flex;
@@ -92,9 +100,9 @@ Movil
     }
 
     .carrito_prod_cantidad_nro {
-        color: #296C59;
+        color: var(--darker);
         background: #F5FFFD;
-        border: 1px solid #296C59;
+        border: 1px solid var(--darker);
         border-radius: 3px;
         padding-right: 0.75vh;
         padding-left: 0.75vh;
@@ -146,7 +154,7 @@ Movil
     }
 
     .carrito_producto {
-        background-color: #8BC9B7; 
+        background-color: var(--background); 
         width: 35vw;
         margin-top: 2vh;
         display: flex;
@@ -185,9 +193,9 @@ Movil
     }
 
     .carrito_prod_cantidad_nro {
-        color: #296C59;
+        color: var(--darker);
         background: #F5FFFD;
-        border: 1px solid #296C59;
+        border: 1px solid var(--darker);
         border-radius: 3px;
         padding-right: 0.75vh;
         padding-left: 0.75vh;
