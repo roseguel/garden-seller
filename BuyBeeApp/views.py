@@ -145,3 +145,6 @@ def registropersonal(request):
 
 def historialCompras(r):
     return render(r, "BuyBeeApp/historial.html")
+
+def vendedor(r):
+    return render(r,"BuyBeeApp/vendedor.html")
