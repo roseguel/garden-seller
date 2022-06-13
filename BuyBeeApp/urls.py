@@ -1,5 +1,5 @@
 from BuyBee.urls import path
-from BuyBeeApp.views import home, quienesSomos, ayuda, perfil, producto, vendedor, iniciarSesion, registrarse, registropersonal, suscripcion, historialCompras
+from BuyBeeApp.views import formProd, home, quienesSomos, ayuda, perfil, producto, vendedor, iniciarSesion, envio, carrito, registrarse, registropersonal, suscripcion, historialCompras, formProd
 from django.contrib.auth.views import LoginView
 from django.urls import path, include
 
@@ -15,5 +15,8 @@ urlpatterns = [
     path('perfil', perfil, name="perfil"),
     path('producto/<id_producto>', producto, name="producto"),
     path('historial', historialCompras, name="historial"),
-    path('vendedor', vendedor, name="vendedor")
+    path('vendedor', vendedor, name="vendedor"),
+    path('agregar-producto', formProd, name="agregar-producto"),
+    path('carrito', carrito, name="carrito"),
+    path('envio', envio, name="envio"),
 ]

@@ -189,4 +189,15 @@ def registropersonal(request):
 def historialCompras(r):
     return render(r, "BuyBeeApp/historial.html")
 
+def vendedor(r):
+    return render(r,"BuyBeeApp/vendedor.html")
+
+def formProd(r):
+    return render(r, "BuyBeeApp/form-producto.html")
+
+def carrito(r):
+    return render(r, "BuyBeeApp/carrito.html")
+
+def envio(r):
+    return render(r, "BuyBeeApp/envio.html")
 # Obtener información desde el servidor xd

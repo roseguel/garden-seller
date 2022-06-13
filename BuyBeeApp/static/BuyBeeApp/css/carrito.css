@@ -5,13 +5,8 @@
     --darker: #8c4b58;
 }
 
-html {
-    width: 100vw;
-    height: 100vh;
-}
-
 body {
-    background: var(--prodata);
+    background: #CF8E8E !important;
     width: 100vw;
     height: 100vh;
     overflow: hidden;

@@ -21,7 +21,7 @@
       <a><img src="{% static 'BuyBeeApp/assets/images/Bottom-menu/Cart.png' %}" alt="ups"></a>
     </div>
     <div id="venta-container">
-      <div onclick="irAPagina('publicarproducto')" id="venta">Quieres vender algo?</div>
+      <a href="{% url 'agregar-producto' %}" id="venta">Quieres vender algo?</a>
     </div>
     <nav id="nav">
         <div id="logo">logo</div>
@@ -64,7 +64,7 @@
     </div>
   </div>
   <div id="desktop-layout">
-    <div onclick="irAPagina('publicarproducto')" id="menu_movil">Quieres vender algo?</div>
+    <a href="{% url 'agregar-producto' %}" id="menu_movil">Quieres vender algo?</a>
       <nav id="nav">
         <div id="logo">logo</div>
         <div id="quienes-somos-nav" onclick="location.href='{% url 'quienes-somos' %}';">Quienes somos</div>
@@ -114,7 +114,7 @@
     </div>
   </div>
 
-    <div id="extra">
+    <!--<div id="extra">
         <div id="vendedores_recomendados">
             <div id="titulo_rec_ven">Vendedores Recomendados</div>
             <div id="contenido">
@@ -159,7 +159,7 @@
                 </button>
               </div>
         </div>
-    </div>
+    </div>-->
   <div id="indice">
       <div id="ind_logo">logo</div>
       <div id="botones_indice">

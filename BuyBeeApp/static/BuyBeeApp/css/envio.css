@@ -6,26 +6,31 @@
     /*var(--nombre)*/
 }
 
-html {
-    width: 100vw;
-    height: 100vh;
+#nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 20vh;
+    background-color: var(--titulo);
+    color: rgb(255, 252, 252);
+    padding: 2vh 0vh;
+    height: 8vh;
+    margin-bottom: 5vw;
+}
+
+h2 {
+    margin: 0 auto;
 }
 
 body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     width: 100vw;
-    height: 100vh;
     background: var(--background);
-}
-
-#salir {
-    width: 10vh;
-    height: 10vh;
-    position: absolute;
-    top: 3vh;
-    left: 3vh;
 }
 
 div {
