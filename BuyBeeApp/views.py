@@ -1,11 +1,12 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required, permission_required
 from BuyBeeApp.forms import registrarUsuario, registroPersonal
-from scripts.metodos import formatNumberToPrice, shrinkProdName
+from scripts.metodos import formatNumberToPrice, normalizeName, shrinkProdName
 from django.contrib.auth import login, authenticate
 from django.http import QueryDict
+from django.db.models import Q
 
-from BuyBeeApp.models import ProductoImagen, ProductoVenta, Usuario, Categoria
+from BuyBeeApp.models import DetallePedido, Envio, EstadoEnvio, Pedido, ProductoImagen, ProductoVenta, Usuario, Categoria
 
 # Create your views here.
 def home(r):
@@ -13,7 +14,7 @@ def home(r):
     categorias1 = Categoria.objects.values()[:4]
     categorias2 = Categoria.objects.values()[4:8]
     for x in prod_rec:
-        x["nombre"] = shrinkProdName(x["nombre"])
+        x["nombre"] = shrinkProdName(x["nombre"], 10)
         x["imagen"] = ProductoImagen.objects.filter(producto_id=x["id"]).values()[0]
         x["precio"] = formatNumberToPrice(x["precio"])
     contexto={
@@ -35,9 +36,51 @@ def iniciarSesion(r):
 
 @login_required(login_url="iniciar-sesion")
 def perfil(r):
+    # Obtengo el usuario y el nombre completo formateado
     usuario = get_object_or_404(Usuario, nombreusuario=r.user.username)
+    nombrecompleto = normalizeName(usuario.nombres, usuario.apellidos)
+    # Obtengo los productos con el filtro de que el vendedor sea el usuario
+    productos_venta = ProductoVenta.objects.filter(vendedor_id=usuario.rut).values()
+    for x in productos_venta:
+        x["imagen"] = ProductoImagen.objects.filter(producto_id=x["id"]).values()[0]
+        x["precio"] = formatNumberToPrice(x["precio"])
+    # Obtengo los envios que tiene pendiente el Usuario
+    envios = Envio.objects.filter(Q(comprador=usuario.rut) | Q(vendedor=usuario.rut)).values()
+    for x in envios:
+        receptor = Usuario.objects.filter(rut=x["comprador_id"]).values()[0]
+        x["receptor"] = receptor["rut"]
+        x["receptor_nombre"] = normalizeName(receptor["nombres"], receptor["apellidos"])
+        emisor = Usuario.objects.filter(rut=x["vendedor_id"]).values()[0]
+        x["emisor"] = emisor["rut"]
+        x["emisor_nombre"] = normalizeName(emisor["nombres"], emisor["apellidos"])
+        # Obtengo el estado del envio
+        x["estado_nombre"] = get_object_or_404(EstadoEnvio, id=x["estado_id"]).nombre
+        x["estado_nombre_raw"] = get_object_or_404(EstadoEnvio, id=x["estado_id"]).nombre.replace(" ", "-")
+        # Obtengo la primera imagen del pedido involucrado en el envio.
+        rawPedido = get_object_or_404(Pedido, id=x["pedido_id"])
+        rawDetalle = DetallePedido.objects.filter(pedido_id=rawPedido.id)[0]
+        rawProducto = ProductoVenta.objects.filter(id=rawDetalle.producto.values()[0]["id"])
+        rawImagen = ProductoImagen.objects.filter(producto_id=rawProducto.values("id")[0]["id"]).values()[0]
+        x["imagen_producto"] = rawImagen["imagen"]
+    # Obtengo los pedidos que ha realizado el vendedor
+    pedidos = Pedido.objects.filter(comprador=usuario.rut).values()
+    for x in pedidos:
+        detalle_pedidos = DetallePedido.objects.filter(pedido=x["id"])
+        cantidad = 0
+        for y in detalle_pedidos:
+            # Sumo la cantidad de productos del detalle a
+            cantidad += y.cantidad
+            # Obtengo la imagen del primer producto iterado
+            imagen = ProductoImagen.objects.filter(producto_id=y.id).values()[0]
+            if "imagen" not in x.keys():
+                x["imagen"] = imagen["imagen"]
+        x["cantidad_productos"] = cantidad
     contexto = {
-        "usuario": usuario
+        "usuario": usuario,
+        "nombrecompleto": nombrecompleto,
+        "pedidos": pedidos,
+        "envios": envios,
+        "productos": productos_venta,
     }
 
     if r.method == "POST":
@@ -145,3 +188,5 @@ def registropersonal(request):
 
 def historialCompras(r):
     return render(r, "BuyBeeApp/historial.html")
+
+# Obtener información desde el servidor xd

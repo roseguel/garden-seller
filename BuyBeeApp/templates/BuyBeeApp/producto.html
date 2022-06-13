@@ -18,7 +18,10 @@
 </head>
 
 <body>
-    <a id="salir" href="{% url 'home' %}"><img src="{% static 'BuyBeeApp/assets/images/Exit.png' %}"></a>
+    <div id="nav">
+        <a id="salir" href="{% url 'home' %}"><img src="{% static 'BuyBeeApp/assets/images/Exit.png' %}"></a>
+        <h1>{{ producto.nombre }}</h1>
+    </div>
     <div id="imagen" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div id="inner-carousel" class="carousel-inner" style="height: 100%; border-radius: 2em;">
             {% for imagen in imagenes %}
@@ -47,25 +50,25 @@
     <div id="info-producto">
         <div id="comprados" class="info-producto-datos">
             <img src="{% static 'BuyBeeApp/assets/images/Comprados.png' %}">
-            <span>{{ producto.compras }}</span>
+            <span class="texto">{{ producto.compras }}</span>
         </div>
         <div id="vendedor" class="info-producto-datos" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Visitar Perfil del Vendedor">
             <img src="{% static 'BuyBeeApp/assets/images/Vendedor.png' %}">
-            <span>{{ vendedor.nombreusuario }}</span>
+            <span class="texto">{{ vendedor.nombreusuario }}</span>
         </div>
         <div id="vistos" class="info-producto-datos">
             <img src="{% static 'BuyBeeApp/assets/images/Vistos.png' %}">
-            <span>{{ producto.vistas }}</span>
+            <span class="texto">{{ producto.vistas }}</span>
         </div>
     </div>
-    <h1>{{ producto.nombre }}</h1>
-    <p>{{ producto.descripcion }}</p>
-    <H2>CLP$ {{ producto.precio }}</H2>
-    <form action="carrito.html" method="post">
-        <div class="col-auto">
-            <button type="submit" class="btn btn-primary mb-3" id="enviar">Enviar peticion</button>
-        </div>
-    </form>
+    <p class="texto">{{ producto.descripcion }}</p>
+    <H2 class="texto">CLP$ {{ producto.precio }}</H2>
+    <div id="buttons">
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary mb-3 boton">Agregar al Carrito</button>
+        </form>
+    </div>
 </body>
 
 </html>

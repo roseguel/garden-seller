@@ -17,7 +17,7 @@
 </head>
 
 <body>
-<!-- Modals -->
+    <a id="salir" href="{% url 'home' %}"><img src="{% static 'BuyBeeApp/assets/images/Exit.png' %}"></a>
     <div id="modal">
         <div id="cuerpo-modal">
             <div id="modal-top">
@@ -61,12 +61,7 @@
             })
         </script>
     </div>
-    <div id="modal-pedido">
-        <div id="cuerpo-modal-pedido">
-        </div>
-    </div>
-<!-- Fin Modals -->
-    <div id="personal-info">
+    <div id="elementos">
         <h1>Perfil</h1>
         <div id="foto">
             {% if usuario.foto_perfil == '' %}
@@ -118,15 +113,12 @@
             </script>
         </div>
         <div id="informacion-usuario">
-            <div id="nombres-info">
-                <h2 id="nombreapellido">{{ nombrecompleto }}</h2>
-                <img id="editar-informacion" src="{% static 'BuyBeeApp/assets/images/Editar.png' %}">
-            </div>
             {% if usuario.suscrito %}
-                <div id="suscripcion">
-                    <img src="{% static 'BuyBeeApp/assets/images/suscripcion.png' %}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ver suscripción"> <span>Suscrito</span>
-                </div>
+                <img id="suscripcion" src="{% static 'BuyBeeApp/assets/images/suscripcion.png' %}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ver suscripción"> <h2 id="nombreapellido">{{ usuario.nombres }} {{ usuario.apellidos }}</h2>
+            {% else %}
+                <h2 id="nombreapellido">{{ usuario.nombres }} {{ usuario.apellidos }}</h2>
             {% endif %}
+            <img id="editar-informacion" src="{% static 'BuyBeeApp/assets/images/Editar.png' %}">
             <script>
                 if ($(window).width() >= 950) {
                     $("#informacion-usuario").hover(function() {
@@ -140,101 +132,10 @@
                 })
             </script>
         </div>
-        <a class="boton-blanco" href="{% url 'home' %}">
-            <img src="{% static 'BuyBeeApp/assets/images/Home.png' %}">
-            Inicio
-        </a>
-        <a class="boton-blanco" href="{% url 'ayuda' %}">
-            <img src="{% static 'BuyBeeApp/assets/images/Ayuda.png' %}">
-            Ayuda
-        </a>
-        <a class="cerrar" href="{% url 'logout' %}">
-            <img src="{% static 'BuyBeeApp/assets/images/Logout.png' %}">
-            Cerrar sesion
-        </a>
-    </div>
-    <div id="extra-info">
-        <div id="selectores">
-            <h2 onclick="cambiarInfo('historial-compras')" class="historial-compras opcion activa">Historial Compras</h2>
-            <h2 onclick="cambiarInfo('envios')" class="envios opcion">Envios</h2>
-            <h2 onclick="cambiarInfo('productos-venta')" class="productos-venta opcion">Productos en Venta</h2>
-        </div>
-        <div id="contenido">
-            <div class="contenido-info" id="historial-compras">
-                {% if pedidos|length > 0 %}
-                    {% for pedido in pedidos %}
-                        <div class="producto-data">
-                            <img src="media/{{ pedido.imagen }}">
-                            <div class="producto-data-info">
-                                <span class="producto-nombre">Pedido N°{{ pedido.id }}</span>
-                                <span>{{ pedido.fecha }}</span>
-                                <span>Productos: {{ pedido.cantidad_productos }}</span>
-                            </div>
-                        </div>
-                    {% endfor %}
-                {% else %}
-                    <div id="no-data-found">
-                        <img src="{% static 'BuyBeeApp/assets/images/Error.png' %}">
-                        <span>No se han encontrado registros de Compras</span>
-                    </div>
-                {% endif %}
-            </div>
-            <div class="contenido-info" id="envios" style="display: none;">
-                {% if envios|length > 0 %}
-                    {% for envio in envios %}
-                        <div class="envio-data">
-                            <img src="media/{{ envio.imagen_producto }}">
-                            <div class="producto-data-info">
-                                <span class="producto-nombre">Envio N°{{ envio.id }}</span>
-                                <span class="estado-envio {{ envio.estado_nombre }}">{{ envio.estado_nombre }}</span>
-                                {% if envio.emisor == usuario.rut %}
-                                    <span>Enviado a {{ envio.receptor_nombre }}</span>
-                                {% else %}
-                                    <span>Enviado por {{ envio.emisor_nombre }}</span>
-                                {% endif %}
-                                <span class="envio-fecha-emision">El {{ envio.fecha_emision }}</span>
-                            </div>
-                        </div>
-                    {% endfor %}
-                {% else %}
-                    <div id="no-data-found">
-                        <img src="{% static 'BuyBeeApp/assets/images/Error.png' %}">
-                        <span>No se han encontrado registros de Envios</span>
-                    </div>
-                {% endif %}
-            </div>
-            <div class="contenido-info" id="productos-venta" style="display: none;">
-                {% if productos|length > 0 %}
-                    {% for producto in productos %}
-                        <div class="producto-data" onclick="window.open('producto/{{ producto.id }}', '_self')">
-                            <img src="media/{{ producto.imagen.imagen }}">
-                            <div class="producto-data-info">
-                                <span class="producto-nombre">{{ producto.nombre }}</span>
-                                <span>{{ producto.stock }} Disponible(s)</span>
-
-                                <span>CLP$ {{ producto.precio }}</span>
-                            </div>
-                        </div>
-                    {% endfor %}
-                {% else %}
-                    <div id="no-data-found">
-                        <img src="{% static 'BuyBeeApp/assets/images/Error.png' %}">
-                        <span>No se han encontrado registros de Productos en Venta</span>
-                    </div>
-                {% endif %}
-            </div>
-        </div>
-        <script>
-            function cambiarInfo(e) {
-                if (!document.getElementById(e).classList.contains("activa")) {
-                    id = document.getElementsByClassName("activa")[0].classList[0]
-                    document.getElementById(id).style.display = "none";
-                    document.getElementsByClassName("activa")[0].classList.remove("activa");
-                    document.getElementById(e).style.display = "flex";
-                    document.getElementsByClassName(e)[0].classList.add("activa");
-                }
-            }
-        </script>
+        <a id="button-box" href="{% url 'historial' %}">Historial de compras</a>
+        <a id="button-box" href="">Productos en venta</a>
+        <a class="ayuda" href="{% url 'ayuda' %}">Ayuda</a>
+        <a class="cerrar" href="{% url 'logout' %}">Cerrar sesion</a>
     </div>
 </body>
 
