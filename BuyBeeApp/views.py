@@ -200,4 +200,7 @@ def carrito(r):
 
 def envio(r):
     return render(r, "BuyBeeApp/envio.html")
+
+def agradecimiento(r):
+    return render(r,"BuyBeeApp/agradecimiento.html")
 # Obtener información desde el servidor xd
