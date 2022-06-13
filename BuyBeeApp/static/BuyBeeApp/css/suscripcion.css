@@ -1,133 +1,243 @@
-#salir {
-    width: 10vh;
-    height: 10vh;
-    position: absolute;
-    top: 3vh;
-    left: 3vh;
-}
-
-a {
-    text-decoration: none;
-}
-
-body {
-    background: linear-gradient(180deg, #ECFCF7 -7.61%, #68E3BE 57.68%, #3B8E75 110.19%);
-    height: 205vh;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    overflow-x: hidden;
-}
-
-.back:hover {
-    transform: scale(110%);
-}
-
-#primerEspacio {
+#body{
+    background: #EDECEC;
     height: 100vh;
-    width: 100vw;
-    background: linear-gradient(180deg, #ECFCF7 -7.61%, #4BC7A1 70.31%);
+    overflow: hidden;
 }
 
-#botonGeneral {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 60vh;
-    width: 100%;
-    height: 25vh;
-    background: linear-gradient(180deg, #6CD2B4 -7.61%, #4FDFB4 57.68%);
-    box-shadow: 0px 4px 45px rgba(0, 0, 0, 0.25);
+#items {
+    width: 100vw;
+    height: 92vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-
-}
-
-#boton {
-    margin-bottom: 2em;
-    background-color: #624ABE;
-    width: 20em;
-    height: 10vh;
-    border-radius: 2em;
-    display: flex;
-    align-items: center;
     justify-content: center;
-    font-family: 'Quicksand';
-    color: #F5FFFD;
-    font: 700;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-}
+    background: #D7D5D4;
 
-#mensajeSuscripcion {
-    font-family: 'Quicksand';
-    color: #624ABE;
-}
-
-#imagen {
-    width: 45vh;
-    height: 45vh;
-    background-color: #6CD2B4;
-    margin: 2em;
-    display: flex;
-    justify-content: center;
     align-items: center;
 }
 
-h2 {
-    width: 100%;
-    height: 15vh;
+#elementos {
+    background: #FFFFFF;
+    margin: 0;
+
+}
+
+#palabras p {
     text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Quicksand';
-    color: #1E423B;
+    margin: 0
 }
 
-#text-1 {
-    width: 100vw;
-    padding: 0 2em;
-    text-align: center;
-    color: #1E423B;
+p, h2 {
     font-family: 'Quicksand';
-
-}
-
-#text-2 {
-    width: 100vw;
-    padding: 0 2em;
-    text-align: center;
-    color: #F5FFFD;
-    font-family: 'Quicksand';
-}
-
-#suscrito {
-    margin-bottom: 2em;
-    background-color: #6e6a81;
-    width: 20em;
-    height: 10vh;
-    border-radius: 2em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Quicksand';
-    color: #F5FFFD;
-    font: 700;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-}
-
-form {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
 }
 
 #check {
-    margin: 1em;
+    margin-right: 0.5em;
+}
+
+/*
+PC
+*/
+
+#nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #CF8E8E;
+    color: rgb(255, 252, 252);
+    padding: 2vh 0vh;
+    height: 8vh;
+}
+
+@media (min-width: 950px){
+    
+
+    .titulo {
+        font-weight: 300;
+    }
+
+    #salir{
+        position: absolute;
+        left: 3vh;
+    }
+
+    #info-sus{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .perrito{
+        width: 25vh;
+        height: 25vh;
+        margin-top: 3vh;
+        margin-bottom: 2vh;
+        border-radius: 100%;
+    }
+
+    .nombre{
+        height: 6.5vh;
+        width: 9em;
+        border: 2px solid #9E8FD4;
+        color: #624ABE;
+        border-radius: 17px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 300;
+        font-size: 1.5em;
+        margin-bottom: 1em;
+    }
+
+    #elementos {
+        width: 30%;
+        display: flex;
+        padding: 1em;
+        border: 3px solid #402A36;
+        border-radius: 17px;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    #elemeptos p{
+        margin: 0;
+    }
+
+    .suscribirse {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .suscribirse{
+        margin-top: 1.5em;
+        margin-bottom: 0.5em;
+        color: #402A36;
+        background-color: #E47E7E;
+        border: 3px solid #402A36;
+        box-sizing: border-box;
+        border-radius: 17px;
+        color: #FFFFFF;
+        width: 100%;
+        height: 3em;
+    }
+
+    .desuscribirse{
+        margin-top: 1.5em;
+        margin-bottom: 0.5em;
+        color: #402A36;
+        background-color: #755f5f;
+        border: 3px solid #402A36;
+        box-sizing: border-box;
+        border-radius: 17px;
+        color: #FFFFFF;
+        width: 100%;
+        height: 3em;
+    }
+
+    #palabras{
+        width: 100%;
+        color: #402A36;
+        margin-top: 2vh;
+        font-weight: 700;
+    }
+    .pregunta{
+        color: #402A36;
+        margin-top: 2vh;
+    }
+}
+
+/*
+Movil
+*/
+
+
+
+@media (max-width: 950px){
+    
+
+    #salir{
+        position: absolute;
+        left: 1vh;
+    }
+    #info-sus{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .perrito{
+        width: 20vh;
+        height: 20vh;
+        margin-top: 6vh;
+        margin-bottom: 1vh;
+        border-radius: 100%;
+    }
+    /* edicion del nombre de la suscripcion*/
+    .nombre{
+        height: 6.5vh;
+        width: 8em;
+        border: 3px solid #9E8FD4;
+        color: #624ABE;
+        border-radius: 17px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 700;
+        font-size: 1em;
+        margin-bottom: 2em;
+    }
+
+    #elementos {
+        width: 80%;
+        display: flex;
+        padding: 1vh 1vh;
+        border: 2px solid #402A36;
+        border-radius: 17px;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .suscribirse{
+        margin-top: 1vh;
+        margin-bottom: 0.5em;
+        color: #402A36;
+        background-color: #E47E7E;
+        border: 3px solid #402A36;
+        box-sizing: border-box;
+        border-radius: 17px;
+        width: 90%;
+        color: #FFFF;
+    }
+
+    #palabras{
+        width: 100%;
+        color: #402A36;
+        margin-top: 2vh;
+        font-weight: 700;
+        font-size: 0.8em;
+    }
+
+    .pregunta{
+        width: 100%;
+        height: 100%;
+        color: #402A36;
+        margin-top: 2vh;
+
+    }
+
+    #mensajeSuscripcion {
+        font-size: 0.8em;
+    }
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
