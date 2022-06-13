@@ -203,4 +203,7 @@ def envio(r):
 
 def agradecimiento(r):
     return render(r,"BuyBeeApp/agradecimiento.html")
+
+def categoria(r):
+    return render(r,"BuyBeeApp/categoria.html")
 # Obtener información desde el servidor xd
