@@ -1,3 +1,11 @@
+:root {
+    --background: #D7D5D4; /*linear-gradient(161.63deg, #ECFCF7 0.48%, #0CA577 104.27%);*/
+    --titulo: #E47E7E; 
+    --prodata: #CF8E8E;
+    --darker: #8c4b58;
+    /*var(--nombre)*/
+}
+
 #salir {
     width: 10vh;
     height: 10vh;
@@ -24,7 +32,7 @@ Movil
         overflow: hidden;
         width: 100%;
         height: 100%;
-        background: linear-gradient(161.63deg, #ECFCF7 0.48%, #0CA577 104.27%);
+        background: var(--background);
         display: flex;
         align-items: center;
         justify-content: center;    
@@ -40,7 +48,7 @@ Movil
     
     #elementos {
         border-radius: 1em;
-        background-color: #47BC99;
+        background-color: var(--titulo);
         width: 85%;
         height: 65vh;
         display: flex;
@@ -129,7 +137,7 @@ escritorio
         overflow: hidden;
         width: 100%;
         height: 100%;
-        background: linear-gradient(161.63deg, #ECFCF7 0.48%, #0CA577 104.27%);
+        background: var(--background);
         display: flex;
         align-items: center;
         justify-content: center;    
@@ -145,7 +153,7 @@ escritorio
     
     #elementos {
         border-radius: 1em;
-        background-color: #47BC99;
+        background-color: var(--titulo);
         width: 40%;
         height: 70vh;
         display: flex;
