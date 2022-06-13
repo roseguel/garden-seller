@@ -64,12 +64,22 @@ class EstadoPedido(models.Model):
 class Pedido(models.Model):
     comprador = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     estado = models.ForeignKey(EstadoPedido, on_delete=models.DO_NOTHING)
-    productos = models.ManyToManyField(ProductoVenta)
     id = models.BigAutoField(primary_key=True)
     fecha = models.DateField()
+    total = models.IntegerField(default=0)
 
     def __str__(self):
         return str(self.id)
+
+class DetallePedido(models.Model):
+    pedido = models.ForeignKey(Pedido, on_delete=models.PROTECT)
+    producto = models.ManyToManyField(ProductoVenta)
+    id = models.BigAutoField(primary_key=True)
+    cantidad = models.IntegerField()
+    subtotal = models.IntegerField()
+
+    def __str__(self):
+        return str(self.cantidad)
 
 class EstadoEnvio(models.Model):
     id = models.BigAutoField(primary_key=True)
@@ -97,18 +107,3 @@ class ProductoCarrito(models.Model):
 
     def __str__(self):
         return self.producto.nombre
-
-class Suscripcion(models.Model):
-    id = models.BigAutoField(primary_key=True)
-    nombre = models.CharField(max_length=64)
-
-    def __str__(self):
-        return self.nombre
-
-class SuscripcionUsuario(models.Model):
-    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
-    suscripcion = models.ForeignKey(Suscripcion, on_delete=models.CASCADE)
-    fecha_inicio = models.DateField()
-
-    def __str__(self):
-        return self.suscripcion.nombre

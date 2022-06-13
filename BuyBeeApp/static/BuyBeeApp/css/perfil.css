@@ -1,87 +1,47 @@
-:root {
-    --background: #D7D5D4; /*linear-gradient(161.63deg, #ECFCF7 0.48%, #0CA577 104.27%);*/
-    --titulo: #E47E7E; 
-    --prodata: #CF8E8E;
-    --darker: #8c4b58;
-}
-
-#salir {
-    width: 10vh;
-    height: 10vh;
-    position: absolute;
-    top: 3vh;
-    left: 3vh;
-}
-
-a {
-    text-decoration: none;
-}
-
-body {
-    background: var(--background);
-    width: 100%;
-    height: 100%;
-    margin: 0 0;
-}
-
-html {
-    overflow: hidden;
-    height: 100vh;
-    width: 100vw;
-}
-
-/*
-Escritorio
-*/
+/* Escritorio */
 @media (min-width: 950px) {
-
-    #elementos {
-
-        height: 95%;
-        width: 100%;
+    body {
         display: flex;
-        justify-content: center;
-        align-items: center;
+        flex-direction: row;
+        background-color: #D7D5D4;
+        color: #212529;
+    }
+
+    /* Sección de Información Personal */
+    #personal-info {
+        /* A */
+        border: 2px solid rgba(0, 0, 0, 0.25);
+        /* A */
+        display: flex;
         flex-direction: column;
-    }
-    
-    div {
-        font-family: 'Quicksand';
-    }
-    
-    #foto {
-        /*
-        margin-bottom: 5vh;
-        */
-        display: flex;
-        justify-content: center;
         align-items: center;
-        background: var(--titulo);
-        height: 35vh;
-        width: 35vh;
-        border-radius: 50%;
-        margin-top: 4vh;
+        justify-content: center;
+        height: 100vh;
+        width: 30%;
     }
 
-    #agregarFotoPerfil:hover {
-        transform: scale(110%);
-        transition: all .2s ease-in-out;
+    #personal-info h1 {
+        font-weight: 400;
+        line-height: 1.2;
+        color: black;
     }
-    
+
+    /* Foto de Perfil */
+    #profilePicture {
+        display: none;
+    }
+
     #agregarFotoPerfil {
-        transition: all .2s ease-in-out;
         cursor: pointer;
     }
 
     #fotoDePerfil {
-        height: 35vh;
-        width: 35vh;
+        height: 12em;
+        width: 12em;
+        border: 2.5px solid #8c4b58;
         border-radius: 50%;
-        transition: all .2s ease-in-out;
-    }
-
-    #profilePicture {
-        display: none;
+        background-color: whitesmoke;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     }
 
     #editarFotoPerfil {
@@ -100,38 +60,98 @@ Escritorio
         transition: all .2s ease-in-out;
     }
 
-    #button-box {
+    /* Información del Usuario */
+    #informacion-usuario {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #nombres-info {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #editar-informacion {
+        display: none;
+        width: 5vh;
+        height: 5vh;
+        transition: all .2s ease-in-out;
+    }
+    
+    #editar-informacion:hover {
+        cursor: pointer;
+        transition: all .2s ease-in-out;
+    }
+
+    #nombreapellido {
+        font-weight: 200;
+        line-height: 1.2;
+        color: black;
+    }
+
+    #suscripcion {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding: 1vh 2vh;
+        border: 1.5px #9E8FD4 solid;
+        border-radius: 2vh;
+    }
+
+    #suscripcion span {
+        font-weight: 200;
+        font-size: 3vh;
+        line-height: 1.2;
+        margin-left: 1vh;
+        color: #9E8FD4;
+        cursor: default;
+    }
+
+    #suscripcion img {
+        height: 3vh;
+        width: 3vh;
+    }
+
+    /* Botones */
+    .boton-blanco {
+        text-decoration: none;
         transition: all .2s ease-in-out;
         text-align: center;
-        width: 20vw;
+        width: 16vw;
         height: 6vh;
-        margin: 2vh;
+        margin-top: 4vh;
         border-radius: 1.6em;
-        border: 3px solid #624ABE;
+        border: 3px solid whitesmoke;
         box-sizing: border-box;
         display: flex;
         align-items: center;
         justify-content: center;
-        color: #624ABE;
+        color: whitesmoke;
         filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
         font-weight: 700;
     }
+
+    .boton-blanco img {
+        width: 4vh;
+        height: 4vh;
+        margin-right: 0.5vh;
+    } 
     
-    #button-box:hover {
-        background-color: #624ABE;
-        border: 3px solid #624ABE;
-        color: #D9F9EF;
+    .boton-blanco:hover {
+        background-color: rgba(245, 245, 245, 0.5);
+        color: whitesmoke;
     }
-    
-    #button-box:active {
-        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0));
-        transform: scale(90%);
-    }
-    
+
     .cerrar {
+        text-decoration: none;
         transition: all .2s ease-in-out;
         text-align: center;
-        width: 20vw;
+        width: 16vw;
         height: 6vh;
         margin-top: 4vh;
         border-radius: 1.6em;
@@ -144,71 +164,193 @@ Escritorio
         filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
         font-weight: 700;
     }
+
+    .cerrar img {
+        width: 4vh;
+        height: 4vh;
+    } 
     
     .cerrar:hover {
-        background-color: #FB3958;
-        color: #D9F9EF;
+        background-color: rgba(251, 57, 88, 0.25);
+        color: #FB3958;
     }
-    
-    .cerrar:active {
-        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0));
-        transform: scale(90%);
-    }
-    
-    .ayuda {
-        transition: all .2s ease-in-out;
-        text-align: center;
-        width: 20vw;
-        height: 6vh;
-        margin-top: 2vh;
-        border-radius: 1.6em;
-        border: 3px solid #F5FFFD;
-        box-sizing: border-box;
+
+    /* Información Extra */
+    #extra-info {
         display: flex;
+        flex-direction: column;
         align-items: center;
-        justify-content: center;
-        color: #F5FFFD;
-        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-        font-weight: 700;
-    }
-    
-    .ayuda:hover {
-        background-color: #F5FFFD;
-        color: #42524c;
-    }
-    
-    .ayuda:active {
-        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0));
-        transform: scale(90%);
+        width: 70%;
     }
 
-    /* Nuevo */
-
-    #informacion-usuario {
+    #selectores {
         display: flex;
         flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        margin-top: 4vh;
+    }
+    
+    .opcion {
+        transition: all .25s ease-in-out;
+        font-weight: 200;
+        line-height: 1.2;
+        color: black;
+        border-bottom: 2px solid black;
+        margin: 1vh 4vh;
+        cursor: pointer;
     }
 
-    #editar-informacion {
-        display: none;
-        width: 5vh;
-        height: 5vh;
+    .opcion.activa {
+        transition: all .25s ease-in-out;
+        color: whitesmoke;
+        border-bottom: 2px solid whitesmoke;
+        padding: 0vh 1.5vh;
+    }
+
+    .opcion:hover {
+        color: whitesmoke;
+        transition: all .25s ease-in-out;
+        border-bottom: 2px solid whitesmoke;
+        padding: 0vh 1.5vh;
+    }
+
+    #contenido {
+        background-color: whitesmoke;
+        height: 80%;
+        width: 80%;
+        margin-top: 5vh;
+        border-radius: 4vh;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    }
+
+    .contenido-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 2vh 4vh;
+        overflow-x: hidden;
+        overflow-y: auto;
+        height: 76vh;
+    }
+
+    .producto-data {
+        display: flex;
+        flex-direction: row;
+        width: 64vh;
+        height: 16vh;
+        border-radius: 2vh;
+        border: #9c5757 2px solid;
+        background-color: #CF8E8E;
+        margin: 1vh;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        transition: all .2s ease-in-out;
+        cursor: pointer;
+    }
+
+    .producto-data img {
+        width: 16vh;
+        height: 15.4vh;
+        border-radius: 2vh 0vh 0vh 2vh;
+        border-right: #9c5757 2px solid;
+    }
+
+    .producto-data:hover {
+        transform: scale(105%);
+        transition: all .2s ease-in-out;
+    }
+
+    .producto-data-info {
+        display: flex;
+        flex-direction: column;
+        margin-left: 1vh;
+    }
+
+    .producto-data-info span {
+        color: whitesmoke;
+    }
+
+    .producto-nombre {
+        font-size: 4vh;
+    }
+
+    #no-data-found {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        background-color: #D7D5D4;
+        padding: 4vh;
+        border-radius: 2vh;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.35));
+    }
+
+    #no-data-found img {
+        width: 8vh;
+        height: 8vh;
+    }
+
+    #no-data-found span {
+        color: red;
+        font-size: 3vh;
         margin-left: 2vh;
-        transition: all .2s ease-in-out;
     }
-    
-    #editar-informacion:hover {
-        cursor: pointer;
+
+    .envio-data {
+        display: flex;
+        flex-direction: row;
+        width: 72vh;
+        height: 20vh;
+        border-radius: 2vh;
+        border: #9c5757 2px solid;
+        background-color: #CF8E8E;
+        margin: 1vh;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
         transition: all .2s ease-in-out;
-    }
-    
-    #editar-informacion:active {
-        transform: scale(80%);
         cursor: pointer;
-        transition: all .1s ease-in-out;
+    }
+
+    .envio-data img {
+        width: 20vh;
+        height: 19.4vh;
+        border-radius: 2vh 0vh 0vh 2vh;
+        border-right: #9c5757 2px solid;
+    }
+
+    .estado-envio {
+        display: flex;
+        max-width: 12vh;
+        align-items: center;
+        justify-content: center;
+        padding: 0.1vh 0.25vh;
+        font-size: 2vh;
+    }
+
+    .envio-fecha-emision {
+        font-size: 2vh;
+        margin-top: 2vh;
+    }
+
+    .estado-envio.No-enviado {
+        color: yellow;
+        border: 1px yellow solid;
+        border-radius: 1vh;
+    }
+
+    .estado-envio.Recibido {
+        color: greenyellow;
+        border: 1px greenyellow solid;
+        border-radius: 1vh;
+    }
+
+    .estado-envio.Rechazado {
+        color: red;
+        border: 1px red solid;
+        border-radius: 1vh;
+    }
+
+    .estado-envio.Enviado {
+        color: whitesmoke;
+        border: 1px whitesmoke solid;
+        border-radius: 1vh;
     }
 
     /* Modal */
@@ -234,10 +376,11 @@ Escritorio
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        background-color: #47BC99;
+        background-color: #D7D5D4;
         width: 25em;
         height: 30em;
         border-radius: 2em;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     }
 
     #modal-datos {
@@ -256,7 +399,7 @@ Escritorio
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        border: 2px #95D6C2 solid;
+        border: 2px #9c5757 solid;
         border-radius: 12px;
         padding: 1vh;
         margin-top: 1vh;
@@ -288,7 +431,12 @@ Escritorio
     #modal-top {
         display: flex;
         flex-direction: row;
+        align-items: center;
         width: 100%;
+        background-color: #CF7E8E;
+        border-radius: 2em 2em 0em 0em;
+        height: 3.6em;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     }
 
     #modal-top h3 {
@@ -300,6 +448,8 @@ Escritorio
     #salir-modal {
         transition: all .2s ease-in-out;
         margin-left: 2vh;
+        height: 6vh;
+        width: 6vh;
     }
 
     #salir-modal:hover {
@@ -307,101 +457,146 @@ Escritorio
         cursor: pointer;
         transform: scale(120%);
     }
-
-    /* Nuevo Suscripción */
-    #suscripcion {
-        width: 1.5em;
-        height: 1.5em;
-        margin-bottom: 0.5vh;
-        margin-right: 1vh;
-    }
 }
 
-/*
-movil
-*/
+/* Teléfono */
 @media (max-width: 950px) {
-
-    #elementos {
-
-        height: 95%;
-        width: 100%;
+    body {
         display: flex;
-        justify-content: center;
-        align-items: center;
         flex-direction: column;
+        background-color: #D7D5D4;
+        color: #212529;
     }
-    
-    div {
-        font-family: 'Quicksand';
-    }
-    
-    #foto {
-        /*
-        margin-bottom: 5vh;
-        */
+    /* Sección de Información Personal */
+    #personal-info {
         display: flex;
-        justify-content: center;
+        flex-direction: column;
         align-items: center;
-        background: #CCEDE5;
-        height: 25vh;
-        width: 25vh;
-        border-radius: 50%;
-        margin-top: 2vh;
+        justify-content: center;
+        height: 100vh;
+        width: 100%;
     }
-    
+
+    #personal-info h1 {
+        font-weight: 400;
+        line-height: 1.2;
+        color: black;
+    }
+
+    /* Foto de Perfil */
+    #profilePicture {
+        display: none;
+    }
+
     #agregarFotoPerfil {
-        transition: all .2s ease-in-out;
         cursor: pointer;
     }
 
     #fotoDePerfil {
-        height: 25vh;
-        width: 25vh;
+        height: 12em;
+        width: 12em;
+        border: 2.5px solid #8c4b58;
         border-radius: 50%;
-        transition: all .2s ease-in-out;
+        background-color: whitesmoke;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     }
 
     #editarFotoPerfil {
         position: absolute;
-        height: 3vh;
-        width: 3vh;
-        margin-left: 21vh;
+        height: 4vh;
+        width: 4vh;
+        margin-left: -4vh;
+        margin-top: 0vh;
         transition: all .2s ease-in-out;
     }
-    
-    #button-box {
+
+    /* Información del Usuario */
+    #informacion-usuario {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #nombres-info {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #editar-informacion {
+        width: 4vh;
+        height: 4vh;
+        transition: all .2s ease-in-out;
+    }
+
+    #nombreapellido {
+        font-weight: 200;
+        line-height: 1.2;
+        color: black;
+        margin: 2vh;
+    }
+
+    #suscripcion {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding: 1vh 2vh;
+        border: 1.5px #9E8FD4 solid;
+        border-radius: 2vh;
+    }
+
+    #suscripcion span {
+        font-weight: 200;
+        font-size: 3vh;
+        line-height: 1.2;
+        margin-left: 1vh;
+        color: #9E8FD4;
+        cursor: default;
+    }
+
+    #suscripcion img {
+        height: 3vh;
+        width: 3vh;
+    }
+
+    /* Botones */
+    .boton-blanco {
+        text-decoration: none;
         transition: all .2s ease-in-out;
         text-align: center;
-        width: 70vw;
+        width: 44vw;
         height: 6vh;
-        margin: 2vh;
+        margin-top: 4vh;
         border-radius: 1.6em;
-        border: 3px solid #624ABE;
+        border: 3px solid whitesmoke;
         box-sizing: border-box;
         display: flex;
         align-items: center;
         justify-content: center;
-        color: #624ABE;
+        color: whitesmoke;
         filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
         font-weight: 700;
     }
+
+    .boton-blanco img {
+        width: 4vh;
+        height: 4vh;
+        margin-right: 0.5vh;
+    } 
     
-    #button-box:hover {
-        background-color: #624ABE;
-        border: 3px solid #624ABE;
-        color: #D9F9EF;
+    .boton-blanco:hover {
+        background-color: rgba(245, 245, 245, 0.5);
+        color: whitesmoke;
     }
-    
-    #button-box:active {
-        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0));
-        transform: scale(90%);
-    }
-    
+
     .cerrar {
+        text-decoration: none;
         transition: all .2s ease-in-out;
         text-align: center;
-        width: 70vw;
+        width: 44vw;
         height: 6vh;
         margin-top: 4vh;
         border-radius: 1.6em;
@@ -414,64 +609,191 @@ movil
         filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
         font-weight: 700;
     }
-    
-    .cerrar:hover {
-        background-color: #FB3958;
-        color: #D9F9EF;
-    }
-    
-    .cerrar:active {
-        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0));
-        transform: scale(90%);
-    }
-    
-    .ayuda {
-        transition: all .2s ease-in-out;
-        text-align: center;
-        width: 70vw;
-        height: 6vh;
-        margin-top: 2vh;
-        border-radius: 1.6em;
-        border: 3px solid #F5FFFD;
-        box-sizing: border-box;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #F5FFFD;
-        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-        font-weight: 700;
-    }
-    
-    .ayuda:hover {
-        background-color: #F5FFFD;
-        color: #42524c;
-    }
-    
-    .ayuda:active {
-        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0));
-        transform: scale(90%);
-    }
 
-    /* Nuevo */
-
-    #informacion-usuario {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin-top: 4vh;
-    }
-
-    #editar-informacion {
+    .cerrar img {
         width: 4vh;
         height: 4vh;
-        transition: all .2s ease-in-out;
+    } 
+    
+    .cerrar:hover {
+        background-color: rgba(251, 57, 88, 0.25);
+        color: #FB3958;
+    }
+
+    /* Información Extra */
+    #extra-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    #selectores {
+        display: flex;
+        flex-direction: row;
     }
     
-    #editar-informacion:active {
-        transform: scale(80%);
+    .opcion {
+        transition: all .25s ease-in-out;
+        font-weight: 200;
+        line-height: 1.2;
+        color: black;
+        border-bottom: 2px solid black;
+        margin: 1vh 2vh;
         cursor: pointer;
-        transition: all .1s ease-in-out;
+        font-size: 3vh;
+    }
+
+    .opcion.activa {
+        transition: all .25s ease-in-out;
+        color: whitesmoke;
+        border-bottom: 2px solid whitesmoke;
+        padding: 0vh 1.5vh;
+    }
+
+    #contenido {
+        background-color: whitesmoke;
+        height: 80%;
+        width: 90%;
+        margin-top: 5vh;
+        border-radius: 4vh;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    }
+
+    .contenido-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 2vh 4vh;
+        overflow-x: hidden;
+        overflow-y: auto;
+        height: 76vh;
+    }
+
+    .producto-data {
+        display: flex;
+        flex-direction: column;
+        width: 24.2vh;
+        height: 36vh;
+        border-radius: 2vh;
+        border: #9c5757 2px solid;
+        background-color: #CF8E8E;
+        margin: 1vh;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        transition: all .2s ease-in-out;
+        cursor: pointer;
+    }
+
+    .producto-data img {
+        width: 24vh;
+        height: 20vh;
+        border-radius: 2vh 2vh 0vh 0vh;
+        border-right: #9c5757 2px solid;
+    }
+
+    .producto-data:hover {
+        transform: scale(105%);
+        transition: all .2s ease-in-out;
+    }
+
+    .producto-data-info {
+        display: flex;
+        flex-direction: column;
+        margin-left: 1vh;
+    }
+
+    .producto-data-info span {
+        color: whitesmoke;
+    }
+
+    .producto-nombre {
+        font-size: 3vh;
+        max-width: 20vh;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    #no-data-found {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        background-color: #D7D5D4;
+        padding: 4vh;
+        border-radius: 2vh;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.35));
+    }
+
+    #no-data-found img {
+        width: 8vh;
+        height: 8vh;
+    }
+
+    #no-data-found span {
+        color: red;
+        font-size: 3vh;
+        margin-left: 2vh;
+    }
+
+    .envio-data {
+        display: flex;
+        flex-direction: column;
+        width: 24.2vh;
+        height: 36vh;
+        border-radius: 2vh;
+        border: #9c5757 2px solid;
+        background-color: #CF8E8E;
+        margin: 1vh;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        transition: all .2s ease-in-out;
+        cursor: pointer;
+    }
+
+    .envio-data img {
+        width: 24vh;
+        height: 19.4vh;
+        border-radius: 2vh 2vh 0vh 0vh;
+        border-right: #9c5757 2px solid;
+    }
+
+    .estado-envio {
+        display: flex;
+        max-width: 12vh;
+        align-items: center;
+        justify-content: center;
+        padding: 0.1vh 0.25vh;
+        font-size: 2vh;
+    }
+
+    .envio-fecha-emision {
+        font-size: 2vh;
+        margin-top: 1vh;
+    }
+
+    .estado-envio.No-enviado {
+        color: yellow;
+        border: 1px yellow solid;
+        border-radius: 1vh;
+    }
+
+    .estado-envio.Recibido {
+        color: greenyellow;
+        border: 1px greenyellow solid;
+        border-radius: 1vh;
+    }
+
+    .estado-envio.Rechazado {
+        color: red;
+        border: 1px red solid;
+        border-radius: 1vh;
+    }
+
+    .estado-envio.Enviado {
+        color: whitesmoke;
+        border: 1px whitesmoke solid;
+        border-radius: 1vh;
     }
 
     /* Modal */
@@ -492,15 +814,16 @@ movil
     }
 
     #cuerpo-modal {
-        margin-top: -10em;
+        margin-top: -6em;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        background-color: #47BC99;
-        width: 20em;
+        background-color: #D7D5D4;
+        width: 25em;
         height: 30em;
         border-radius: 2em;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     }
 
     #modal-datos {
@@ -519,7 +842,7 @@ movil
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        border: 2px #95D6C2 solid;
+        border: 2px #9c5757 solid;
         border-radius: 12px;
         padding: 1vh;
         margin-top: 1vh;
@@ -545,27 +868,34 @@ movil
     }
     
     .form-control {
-        width: 18em;
+        width: 24em;
     }
 
     #modal-top {
         display: flex;
         flex-direction: row;
+        align-items: center;
         width: 100%;
+        background-color: #CF7E8E;
+        border-radius: 2em 2em 0em 0em;
+        height: 3.6em;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     }
 
     #modal-top h3 {
         align-self: center;
         justify-self: center;
-        margin-left: 4vh;
+        margin-left: 12vh;
     }
 
     #salir-modal {
         transition: all .2s ease-in-out;
         margin-left: 2vh;
+        height: 6vh;
+        width: 6vh;
     }
 
-    #salir-modal:active {
+    #salir-modal:hover {
         transition: all .2s ease-in-out;
         cursor: pointer;
         transform: scale(120%);

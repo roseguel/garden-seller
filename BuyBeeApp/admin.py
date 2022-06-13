@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from BuyBeeApp.models import Categoria, EstadoEnvio, EstadoPedido, ProductoImagen, ProductoVenta, Usuario, Pedido
+from BuyBeeApp.models import Categoria, DetallePedido, Envio, EstadoEnvio, EstadoPedido, ProductoImagen, ProductoVenta, Usuario, Pedido
 
 # Register your models here.
 class admUsuario(admin.ModelAdmin):
@@ -33,8 +33,8 @@ class admCategoria(admin.ModelAdmin):
         model= Categoria
 
 class admPedido(admin.ModelAdmin):
-    list_display=["comprador", "estado", "id", "fecha"]
-    list_editable=["estado"]
+    list_display=["comprador", "estado", "id", "fecha", "total"]
+    list_editable=["estado", "total"]
     
     class Meta:
         model= Pedido
@@ -46,7 +46,28 @@ class admEstadoPedido(admin.ModelAdmin):
     class Meta:
         model= EstadoPedido
 
-register = [Usuario, ProductoVenta, ProductoImagen, Categoria, Pedido, EstadoPedido]
-classes = [admUsuario, admProductoVenta, admProductoImagen, admCategoria, admPedido, admEstadoPedido]
+class admDetallePedido(admin.ModelAdmin):
+    list_display=["id", "cantidad", "subtotal", "pedido_id"]
+    list_editable=["cantidad", "subtotal"]
+
+    class Meta:
+        model= DetallePedido
+
+class admEnvio(admin.ModelAdmin):
+    list_display=["comprador", "vendedor", "pedido", "estado", "id", "fecha_emision", "fecha_actualizacion"]
+    list_editable=["fecha_actualizacion"]
+
+    class Meta:
+        model= Envio
+
+class admEstadoEnvio(admin.ModelAdmin):
+    list_display=["id", "nombre"]
+    list_editable=["nombre"]
+
+    class Meta:
+        model = EstadoEnvio
+
+register = [Usuario, ProductoVenta, ProductoImagen, Categoria, Pedido, EstadoPedido, DetallePedido, Envio, EstadoEnvio]
+classes = [admUsuario, admProductoVenta, admProductoImagen, admCategoria, admPedido, admEstadoPedido, admDetallePedido, admEnvio, admEstadoEnvio]
 for x in range(0, len(register), 1):
     admin.site.register(register[x], classes[x])
