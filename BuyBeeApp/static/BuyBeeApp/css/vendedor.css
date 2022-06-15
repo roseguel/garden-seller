@@ -46,6 +46,8 @@ html {
 h1 {
     font-family: 'Quicksand';
     color: #333333;
+    font-size: 3vh !important;
+    margin-top: .5em !important;
 }
 
 h2 {

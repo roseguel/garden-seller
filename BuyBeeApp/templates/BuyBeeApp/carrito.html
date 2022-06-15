@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'BuyBeeApp/css/carrito.css' %}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
@@ -13,7 +12,8 @@
             crossorigin="anonymous"></script>
         <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
     <title>Carrito</title>
-    <script src="scripts/jquery.js"></script>
+    <script src="{% static 'BuyBeeApp/scripts/jquery.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'BuyBeeApp/css/carrito.css' %}">
 </head>
 <body>
     <a id="salir" href="/"><img src="{% static 'BuyBeeApp/assets/images/Exit.png' %}" ></a>
@@ -23,13 +23,13 @@
                 <img class="carrito_prod_img" src="{% static 'BuyBeeApp/assets/images/florazul.jpg' %}">
                 <div class="carrito_prod_infobox">
                     <div class="carrito_prod_info">
-                        <p id="nombre_1" class="carrito_prod_nombre">Flor Azul</p>
-                        <p id="precio_1" class="carrito_prod_precio">CLP$ 5.000</p>
+                        <p id="nombre" class="carrito_prod_nombre">Flor Azul</p>
+                        <p id="precio" class="carrito_prod_precio">CLP$ 5.000</p>
                     </div>
                     <div class="carrito_prod_cantidad">
-                        <img id="restar_1" class="carrito_prod_restar" src="{% static 'BuyBeeApp/assets/images/restar.png' %}">
-                        <div id="cantidad_1" class="carrito_prod_cantidad_nro">1</div>
-                        <img id="sumar_1" class="carrito_prod_añadir" src="{% static 'BuyBeeApp/assets/images/Añadir.png' %}">
+                        <img id="restar" class="carrito_prod_restar" src="{% static 'BuyBeeApp/assets/images/restar.png' %}">
+                        <div id="cantidad" class="carrito_prod_cantidad_nro">1</div>
+                        <img id="sumar" class="carrito_prod_añadir" src="{% static 'BuyBeeApp/assets/images/Añadir.png' %}">
                     </div>
                 </div>
             </div>
