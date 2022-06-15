@@ -52,7 +52,7 @@
             <img src="{% static 'BuyBeeApp/assets/images/Comprados.png' %}">
             <span class="texto">{{ producto.compras }}</span>
         </div>
-        <div id="vendedor" class="info-producto-datos" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Visitar Perfil del Vendedor">
+        <div id="vendedor" onclick="window.open('/vendedor/{{ vendedor.nombreusuario }}', '_self')" class="info-producto-datos" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Visitar Perfil del Vendedor">
             <img src="{% static 'BuyBeeApp/assets/images/Vendedor.png' %}">
             <span class="texto">{{ vendedor.nombreusuario }}</span>
         </div>

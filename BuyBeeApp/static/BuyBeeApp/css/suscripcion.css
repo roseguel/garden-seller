@@ -50,8 +50,6 @@ PC
 }
 
 @media (min-width: 950px){
-    
-
     .titulo {
         font-weight: 300;
     }
@@ -107,6 +105,7 @@ PC
 
     .suscribirse {
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
     }
@@ -153,10 +152,7 @@ PC
 Movil
 */
 
-
-
 @media (max-width: 950px){
-    
 
     #salir{
         position: absolute;
@@ -227,7 +223,6 @@ Movil
         height: 100%;
         color: #402A36;
         margin-top: 2vh;
-
     }
 
     #mensajeSuscripcion {

@@ -46,8 +46,8 @@ Movil
 @media (max-width: 950px) {
     .phproduct {
         border-radius: 30px;
-        height: 15em;
-        width: 15em;
+        height: 16em;
+        width: 16em;
         filter: grayscale(100%);
     }
 
@@ -74,6 +74,8 @@ Movil
         align-items: center;
         text-align: center;
         margin: 0 auto;
+        margin-top: 1vh;
+        margin-bottom: 1em;
     }
 
     .mas{
@@ -171,6 +173,8 @@ PC
         align-items: center;
         text-align: center;
         margin: 0 auto;
+        margin-top: 1vh;
+        margin-bottom: 1em;
     }
 
     .mas{

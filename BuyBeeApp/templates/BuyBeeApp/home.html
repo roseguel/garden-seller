@@ -64,9 +64,9 @@
     </div>
   </div>
   <div id="desktop-layout">
-    <a href="{% url 'agregar-producto' %}" id="menu_movil">Quieres vender algo?</a>
+    <div onclick="irAPagina('publicarproducto')" id="menu_movil">Quieres vender algo?</div>
       <nav id="nav">
-        <div id="logo">logo</div>
+        <div onclick="location.href='{% url 'home' %}';" id="logo">logo</div>
         <div id="quienes-somos-nav" onclick="location.href='{% url 'quienes-somos' %}';">Quienes somos</div>
         {% if user.is_authenticated %}
           <div onclick="window.open('perfil', '_self')" id="cuenta-nav">Mi cuenta</div>
@@ -82,7 +82,7 @@
           <h1>categorias</h1>
           <div class="categories-row row">
             {% for cat in categorias1 %}
-              <div class="cat col-sm-3">
+              <div onclick="window.open('categoria/{{ cat.id }}', '_self')" class="cat col-sm-3">
                 <img src="media/{{ cat.foto }}">
                 <span>{{ cat.nombre }}</span>
               </div>
@@ -90,7 +90,7 @@
           </div>
           <div class="categories-row row">
             {% for cat in categorias2 %}
-              <div class="cat col-sm-3">
+              <div onclick="window.open('categoria/{{ cat.id }}', '_self')" class="cat col-sm-3">
                 <img src="media/{{ cat.foto }}">
                 <span>{{ cat.nombre }}</span>
               </div>
@@ -113,8 +113,7 @@
         </div>
     </div>
   </div>
-
-    <!--<div id="extra">
+    <div id="extra">
         <div id="vendedores_recomendados">
             <div id="titulo_rec_ven">Vendedores Recomendados</div>
             <div id="contenido">
@@ -159,7 +158,7 @@
                 </button>
               </div>
         </div>
-    </div>-->
+    </div>
   <div id="indice">
       <div id="ind_logo">logo</div>
       <div id="botones_indice">

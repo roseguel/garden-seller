@@ -189,9 +189,6 @@ def registropersonal(request):
 def historialCompras(r):
     return render(r, "BuyBeeApp/historial.html")
 
-def vendedor(r):
-    return render(r,"BuyBeeApp/vendedor.html")
-
 def formProd(r):
     return render(r, "BuyBeeApp/form-producto.html")
 
@@ -204,6 +201,28 @@ def envio(r):
 def agradecimiento(r):
     return render(r,"BuyBeeApp/agradecimiento.html")
 
-def categoria(r):
-    return render(r,"BuyBeeApp/categoria.html")
 # Obtener información desde el servidor xd
+def vendedor(r, vendedor):
+    usuario = get_object_or_404(Usuario, nombreusuario=vendedor)
+    productos = ProductoVenta.objects.filter(vendedor=usuario.rut).values()
+    productos_vendidos = 0
+    for x in productos:
+        x["imagen"] = ProductoImagen.objects.filter(producto_id=x["id"]).values()[0]
+        productos_vendidos += DetallePedido.objects.filter(producto=x["id"]).count()
+    contexto = {
+        "vendedor": usuario,
+        "vendedor_nombre": normalizeName(usuario.nombres, usuario.apellidos),
+        "productos": productos,
+        "productos_vendidos": productos_vendidos,
+    }
+    return render(r, "BuyBeeApp/vendedor.html", contexto)
+# Obtener información desde el servidor xd
+
+def categoria(r, id_categoria):
+    categoria = get_object_or_404(Categoria, id=id_categoria)
+    productos = ProductoVenta.objects.filter(categoria=id_categoria)
+    contexto = {
+        "categoria": categoria,
+        "productos": productos,
+    }
+    return render(r, "BuyBeeApp/categoria.html", contexto)

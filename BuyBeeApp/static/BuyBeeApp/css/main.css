@@ -8,7 +8,6 @@
 a {
     text-decoration: none;
 }
-
 /* Escritorio */
 @media (min-width: 950px) {
     #mobile-layout {
@@ -108,6 +107,7 @@ a {
     #inicio {
         margin-top: 20vh;
         margin-bottom: -5vw;
+        height: 100vh;
         width: 100vw;
         display: flex;
         align-items: center;
@@ -154,6 +154,7 @@ a {
     }
     
     .cat {
+        cursor: pointer;
         transition: all .2s ease-in-out;
         margin: 3vw 4vw;
         height: 16vh;
