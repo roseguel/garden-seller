@@ -58,11 +58,11 @@ Escritorio
 
     h2 {
         font-family: 'Quicksand';
-        color: #2e2e2e;
+        color: #F5FFFD;
     }
 
     p {
-        color: #2e2e2e;
+        color: #F5FFFD;
         margin-top: -1vh;
         text-align: center;
         width: 30vw;
@@ -146,7 +146,6 @@ movil
 @media (max-width: 950px) {
     #imagen {
         margin: 30vw 0vw 5vw 0vw;
-        margin-bottom: 1em;
         width: 50vw;
         height: 50vw;
         background-color: rgba(0, 0, 0, 0);
@@ -172,17 +171,17 @@ movil
     h1 {
         font-family: 'Quicksand';
         font-weight: 700;
-        color: #2e2e2e;
-        border-top: 2px #2e2e2e solid;
+        color: #F5FFFD;
+        border-top: 2px #F5FFFD solid;
     }
 
     h2 {
         font-family: 'Quicksand';
-        color: #2e2e2e;
+        color: #F5FFFD;
     }
 
     p {
-        color: #2e2e2e;
+        color: #F5FFFD;
         margin-top: -1vh;
         text-align: center;
         width: 90vw;
@@ -206,7 +205,7 @@ movil
         flex-direction: row;
         align-items: center;
         justify-content: center;
-        color: #2e2e2e;
+        color: #F5FFFD;
         margin-bottom: 4vh;
     }
 

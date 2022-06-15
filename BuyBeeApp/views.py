@@ -132,7 +132,7 @@ def producto(r, id_producto):
         "producto": producto,
         "imagenes": imagenes,
         "activa": imagenes[0]["id"],
-        "vendedor": vendedor
+        "vendedor": vendedor,
     }
 
     return render(r, "BuyBeeApp/producto.html", contexto)
@@ -189,21 +189,18 @@ def registropersonal(request):
 def historialCompras(r):
     return render(r, "BuyBeeApp/historial.html")
 
-def vendedor(r):
-    return render(r,"BuyBeeApp/vendedor.html")
-
-def formProd(r):
-    return render(r, "BuyBeeApp/form-producto.html")
-
-def carrito(r):
-    return render(r, "BuyBeeApp/carrito.html")
-
-def envio(r):
-    return render(r, "BuyBeeApp/envio.html")
-
-def agradecimiento(r):
-    return render(r,"BuyBeeApp/agradecimiento.html")
-
-def categoria(r):
-    return render(r,"BuyBeeApp/categoria.html")
+def vendedor(r, vendedor):
+    usuario = get_object_or_404(Usuario, nombreusuario=vendedor)
+    productos = ProductoVenta.objects.filter(vendedor=usuario.rut).values()
+    productos_vendidos = 0
+    for x in productos:
+        x["imagen"] = ProductoImagen.objects.filter(producto_id=x["id"]).values()[0]
+        productos_vendidos += DetallePedido.objects.filter(producto=x["id"]).count()
+    contexto = {
+        "vendedor": usuario,
+        "vendedor_nombre": normalizeName(usuario.nombres, usuario.apellidos),
+        "productos": productos,
+        "productos_vendidos": productos_vendidos,
+    }
+    return render(r, "BuyBeeApp/vendedor.html", contexto)
 # Obtener información desde el servidor xd
