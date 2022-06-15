@@ -213,3 +213,6 @@ def categoria(r, id_categoria):
         "productos": productos,
     }
     return render(r, "BuyBeeApp/categoria.html", contexto)
+
+def envio(r):
+    return render(r, "BuyBeeApp/envio.html")
