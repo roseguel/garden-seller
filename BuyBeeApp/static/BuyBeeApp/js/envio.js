@@ -1,3 +1,9 @@
+let fondo = Document.getElementById("aviso-fondo");
+
+function gracias() {
+    fondo.style.display = flex;
+}
+
 function cargarCiudades() {
     document.getElementById("ciudad").innerHTML = ``;
     var ciudades = {

@@ -363,411 +363,96 @@
         background-color: whitesmoke;
         filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     }
+}
 
 h1 {
     font-family: 'Quicksand';
     color: #333333;
-    font-size: 3vh !important;
-    margin-top: .5em !important;
 }
 
-    #editarFotoPerfil {
-        position: absolute;
-        height: 4vh;
-        width: 4vh;
-        margin-left: -4vh;
-        margin-top: 0vh;
-        transition: all .2s ease-in-out;
-    }
+h2 {
+    margin-top: -0.5em;
+    border-radius: 2em;
+    font-family: 'Quicksand';
+    width: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #BB5454;
+    border: 2px #8c4b58 solid;
+}
 
-    /* Información del Usuario */
-    #informacion-usuario {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
+#productos {
+    margin-top: 1em;
+    padding: 1em;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 
-    #nombres-info {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-    }
+}
 
-    #editar-informacion {
-        width: 4vh;
-        height: 4vh;
-        transition: all .2s ease-in-out;
-    }
+#producto {
+    border-radius: 1em 1em 0 0;
+    width: 20em;
+    height: 10vh;
+    background-color: #CF8E8E;
+    display: flex;
+}
 
-    #nombreapellido {
-        font-weight: 200;
-        line-height: 1.2;
-        color: black;
-        margin: 2vh;
-    }
+#prod-img {
+    border-radius: 1em 0 0 0;
 
-    #suscripcion {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        padding: 1vh 2vh;
-        border: 1.5px #9E8FD4 solid;
-        border-radius: 2vh;
-    }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10vh;
+    width: 10vh;
+    background-color: #8c4b58;
+}
 
-    #suscripcion span {
-        font-weight: 200;
-        font-size: 3vh;
-        line-height: 1.2;
-        margin-left: 1vh;
-        color: #9E8FD4;
-        cursor: default;
-    }
+#prod-info {
+    width: 14em;
+    padding: 0.5em;
+    display: flex;
+}
 
-    #suscripcion img {
-        height: 3vh;
-        width: 3vh;
-    }
+#nombre-prod {
+    align-self: start;
+}
 
-    /* Botones */
-    .boton-blanco {
-        text-decoration: none;
-        transition: all .2s ease-in-out;
-        text-align: center;
-        width: 44vw;
-        height: 6vh;
-        margin-top: 4vh;
-        border-radius: 1.6em;
-        border: 3px solid whitesmoke;
-        box-sizing: border-box;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: whitesmoke;
-        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-        font-weight: 700;
-    }
+#precio {
+    width: 100%;
+    text-align: right;
+    align-self: end;
+    font-size: 1.4em;
+}
 
-    .boton-blanco img {
-        width: 4vh;
-        height: 4vh;
-        margin-right: 0.5vh;
-    } 
-    
-    .boton-blanco:hover {
-        background-color: rgba(245, 245, 245, 0.5);
-        color: whitesmoke;
-    }
+#prod-base {
+    margin-bottom: 1.5em;
+    height: 14vh;
+    background-color: #BB5454;
+    border-radius: 1em;
+}
 
-    .cerrar {
-        text-decoration: none;
-        transition: all .2s ease-in-out;
-        text-align: center;
-        width: 44vw;
-        height: 6vh;
-        margin-top: 4vh;
-        border-radius: 1.6em;
-        border: 3px solid #FB3958;
-        box-sizing: border-box;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #FB3958;
-        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-        font-weight: 700;
-    }
+p{
+    font-family: 'Quicksand';
+    padding-left: 1em;
+    height: 4vh;
+    margin: 0em;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
 
-    .cerrar img {
-        width: 4vh;
-        height: 4vh;
-    } 
-    
-    .cerrar:hover {
-        background-color: rgba(251, 57, 88, 0.25);
-        color: #FB3958;
-    }
+div {
+    font-family: 'Quicksand';
+    color: #F5FFFD;
+}
 
-    /* Información Extra */
-    #extra-info {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-    }
-
-    #selectores {
-        display: flex;
-        flex-direction: row;
-    }
-    
-    .opcion {
-        transition: all .25s ease-in-out;
-        font-weight: 200;
-        line-height: 1.2;
-        color: black;
-        border-bottom: 2px solid black;
-        margin: 1vh 2vh;
-        cursor: pointer;
-        font-size: 3vh;
-    }
-
-    .opcion.activa {
-        transition: all .25s ease-in-out;
-        color: whitesmoke;
-        border-bottom: 2px solid whitesmoke;
-        padding: 0vh 1.5vh;
-    }
-
-    #contenido {
-        background-color: whitesmoke;
-        height: 80%;
-        width: 90%;
-        margin-top: 5vh;
-        border-radius: 4vh;
-        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    }
-
-    .contenido-info {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        margin: 2vh 4vh;
-        overflow-x: hidden;
-        overflow-y: auto;
-        height: 76vh;
-    }
-
-    .producto-data {
-        display: flex;
-        flex-direction: column;
-        width: 24.2vh;
-        height: 36vh;
-        border-radius: 2vh;
-        border: #9c5757 2px solid;
-        background-color: #CF8E8E;
-        margin: 1vh;
-        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-        transition: all .2s ease-in-out;
-        cursor: pointer;
-    }
-
-    .producto-data img {
-        width: 24vh;
-        height: 20vh;
-        border-radius: 2vh 2vh 0vh 0vh;
-        border-right: #9c5757 2px solid;
-    }
-
-    .producto-data:hover {
-        transform: scale(105%);
-        transition: all .2s ease-in-out;
-    }
-
-    .producto-data-info {
-        display: flex;
-        flex-direction: column;
-        margin-left: 1vh;
-    }
-
-    .producto-data-info span {
-        color: whitesmoke;
-    }
-
-    .producto-nombre {
-        font-size: 3vh;
-        max-width: 20vh;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-    }
-
-    #no-data-found {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        background-color: #D7D5D4;
-        padding: 4vh;
-        border-radius: 2vh;
-        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.35));
-    }
-
-    #no-data-found img {
-        width: 8vh;
-        height: 8vh;
-    }
-
-    #no-data-found span {
-        color: red;
-        font-size: 3vh;
-        margin-left: 2vh;
-    }
-
-    .envio-data {
-        display: flex;
-        flex-direction: column;
-        width: 24.2vh;
-        height: 36vh;
-        border-radius: 2vh;
-        border: #9c5757 2px solid;
-        background-color: #CF8E8E;
-        margin: 1vh;
-        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-        transition: all .2s ease-in-out;
-        cursor: pointer;
-    }
-
-    .envio-data img {
-        width: 24vh;
-        height: 19.4vh;
-        border-radius: 2vh 2vh 0vh 0vh;
-        border-right: #9c5757 2px solid;
-    }
-
-    .estado-envio {
-        display: flex;
-        max-width: 12vh;
-        align-items: center;
-        justify-content: center;
-        padding: 0.1vh 0.25vh;
-        font-size: 2vh;
-    }
-
-    .envio-fecha-emision {
-        font-size: 2vh;
-        margin-top: 1vh;
-    }
-
-    .estado-envio.No-enviado {
-        color: yellow;
-        border: 1px yellow solid;
-        border-radius: 1vh;
-    }
-
-    .estado-envio.Recibido {
-        color: greenyellow;
-        border: 1px greenyellow solid;
-        border-radius: 1vh;
-    }
-
-    .estado-envio.Rechazado {
-        color: red;
-        border: 1px red solid;
-        border-radius: 1vh;
-    }
-
-    .estado-envio.Enviado {
-        color: whitesmoke;
-        border: 1px whitesmoke solid;
-        border-radius: 1vh;
-    }
-
-    /* Modal */
-    #modal {
-        display: none;
-        align-items: center;
-        justify-content: center;
-        position: fixed;
-        z-index: 1;
-        padding-top: 100px;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: rgb(0, 0, 0);
-        background-color: rgba(0, 0, 0, 0.6);
-    }
-
-    #cuerpo-modal {
-        margin-top: -6em;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        background-color: #D7D5D4;
-        width: 25em;
-        height: 30em;
-        border-radius: 2em;
-        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    }
-
-    #modal-datos {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-
-    #modal-datos label {
-        align-self: flex-start;
-    }
-
-    #modal-contraseña {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        border: 2px #9c5757 solid;
-        border-radius: 12px;
-        padding: 1vh;
-        margin-top: 1vh;
-    }
-
-    #modal-contraseña label {
-        align-self: flex-start;
-    }
-
-    .input-modal {
-        margin: 1vh 0vh 1vh 0vh;
-    }
-
-    #submit {
-        margin: 2vh;
-        height: 6vh;
-        width: 20vh;
-        background: #624ABE;
-        border: 3px solid #624ABE;
-        border-radius: 1em;
-        color: #F5FFFD;
-        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    }
-    
-    .form-control {
-        width: 24em;
-    }
-
-    #modal-top {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        width: 100%;
-        background-color: #CF7E8E;
-        border-radius: 2em 2em 0em 0em;
-        height: 3.6em;
-        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    }
-
-    #modal-top h3 {
-        align-self: center;
-        justify-self: center;
-        margin-left: 12vh;
-    }
-
-    #salir-modal {
-        transition: all .2s ease-in-out;
-        margin-left: 2vh;
-        height: 6vh;
-        width: 6vh;
-    }
-
-    #salir-modal:hover {
-        transition: all .2s ease-in-out;
-        cursor: pointer;
-        transform: scale(120%);
-    }
+#input-box-dropdown {
+    background-color: #8c4b58;
+    width: 15vh;
+    border-radius: 2em;
 }

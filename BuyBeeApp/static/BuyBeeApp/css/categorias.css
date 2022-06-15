@@ -1,0 +1,126 @@
+:root {
+    --background: #D7D5D4; /*linear-gradient(161.63deg, #ECFCF7 0.48%, #0CA577 104.27%);*/
+    --titulo: #E47E7E; 
+    --prodata: #CF8E8E;
+    --darker: #8c4b58;
+    /*var(--nombre)*/
+}
+
+#salir {
+    width: 10vh;
+    height: 10vh;
+    position: absolute;
+    top: 3vh;
+    left: 3vh;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    background: var(--background);
+    width: 100%;
+    margin: 0 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+html {
+    overflow-x: hidden;
+    width: 100vw;
+}
+
+h1 {
+    margin-top: 2em !important;
+    font-family: 'Quicksand';
+    color: #333333;
+}
+
+h2 {
+    margin-top: -0.5em;
+    border-radius: 2em;
+    font-family: 'Quicksand';
+    width: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #BB5454;
+    border: 2px #8c4b58 solid;
+}
+
+#productos {
+    margin-top: 1em;
+    padding: 1em;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+#producto {
+    border-radius: 1em 1em 0 0;
+    width: 20em;
+    height: 10vh;
+    background-color: #CF8E8E;
+    display: flex;
+}
+
+#prod-img {
+    border-radius: 1em 0 0 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10vh;
+    width: 10vh;
+    background-color: #8c4b58;
+}
+
+#prod-info {
+    width: 14em;
+    padding: 0.5em;
+    display: flex;
+}
+
+#nombre-prod {
+    align-self: start;
+}
+
+#precio {
+    width: 100%;
+    text-align: right;
+    align-self: end;
+    font-size: 1.4em;
+}
+
+#prod-base {
+    margin-bottom: 1.5em;
+    height: 14vh;
+    background-color: #BB5454;
+    border-radius: 1em;
+}
+
+p{
+    font-family: 'Quicksand';
+    padding-left: 1em;
+    height: 4vh;
+    margin: 0em;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+div {
+    font-family: 'Quicksand';
+    color: #F5FFFD;
+}
+
+#input-box-dropdown {
+    background-color: #8c4b58;
+    width: 15vh;
+    border-radius: 2em;
+}
