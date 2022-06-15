@@ -1,11 +1,3 @@
-:root {
-    --background: #D7D5D4; /*linear-gradient(161.63deg, #ECFCF7 0.48%, #0CA577 104.27%);*/
-    --titulo: #E47E7E; 
-    --prodata: #CF8E8E;
-    --darker: #8c4b58;
-    /*var(--nombre)*/
-}
-
 html {
     width: 100vw;
     height: 100vh;
@@ -17,7 +9,7 @@ body {
     align-items: center;
     width: 100vw;
     height: 100vh;
-    background: var(--background);
+    background: linear-gradient(161.63deg, #ECFCF7 0.48%, #0CA577 104.27%);
 }
 
 #salir {
@@ -52,7 +44,7 @@ div {
 }
 
 #input-box button {
-    color: var(--darker);
+    color: #3E655D;
 }
 
 #enviar {

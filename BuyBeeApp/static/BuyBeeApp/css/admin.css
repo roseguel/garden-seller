@@ -1,0 +1,89 @@
+#nav {
+    padding-top: 1em;
+}
+
+#logo {
+    cursor: pointer;
+    margin-left: 1.5vh;
+    margin-right: 1.5vh;
+    height: 4vh;
+    width: 10vh;
+    background: #47BC99;
+    border-radius: 0.3em;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+}
+
+.panelAdmin {
+    padding-top: 2em;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.tablas {
+    margin-left: 1vh;
+    margin-right: 1vh;
+    margin-top: 2em;
+}
+
+.opciones {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+}
+
+.opcion {
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+    background-color: #212529;
+    border: 1px solid rgb(121, 121, 121);
+    width: 5em;
+    color: white;
+}
+
+#usuarios {
+    border-radius: 10px 0px 0px 0px;
+}
+
+#pedidos {
+    border-radius: 0px 10px 0px 0px;
+}
+
+.opcion.active {
+    background-color: aquamarine;
+    color: black;
+    transform: scale(110%);
+}
+
+.opcion:hover {
+    transition: all .2s ease-in-out;
+    transform: scale(110%);
+}
+
+.crudEliminarItem, .crudEditarItem {
+    cursor: pointer;
+    width: 4vh;
+    height: 4vh;
+    margin-left: 1vh;
+    margin-right: 1vh;
+    background-color: rgba(188, 188, 188, 0);
+}
+
+.crudEliminarItem:hover, .crudEditarItem:hover {
+    transform: scale(120%);
+    background-color: rgba(188, 188, 188, 0.6);
+    border-radius: 25%;
+    transition: all .2s ease-in-out;
+}

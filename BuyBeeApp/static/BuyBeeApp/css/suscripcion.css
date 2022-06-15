@@ -1,133 +1,218 @@
-#salir {
-    width: 10vh;
-    height: 10vh;
-    position: absolute;
-    top: 3vh;
-    left: 3vh;
-}
-
-a {
-    text-decoration: none;
-}
-
-body {
-    background: linear-gradient(180deg, #ECFCF7 -7.61%, #68E3BE 57.68%, #3B8E75 110.19%);
-    height: 205vh;
+#body{
+    background: #D7D5D4;
     display: flex;
-    align-items: center;
     flex-direction: column;
-    justify-content: center;
-    overflow-x: hidden;
-}
-
-.back:hover {
-    transform: scale(110%);
-}
-
-#primerEspacio {
-    height: 100vh;
-    width: 100vw;
-    background: linear-gradient(180deg, #ECFCF7 -7.61%, #4BC7A1 70.31%);
-}
-
-#botonGeneral {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 60vh;
-    width: 100%;
-    height: 25vh;
-    background: linear-gradient(180deg, #6CD2B4 -7.61%, #4FDFB4 57.68%);
-    box-shadow: 0px 4px 45px rgba(0, 0, 0, 0.25);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-
-}
-
-#boton {
-    margin-bottom: 2em;
-    background-color: #624ABE;
-    width: 20em;
-    height: 10vh;
-    border-radius: 2em;
-    display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Quicksand';
-    color: #F5FFFD;
-    font: 700;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
-#mensajeSuscripcion {
-    font-family: 'Quicksand';
-    color: #624ABE;
+/* PC */
+@media (min-width: 950px){
+    #nav{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background-color: #CF8E8E;
+        color: rgb(255, 252, 252);
+        padding: 2vh 0vh;
+        width: 100%;
+    }
+
+
+    .titulo {
+        font-weight: 300;
+    }
+
+    #salir{
+        position: absolute;
+        left: 3vh;
+    }
+    #info-sus{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .perrito{
+        width: 25vh;
+        height: 25vh;
+        margin-top: 6vh;
+        margin-bottom: 3vh;
+        border-radius: 100%;
+    }
+    /* edicion del nombre de la suscripcion*/
+    .nombre{
+        height: 6.5vh;
+        width: 7.5em;
+        border: 3px solid #9E8FD4;
+        color: #624ABE;
+        border-radius: 17px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 300;
+        font-size: 1.5em;
+    }
+
+    #elementos {
+        width: 30%;
+        display: flex;
+        padding: 1vh 1vh;
+        border: 1.5px solid #402A36;
+        border-radius: 17px;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        font-style: italic;
+        background-color: #FFFFFF;
+    }
+
+    .suscribirse {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .suscribirse button {
+        margin-top: 1vh;
+        margin-bottom: 1.5em;
+        color: #402A36;
+        background-color: #E47E7E;
+        border: 1.5px solid #402A36;
+        box-sizing: border-box;
+        border-radius: 17px;
+        color: #FFFFFF;
+    }
+
+    .suscribirse div {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .suscribirse div input {
+        margin-top: 1.2vh;
+        margin-right: 1vh;
+    }
+
+    #palabras{
+        color: #402A36;
+        margin-top: 2vh;
+    }
+
+    .pregunta{
+        color: #402A36;
+    }
+  
 }
 
-#imagen {
-    width: 45vh;
-    height: 45vh;
-    background-color: #6CD2B4;
-    margin: 2em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+/* Movil */
+@media (max-width: 950px){
+    #nav{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background-color: #CF8E8E;
+        color: rgb(255, 252, 252);
+        padding: 2vh 0vh;
+        width: 100%;
+    }
 
-h2 {
-    width: 100%;
-    height: 15vh;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Quicksand';
-    color: #1E423B;
-}
 
-#text-1 {
-    width: 100vw;
-    padding: 0 2em;
-    text-align: center;
-    color: #1E423B;
-    font-family: 'Quicksand';
+    .titulo {
+        font-weight: 300;
+    }
 
-}
+    #salir{
+        position: absolute;
+        left: 1vh;
+    }
+    #info-sus{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
 
-#text-2 {
-    width: 100vw;
-    padding: 0 2em;
-    text-align: center;
-    color: #F5FFFD;
-    font-family: 'Quicksand';
-}
+    .perrito{
+        width: 20vh;
+        height: 20vh;
+        margin-top: 6vh;
+        margin-bottom: 3vh;
+        border-radius: 100%;
+    }
+    /* edicion del nombre de la suscripcion*/
+    .nombre{
+        height: 6.5vh;
+        width: 7.5em;
+        border: 3px solid #9E8FD4;
+        color: #624ABE;
+        border-radius: 17px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 300;
+        font-size: 1em;
+    }
 
-#suscrito {
-    margin-bottom: 2em;
-    background-color: #6e6a81;
-    width: 20em;
-    height: 10vh;
-    border-radius: 2em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Quicksand';
-    color: #F5FFFD;
-    font: 700;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-}
+    #elementos {
+        width: 80%;
+        display: flex;
+        padding: 1vh 1vh;
+        border: 1.5px solid #402A36;
+        border-radius: 17px;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-left: 5vh;
+        font-style: italic;
+        background-color: #FFFFFF;
+    }
 
-form {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
+    .suscribirse {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 
-#check {
-    margin: 1em;
+    .suscribirse button {
+        margin-top: 1vh;
+        margin-bottom: 1.5em;
+        color: #402A36;
+        background-color: #E47E7E;
+        border: 1.5px solid #402A36;
+        box-sizing: border-box;
+        border-radius: 17px;
+        color: #FFFF;
+    }
+
+    .suscribirse div {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .suscribirse div input {
+        margin-top: 3vh;
+        margin-right: -2.5vh;
+    }
+
+    #palabras{
+        width: 100%;
+        height: 100%;
+        color: #402A36;
+        margin-top: 2vh;
+        margin-left: 1vh;
+    }
+
+    .pregunta{
+        width: 100%;
+        height: 100%;
+        color: #402A36;
+        margin-top: 2vh;
+        margin-left: 3vh;
+    }
 }
