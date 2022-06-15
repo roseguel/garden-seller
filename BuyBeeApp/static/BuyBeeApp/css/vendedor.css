@@ -364,6 +364,13 @@
         filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     }
 
+h1 {
+    font-family: 'Quicksand';
+    color: #333333;
+    font-size: 3vh !important;
+    margin-top: .5em !important;
+}
+
     #editarFotoPerfil {
         position: absolute;
         height: 4vh;

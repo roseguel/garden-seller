@@ -36,6 +36,7 @@ div {
         display: flex;
         flex-direction: column;
         align-items: center;
+        border-radius: 1em;
     }
     
     #formulario {
@@ -73,17 +74,22 @@ div {
     }
 
     .carrito_producto {
-        background-color: #8BC9B7; 
-        width: 70vw;
+        background-color: var(--prodata); 
+        width: 90%;
+        height: 5em;
         margin-top: 2vh;
         display: flex;
         flex-direction: column;
         border-radius: 12px 12px 12px 12px;
     }
 
+    .carrito_prod_info {
+        height: 2em;
+    }
+
     .carrito_prod_img{
-        width: 24vw;
-        height: 24vw;
+        width: 4.5em;
+        height: 4.5em;
         border-radius: 12px 0px 0px 0px;
     }
 
@@ -126,7 +132,7 @@ div {
         background: #624ABE;
         border-radius: 0px 0px 12px 12px;
         font-family: 'Quicksand';
-        font-size: x-small;
+        font-size: small;
         color: #F5FFFD;
         padding: 1vh;
     }
@@ -137,12 +143,12 @@ div {
     #caja_productos {
         margin-top: 10vh;
         height: 90vh;
-        width: 40vw;
+        width: 60vw;
         background-color: #ECFCF7;
         display: flex;
         flex-direction: column;
         align-items: center;
-        border-radius: 10px;
+        border-radius: 1em;
     }
     
     #codigo_descuento_form{
@@ -183,9 +189,14 @@ div {
         width: 35vw;
     }
 
+    .carrito_prod_info {
+        height: 2em;
+    }
+
     .carrito_producto {
-        background-color: #8BC9B7; 
-        width: 35vw;
+        background-color: var(--prodata); 
+        width: 30em;
+        height: 6em;
         margin-top: 2vh;
         display: flex;
         flex-direction: column;
@@ -193,8 +204,8 @@ div {
     }
 
     .carrito_prod_img{
-        width: 8vw;
-        height: 8vw;
+        width: 9vh;
+        height: 9vh;
         border-radius: 12px 0px 0px 0px;
     }
 
@@ -252,8 +263,12 @@ div {
         background: #624ABE;
         border-radius: 0px 0px 12px 12px;
         font-family: 'Quicksand';
-        font-size: x-small;
+        font-size: small;
         color: #F5FFFD;
         padding: 1vh;
     }
+}
+
+#nombre {
+    margin-bottom: 2em;
 }
