@@ -9,6 +9,7 @@
     }
 
     #menu_movil {
+        text-decoration: none;
         cursor: pointer;
         transition: all .2s ease-in-out;
         margin-left: 2vh;
@@ -96,7 +97,6 @@
     #inicio {
         margin-top: 20vh;
         margin-bottom: -5vw;
-        height: 100vh;
         width: 100vw;
         display: flex;
         align-items: center;
@@ -393,7 +393,6 @@ Movil
     }
     
     #inicio {
-        height: 75vh;
         width: 100%;
         display: flex;
         align-items: center;
@@ -441,7 +440,7 @@ Movil
         border: #402A36 1.5px solid;
         border-radius: 2vh;
         overflow-x: scroll;
-        margin-top: 10vh;
+        margin-top: 20vh;
         height: 30vh;
         width: 80vw;
         display: flex;
@@ -543,6 +542,7 @@ Movil
     }  
 
     #venta {
+        text-decoration: none;
         transition: all .2s ease-in-out;
         display: flex;
         justify-content: center;
@@ -714,6 +714,7 @@ body {
 }
 
 #indice {
+    margin-top: 5em;
     display: flex;
     justify-content: center;
     align-items: center;
