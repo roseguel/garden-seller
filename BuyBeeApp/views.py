@@ -204,3 +204,12 @@ def vendedor(r, vendedor):
     }
     return render(r, "BuyBeeApp/vendedor.html", contexto)
 # Obtener información desde el servidor xd
+
+def categoria(r, id_categoria):
+    categoria = get_object_or_404(Categoria, id=id_categoria)
+    productos = ProductoVenta.objects.filter(categoria=id_categoria)
+    contexto = {
+        "categoria": categoria,
+        "productos": productos,
+    }
+    return render(r, "BuyBeeApp/categoria.html", contexto)
