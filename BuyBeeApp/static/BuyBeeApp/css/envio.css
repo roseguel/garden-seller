@@ -1,23 +1,91 @@
-html {
-    width: 100vw;
+:root {
+    --background: #D7D5D4; /*linear-gradient(161.63deg, #ECFCF7 0.48%, #0CA577 104.27%);*/
+    --titulo: #E47E7E; 
+    --prodata: #CF8E8E;
+    --darker: #8c4b58;
+    /*var(--nombre)*/
+}
+
+#aviso-fondo {
+    position: absolute;
+    top: 0;
+    width: 100%;
     height: 100vh;
+    background-color: rgba(1,1, 1, 0.60);
+    z-index: 100;
+    display: none;
+    align-items: center;
+    justify-content: center ;
+}
+
+#inner-aviso {
+    width: 80%;
+    height: 80%;
+    border-radius: 1em;
+    background-color: #E47E7E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.prod-img {
+    height: 10em;
+    margin-bottom: 5em;
+}
+
+#tit-ag{
+    font-family: 'quicksand';
+    width: 100%;
+    font-size:large;
+    font-weight: 700;
+    text-align: center;
+}
+
+
+#sal {
+    font-family: 'quicksand';
+    background-color: #624ABE;
+    width: 30vh;
+    height: 6vh;
+    margin-top: 2vh;
+    border-radius: 1em;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    color: var(--background);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#sal:hover {
+    color: var(--background);
+}
+
+#nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 20vh;
+    background-color: var(--titulo);
+    color: rgb(255, 252, 252);
+    padding: 2vh 0vh;
+    height: 8vh;
+    margin-bottom: 5vw;
+}
+
+h2 {
+    margin: 0 auto;
 }
 
 body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     width: 100vw;
-    height: 100vh;
-    background: linear-gradient(161.63deg, #ECFCF7 0.48%, #0CA577 104.27%);
-}
-
-#salir {
-    width: 10vh;
-    height: 10vh;
-    position: absolute;
-    top: 3vh;
-    left: 3vh;
+    background: var(--background);
 }
 
 div {
@@ -44,7 +112,7 @@ div {
 }
 
 #input-box button {
-    color: #3E655D;
+    color: var(--darker);
 }
 
 #enviar {

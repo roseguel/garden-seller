@@ -21,7 +21,7 @@
       <a><img src="{% static 'BuyBeeApp/assets/images/Bottom-menu/Cart.png' %}" alt="ups"></a>
     </div>
     <div id="venta-container">
-      <div onclick="irAPagina('publicarproducto')" id="venta">Quieres vender algo?</div>
+      <a href="{% url 'agregar-producto' %}" id="venta">Quieres vender algo?</a>
     </div>
     <nav id="nav">
         <div id="logo">logo</div>
@@ -113,7 +113,6 @@
         </div>
     </div>
   </div>
-
     <div id="extra">
         <div id="vendedores_recomendados">
             <div id="titulo_rec_ven">Vendedores Recomendados</div>

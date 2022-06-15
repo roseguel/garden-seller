@@ -1,3 +1,13 @@
+:root {
+    --background: #D7D5D4;
+    --titulo: #E47E7E;
+    --prodata: #CF8E8E;
+    --darker: #8c4b58;
+}
+
+a {
+    text-decoration: none;
+}
 /* Escritorio */
 @media (min-width: 950px) {
     #mobile-layout {
@@ -9,6 +19,7 @@
     }
 
     #menu_movil {
+        text-decoration: none;
         cursor: pointer;
         transition: all .2s ease-in-out;
         margin-left: 2vh;
@@ -370,7 +381,7 @@ Movil
         margin-left: 1.5vh;
         height: 4vh;
         width: 10vh;
-        background: #8c4b58;
+        background: var(--darker);
         border-radius: 0.3em;
         text-align: center;
         display: flex;
@@ -394,7 +405,6 @@ Movil
     }
     
     #inicio {
-        height: 75vh;
         width: 100%;
         display: flex;
         align-items: center;
@@ -442,7 +452,7 @@ Movil
         border: #402A36 1.5px solid;
         border-radius: 2vh;
         overflow-x: scroll;
-        margin-top: 10vh;
+        margin-top: 20vh;
         height: 30vh;
         width: 80vw;
         display: flex;
@@ -544,6 +554,7 @@ Movil
     }  
 
     #venta {
+        text-decoration: none;
         transition: all .2s ease-in-out;
         display: flex;
         justify-content: center;
@@ -604,7 +615,7 @@ body {
     margin-right: 1.5vh;
     height: 4vh;
     width: 10vh;
-    background: #8c4b58;
+    background: var(--darker);
     border-radius: 0.3em;
     text-align: center;
     display: flex;
@@ -715,6 +726,7 @@ body {
 }
 
 #indice {
+    margin-top: 5em;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -766,7 +778,7 @@ body {
     width: 20vh;
     background: #E47E7E;
     border-radius: 1em;
-    border: 1px #8c4b58 solid;
+    border: 1px var(--darker) solid;
     text-align: center;
     display: flex;
     justify-content: center;
