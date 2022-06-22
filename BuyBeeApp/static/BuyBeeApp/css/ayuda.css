@@ -1,0 +1,57 @@
+html {
+    width: 100vw;
+    height: 100vh;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(161.63deg, #ECFCF7 0.48%, #D7D5D4 104.27%);
+}
+
+#salir {
+    width: 10vh;
+    height: 10vh;
+    position: absolute;
+    top: 3vh;
+    left: 3vh;
+}
+
+div {
+    font-family: 'Quicksand';
+}
+
+h1 {
+    margin: 2vh 0;
+}
+
+#condiciones {
+    height: 2vh;
+    display:flex;
+    flex-direction: row;
+    align-items: center;    
+    margin: 1vh;
+}
+
+#condiciones p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0 0 0;
+    margin-left: 0.5vh;
+}
+
+#condiciones p a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0 0 0;
+}
+
+#elementos {
+    width: 50vw;
+    height: 80vh;
+}

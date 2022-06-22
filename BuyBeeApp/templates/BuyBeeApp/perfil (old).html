@@ -1,0 +1,142 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+    <link rel="stylesheet" href="{% static 'BuyBeeApp/css/perfil.css' %}">
+    <title>Perfil</title>
+    <script src="{% static 'BuyBeeApp/js/perfil.js' %}"></script>
+    <script src="{% static 'BuyBeeApp/js/jquery.js' %}"></script>
+</head>
+
+<body>
+    <a id="salir" href="{% url 'home' %}"><img src="{% static 'BuyBeeApp/assets/images/Exit.png' %}"></a>
+    <div id="modal">
+        <div id="cuerpo-modal">
+            <div id="modal-top">
+                <img id="salir-modal" src="{% static 'BuyBeeApp/assets/images/Exit.png' %}"></a>
+                <h3>Editar perfil</h3>
+            </div>
+            <div id="modal-datos">
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="input-modal">
+                        <label for="nombres" class="form-label">Nombres</label>
+                        <input id="nombres" name="nombres" class="form-control form-control-sm" placeholder="{{ usuario.nombres }}" type="text" value="{{ usuario.nombres }}">
+                    </div>
+                    <div class="input-modal">
+                        <label for="apellidos" class="form-label">Apellidos</label>
+                        <input id="apellidos" name="apellidos" class="form-control form-control-sm" placeholder="{{ usuario.apellidos }}" type="text" value="{{ usuario.apellidos }}">
+                    </div>
+                    <div class="input-modal">
+                        <label for="email" class="form-label">Email</label>
+                        <input id="email" name="email" class="form-control form-control-sm" placeholder="{{ usuario.email }}" type="email" value="{{ usuario.email }}">
+                    </div>
+                    <div class="input-modal">
+                        <label for="numero" class="form-label">Número</label>
+                        {% if usuario.numero != None %}
+                            <input id="numero" name="numero" class="form-control form-control-sm" placeholder="{{ usuario.numero }}" type="number" value="{{ usuario.numero }}">
+                        {% else %}
+                            <input id="numero" name="numero" class="form-control form-control-sm" placeholder="940529144" type="number" value="0">
+                        {% endif %}
+                    </div>
+                </div>
+                <div id="modal-contraseña">
+                    <label for="password1" class="form-label">Contraseña</label>
+                    <input id="password1" name="password1" class="form-control form-control-sm" type="password">
+                </div>
+                <input type="submit" value="Confirmar" id="submit">
+            </form>
+        </div>
+        <script>
+            $("#salir-modal").click(function() {
+                document.getElementById("modal").style.display = "none";
+            })
+        </script>
+    </div>
+    <div id="elementos">
+        <h1>Perfil</h1>
+        <div id="foto">
+            {% if usuario.foto_perfil == '' %}
+                <div id="sinFotoDePerfil">
+                    <form method="POST" enctype="multipart/form-data" id="fotoPerfilForm">
+                        {% csrf_token %}
+                        <!-- onchange="cambiarFoto()" -->
+                        <input accept=".png,.jpg" onchange="document.getElementById('fotoPerfilForm').submit()" class="form-control form-control-sm" name="profilePicture" id="profilePicture" type="file">
+                        <label for="profilePicture" class="fileFormLabel">
+                            <img id="agregarFotoPerfil" src="{% static 'BuyBeeApp/assets/images/AgregarFoto.png' %}">
+                        </label>
+                    </form>
+                </div>
+            {% else %}
+                <div id="sinFotoDePerfil" style="display: none">
+                    <form method="POST" enctype="multipart/form-data" id="fotoPerfilForm">
+                        {% csrf_token %}
+                        <!-- onchange="cambiarFoto()" -->
+                        <input accept=".png,.jpg" onchange="document.getElementById('fotoPerfilForm').submit()" class="form-control form-control-sm" name="profilePicture" id="profilePicture" type="file">
+                        <label for="profilePicture" class="fileFormLabel">
+                            <img id="agregarFotoPerfil" src="{% static 'BuyBeeApp/assets/images/AgregarFoto.png' %}">
+                        </label>
+                    </form>
+                </div>
+                <div id="conFotoDePerfil">
+                    <img id="fotoDePerfil" src="{{ usuario.foto_perfil.url }}">
+                    <img id="editarFotoPerfil" src="{% static 'BuyBeeApp/assets/images/Editar.png' %}">
+                </div>
+            {% endif %}
+            <script>
+                // Cambio la "opacity" (no se como se dice en español) via JQuery para el efecto bonito
+                $("#editarFotoPerfil").hover(function () {
+                    if ($(window).width() >= 950) {
+                        $("#fotoDePerfil").css("opacity", 0.2);
+                    }
+                }, function () {
+                    if ($(window).width() >= 950) {
+                        $("#fotoDePerfil").css("opacity", 1);
+                    }
+                });
+                /*
+                 Aquí, utilizo el evento "click" de JQuery y "obligo" via JavaScript a que el
+                cliente haga click en el input de imagen anterior, sin necesidad de que se muestre, con
+                la función "click()"
+                */
+                $("#editarFotoPerfil").click(function (){
+                    $("#profilePicture").click()
+                });
+            </script>
+        </div>
+        <div id="informacion-usuario">
+            {% if usuario.suscrito %}
+                <img id="suscripcion" src="{% static 'BuyBeeApp/assets/images/suscripcion.png' %}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ver suscripción"> <h2 id="nombreapellido">{{ usuario.nombres }} {{ usuario.apellidos }}</h2>
+            {% else %}
+                <h2 id="nombreapellido">{{ usuario.nombres }} {{ usuario.apellidos }}</h2>
+            {% endif %}
+            <img id="editar-informacion" src="{% static 'BuyBeeApp/assets/images/Editar.png' %}">
+            <script>
+                if ($(window).width() >= 950) {
+                    $("#informacion-usuario").hover(function() {
+                        document.getElementById("editar-informacion").style.display = "flex";
+                    }, function () {
+                        document.getElementById("editar-informacion").style.display = "none";
+                    });
+                }
+                $("#editar-informacion").click( function() {
+                    document.getElementById("modal").style.display = "flex";
+                })
+            </script>
+        </div>
+        <a id="button-box" href="{% url 'historial' %}">Historial de compras</a>
+        <a id="button-box" href="">Productos en venta</a>
+        <a class="ayuda" href="{% url 'ayuda' %}">Ayuda</a>
+        <a class="cerrar" href="{% url 'logout' %}">Cerrar sesion</a>
+    </div>
+</body>
+
+</html>

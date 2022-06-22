@@ -1,0 +1,127 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ categoria.nombre }}</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+  <link rel="stylesheet" href="{% static 'BuyBeeApp/css/categoria.css' %}">
+  <script src="{% static 'BuyBeeApp/js/index.js' %}"></script>
+</head>
+    <div onclick="irAPagina('publicarproducto')" id="menu_movil">Quieres vender algo?</div>
+        <nav id="nav">
+          <div onclick="location.href='{% url 'home' %}';" id="logo">logo</div>
+          <div id="quienes-somos-nav" onclick="location.href='{% url 'quienes-somos' %}';">Quienes somos</div>
+          {% if user.is_authenticated %}
+            <div onclick="window.open('/perfil', '_self')" id="cuenta-nav">Mi cuenta</div>
+          {% else %}
+            <div onclick="window.open('/iniciar-sesion', '_self')" id="cuenta-nav">Iniciar sesión</div>
+          {% endif %}
+          <div onclick="window.open('/suscripcion', '_self')" id="suscripcion-nav">Suscripción</div>
+          <input id="buscar" type="text" placeholder="Suculentas">
+          <div onclick="window.open('/carrito', '_self')" id="cart"><img src="{% static 'BuyBeeApp/assets/images/Cart.png' %}" alt=""></div>
+        </nav>
+        <h2 id="titulo-categoria">{{ categoria.nombre }}</h2>
+        <div id="cuerpo">
+            <div id="filtros">
+                <div id="info-categoria">
+                    <span id="categoria-nombre">{{ categoria.nombre }}</span>
+                    <span>{{ productos|length }} producto(s)<span>
+                </div>
+                <form>
+                    {% csrf_token %}
+                    <div class="filtro-categoria" id="orden">
+                        <span>Orden</span>
+                        <div class="elecciones">
+                            <select name="orden" id="orden-form">
+                                <option value="default">Ninguno</option>
+                                <optgroup label="Precio">
+                                    <option value="ascendente">Más barato al más caro</option>
+                                    <option value="descendente">Más caro al más barato</option>
+                                </optgroup>
+                                <optgroup label="Popularidad">
+                                    <option value="ascendente">Menos comprado al más comprado</option>
+                                    <option value="descendente">Más comprado al menos comprado</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="filtro-categoria" id="precio">
+                        <span>Precios</span>
+                        <div class="elecciones">
+                            <div class="checkbox">
+                                <input type="radio" id="cualquier-precio" name="precio">
+                                <label for="cualquier-precio">Cualquier precio</label>
+                            </div>
+                            <div class="checkbox">
+                                <input type="radio" id="precio-mil-5mil" name="precio">
+                                <label for="precio-mil-5mil">Entre $1000 y $5000</label>
+                            </div>
+                            <div class="checkbox">
+                                <input type="radio" id="precio-5mil-15mil" name="precio">
+                                <label for="precio-5mil-15mil">Entre $5000 y $15000</label>
+                            </div>
+                            <div class="checkbox">
+                                <input type="radio" id="precio-5mil-15mil" name="precio">
+                                <label for="precio-15mil-50mil">Entre $15000 y $50000</label>
+                            </div>
+                            <div class="checkbox">
+                                <input type="radio" id="precio-50mil" name="precio">
+                                <label for="precio-50mil">Arriba de $50000</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filtro-categoria" id="vendedor">
+                        <span>Vendedor</span>
+                        <div class="elecciones">
+                            <div class="checkbox">
+                                <input type="radio" id="cualquier-vendedor" name="vendedor">
+                                <label for="cualquier-vendedor">Cualquier vendedor</label>
+                            </div>
+                            <div class="checkbox">
+                                <input type="radio" id="vendedor-0-25" name="vendedor">
+                                <label for="precio-0-25">0 y 25% más destacado</label>
+                            </div>
+                            <div class="checkbox">
+                                <input type="radio" id="vendedor-25-50" name="vendedor">
+                                <label for="precio-0-25">25 y 50% más destacado</label>
+                            </div>
+                            <div class="checkbox">
+                                <input type="radio" id="vendedor-50-75" name="vendedor">
+                                <label for="precio-50-75">50 y 75% más destacado</label>
+                            </div>
+                            <div class="checkbox">
+                                <input type="radio" id="vendedor-75-100" name="vendedor">
+                                <label for="precio-50-75">Los más destacados</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="boton-filtro">
+                        <button type="submit" id="aplicar-filtros">Aplicar Filtros</button>
+                    </div>
+                </form>
+            </div>
+            <div id="contenido">
+                <div id="productos">
+                    {% for producto in productos  %}
+                        <div onclick="window.open('/producto/{{ producto.id }}', '_self')" class="producto">
+                            <img src="/media/{{ producto.imagen.imagen }}">
+                            <div class="producto-data">
+                                <span class="producto-titulo">{{ producto.nombre }}</span>
+                                <span class="producto-span">{{ producto.stock }} Disponible(s)</span>
+                                <span class="producto-span">CLP$ {{ producto.precio_producto }}</span>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+<body>
+</body>
+</html>
