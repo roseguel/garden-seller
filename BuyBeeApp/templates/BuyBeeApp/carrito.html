@@ -13,66 +13,143 @@
             crossorigin="anonymous"></script>
         <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
     <title>Carrito</title>
+    <script src="{% static 'BuyBeeApp/js/carrito.js' %}"></script>
     <script src="{% static 'BuyBeeApp/js/jquery.js' %}"></script>
 </head>
-<body>
+<body onload="cargarCiudades()">
     <div id="nav">
         <a id="salir" href="{% url 'home' %}"><img src="{% static 'BuyBeeApp/assets/images/Exit.png' %}" ></a>
         <h2 class="titulo">Carrito</h2>
     </div>
-    <form method="POST" id="formulario">
+    {% if error == "no_such_product" %}
+        <div id="error">
+            <div id="error-body">
+                <img src="{% static 'BuyBeeApp/assets/images/Error.png' %}">
+                <div id="error-messages">
+                    <span class="error-msg">Ha ocurrido un error mientras se procesaba el carrito. Inténtelo de nuevo.</span>
+                    <a href="{% url 'carrito' %}" class="error-recargar">Recargar página</a>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+    <div id="error-envio">
+        <div id="error-envio-body">
+            <img id="error-envio-exit" src="{% static 'BuyBeeApp/assets/images/Exit.png' %}">
+            <div id="error-envio-div">
+                <img id="error-envio-img" src="{% static 'BuyBeeApp/assets/images/Error.png' %}">
+                <span id="error-envio-msg"></span>
+            </div>
+        </div>
+        <script>
+            $("#error-envio-exit").click(function() {
+                document.getElementById("error-envio").style.display = "none";
+            })
+            $("#error-envio").click(function(e) {
+                if (document.elementFromPoint(e.clientX, e.clientY).id == "error-envio") {
+                    document.getElementById("error-envio").style.display = "none";
+                }
+            })
+            $(document).keyup(function(e) {
+                if (e.key === "Escape" && document.getElementById("error-envio").style.display != "") {
+                    document.getElementById("error-envio").style.display = "none";
+                }
+           });
+        </script>
+    </div>
+    <form style="display: none;" method="POST" id="eliminarProducto" name="formulario" value="eliminarProducto">
         {% csrf_token %}
-        <div id="caja_productos">
-            {% for producto in productos  %}
-                <div id="producto_{{ producto.id }}" class="carrito_producto">
-                    <!-- Usar de Variable de Sesión -->
-                    <div class="carrito_prod_top">
-                        <img class="carrito_prod_img" src="/media/{{ producto.imagen.imagen }}">
-                        <div class="carrito_prod_infobox">
-                            <div class="carrito_prod_info">
-                                <p id="nombre_{{ producto.id }}" class="carrito_prod_nombre">{{ producto.nombre }}</p>
-                                <p id="precio_{{ producto.id }}" class="carrito_prod_precio">CLP$ {{ producto.precio }}</p>
-                            </div>
-                            <div class="carrito_prod_cantidad">
-                                <img id="restar_{{ producto.id }}" class="carrito_prod_restar" src="{% static 'BuyBeeApp/assets/images/Restar.png' %}">
-                                <div id="cantidad_{{ producto.id }}" class="carrito_prod_cantidad_nro">{{ producto.cantidad }}</div>
-                                <img id="sumar_{{ producto.id }}1" class="carrito_prod_añadir" src="{% static 'BuyBeeApp/assets/images/Añadir.png' %}">
+        <input id="eliminarProductoInput" type="number" name="productoAEliminar" value="0">
+    </form>
+    <form onsubmit="return validarForm(event);" method="POST" id="formulario" name="formulario" value="caja">
+        {% csrf_token %}
+        <!-- -->
+        <div id="form-left">
+            <span id="informacion-envio">Información del Envio</span>
+            <div id="envio-info-inputs">
+                <label for="ciudad" class="form-label">Ciudad</label>
+                <select required onchange="cargarComunas()" class="form-select selector" id="ciudad" name="ciudad" aria-label="Region"></select>
+                <label for="comuna" class="form-label">Comuna</label>
+                <select required class="form-select selector" id="comuna" name="comuna" aria-label="Comuna">
+                </select>
+                <div>
+                    <label for="calle" class="form-label">Calle</label>
+                    <input required type="text" class="form-control" name="calle" placeholder="Psje san wacoldin #123"/>
+                </div>
+                <label for="metodo_pago" class="form-label">Método de Pago</label>
+                <select required class="form-select selector" id="metodo_pago" name="metodo_pago" aria-label="Método de Pago">
+                    <option selected value="default">Método de Pago</option>
+                    <optgroup label="Métodos de Pago">
+                        <option value="deposito_bancario">Depósito Bancario</option>
+                        <option value="webpay">WebPay</option>
+                    </optgroup>
+                </select>
+            </div>
+            <div class="codigo">
+              <input type="text" class="form-control" id="codigo_descuento_form" placeholder="Codigo de descuento" name="codigodescuento">
+            </div>
+            <div class="total_producto">
+                <button id="confirmar" type="submit" class="btn btn-primary">CLP$ {{ total }}</button>
+            </div>
+        </div>
+        <!-- Right -->
+        <div id="form-right">
+            <div id="caja_productos">
+                {% for producto in productos %}
+                    <div id="producto_{{ producto.id }}" class="carrito_producto" name="{{ producto.id }}">
+                        <div class="carrito_prod_top">
+                            <img class="carrito_prod_img" src="/media/{{ producto.imagen.imagen }}">
+                            <div class="carrito_prod_infobox">
+                                <div class="carrito_prod_info">
+                                    <p id="nombre_{{ producto.id }}" class="carrito_prod_nombre">{{ producto.nombre }}</p>
+                                    <p id="precio_{{ producto.id }}" class="carrito_prod_precio">CLP$ {{ producto.precio }}</p>
+                                </div>
+                                <div class="carrito_prod_cantidad">
+                                    <img id="restar_{{ producto.id }}" class="carrito_prod_restar" src="{% static 'BuyBeeApp/assets/images/Restar.png' %}">
+                                    <input id="cantidad_{{ producto.id }}" type="number" min="0" max="{{ producto.stock }}" class="carrito_prod_cantidad_nro" name="cantidad" value="{{ producto.cantidad }}">
+                                    <input class="idproducto" type="number" name="producto" value="{{ producto.id }}" style="display: none;">
+                                    <!--
+                                    <div id="cantidad_{{ producto.id }}" class="carrito_prod_cantidad_nro">{{ producto.cantidad }}</div>
+                                    -->
+                                    <img id="sumar_{{ producto.id }}" class="carrito_prod_añadir" src="{% static 'BuyBeeApp/assets/images/Añadir.png' %}">
+                                </div>
                             </div>
                         </div>
+                        <div class="carrito_prod_footer">
+                            El costo de envío es de CLP$ 4.000
+                        </div>
                     </div>
-                    <div class="carrito_prod_footer">
-                        El costo de envío es de CLP$ 4.000
-                    </div>
-                </div>
-            {% endfor %}
+                {% endfor %}
+            </div>
         </div>
-        <div class="codigo">
-          <input type="text" class="form-control" id="codigo_descuento_form" placeholder="Codigo de descuento" name="codigodescuento">
-        </div>
-        <div class="total_producto">
-            <a href="{% url 'envio' %}" id="confirmar" type="submit" class="btn btn-primary">CLP$ 9000</a>
-        </div>
+        <!-- -->
     </form>
     <!-- Script -->
     <script>
         $(".carrito_prod_restar").click(function() {
             id = parseInt($(this).attr("id").replace("restar_", ""));
-            cantidad = parseInt(document.getElementById("cantidad_" + id).textContent);
-            if (cantidad > 0) {
-                document.getElementById("cantidad_" + id).textContent = cantidad - 1;
+            cantidad = parseInt(document.getElementById("cantidad_" + id).value);
+            if (cantidad > 1) {
+                document.getElementById("cantidad_" + id).value = cantidad - 1;
                 precio = document.getElementById("precio_" + id).textContent.replace("CLP$ ", "").replace(".", "")
-                document.getElementById("confirmar").textContent = "CLP$ " + ((cantidad - 1) * parseInt(precio) + 4000);
+                total = document.getElementById("confirmar").textContent.replace("CLP$ ", "").replace(".", "")
+                nuevoTotal = parseInt(total) - parseInt(precio)
+                document.getElementById("confirmar").textContent = "CLP$ " + nuevoTotal;
             } else {
-                document.getElementById("producto_" + id).style.display = "none";
-                document.getElementById("confirmar").textContent = "CLP$ 0"
+                document.getElementById("eliminarProductoInput").value = id;
+                document.getElementById("eliminarProducto").submit()
             }
         });
         $(".carrito_prod_añadir").click(function() {
             id = parseInt($(this).attr("id").replace("sumar_", ""));
-            cantidad = parseInt(document.getElementById("cantidad_" + id).textContent);
-            document.getElementById("cantidad_" + id).textContent = cantidad + 1;
-            precio = document.getElementById("precio_" + id).textContent.replace("CLP$ ", "").replace(".", "")
-            document.getElementById("confirmar").textContent = "CLP$ " + ((cantidad + 1) * parseInt(precio) + 4000);
+            max = parseInt($("#cantidad_" + id).attr("max"))
+            cantidad = parseInt(document.getElementById("cantidad_" + id).value);
+            if (cantidad < max) {
+                document.getElementById("cantidad_" + id).value = cantidad + 1;
+                precio = document.getElementById("precio_" + id).textContent.replace("CLP$ ", "").replace(".", "")
+                total = document.getElementById("confirmar").textContent.replace("CLP$ ", "").replace(".", "")
+                nuevoTotal = parseInt(total) + parseInt(precio)
+                document.getElementById("confirmar").textContent = "CLP$ " + nuevoTotal;
+            }
         });
     </script>
     <!-- Fin del Script -->

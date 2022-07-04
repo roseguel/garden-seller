@@ -42,9 +42,12 @@ class ProductoVenta(models.Model):
         return self.nombre
 
 class ProductoImagen(models.Model):
-    producto = models.ForeignKey(ProductoVenta, on_delete=models.CASCADE)
+    producto = models.ForeignKey(ProductoVenta, related_name='imagenes', on_delete=models.CASCADE)
     id = models.BigAutoField(primary_key=True)
     imagen = models.ImageField(upload_to="productosImagenes")
+
+    def __str__(self):
+        return self.imagen
 
 class Carrito(models.Model):
     total = models.IntegerField()
@@ -73,13 +76,13 @@ class Pedido(models.Model):
 
 class DetallePedido(models.Model):
     pedido = models.ForeignKey(Pedido, on_delete=models.PROTECT)
-    producto = models.ManyToManyField(ProductoVenta)
+    producto = models.ForeignKey(ProductoVenta, on_delete=models.PROTECT, default=1)
     id = models.BigAutoField(primary_key=True)
     cantidad = models.IntegerField()
     subtotal = models.IntegerField()
 
     def __str__(self):
-        return str(self.cantidad)
+        return str(self.id)
 
 class EstadoEnvio(models.Model):
     id = models.BigAutoField(primary_key=True)
@@ -91,7 +94,7 @@ class EstadoEnvio(models.Model):
 class Envio(models.Model):
     comprador = models.ForeignKey(Usuario, on_delete=models.DO_NOTHING)
     vendedor = models.ForeignKey(Usuario, on_delete=models.DO_NOTHING, related_name='vendedor')
-    pedido = models.ForeignKey(Pedido, on_delete=models.CASCADE)
+    pedido = models.ForeignKey(DetallePedido, on_delete=models.CASCADE)
     estado = models.ForeignKey(EstadoEnvio, on_delete=models.DO_NOTHING)
     id = models.BigAutoField(primary_key=True)
     fecha_emision = models.DateField()

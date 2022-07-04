@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+    <link rel="stylesheet" href="{% static 'BuyBeeApp/css/informacion-envio.css' %}">
+    <script src="{% static 'BuyBeeApp/js/jquery.js' %}"></script>
+    <title>Editar Información de Envio</title>
+</head>
+<body>
+    <div id="nav">
+        <a id="salir" href="{% url 'perfil' %}"><img src="{% static 'BuyBeeApp/assets/images/Exit.png' %}"></a>
+        <h1>Envio N°{{ envio.id }}</h1>
+    </div>
+    <div id="cuerpo">
+        <div id="imagen" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div id="inner-carousel" class="carousel-inner" style="height: 100%; border-radius: 2em;">
+                {% for imagen in imagenes %}
+                    {% if activa == imagen.id %}
+                        <div id="item" class="carousel-item active" style="height: 100%; border-radius: 2em;">
+                            <img class="carrusel-imagen" src="/media/{{ imagen.imagen }}">
+                        </div>
+                    {% else %}
+                        <div id="item" class="carousel-item" style="height: 100%; border-radius: 2em;">
+                            <img class="carrusel-imagen" src="/media/{{ imagen.imagen }}">
+                        </div>
+                    {% endif %}
+                {% endfor %}
+                {% if imagenes|length > 1 %}
+                    <button class="carousel-control-prev" type="button" data-bs-target="#imagen" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#imagen" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                {% endif %}
+            </div>
+        </div>
+        <div id="info">
+            <span class="titulo">{{ producto.nombre }}</span>
+            <div class="info-extra">
+                <div class="info-extra-data">
+                    <span class="texto-subrayado">Comprador</span><span class="texto-normal">: {{ comprador.nombre_completo }}</span>
+                </div>
+                <div class="info-extra-data">
+                    <span class="texto-subrayado">Fecha de Compra</span><span class="texto-normal">: {{ envio.fecha_emision }}</span>
+                </div>
+                <div class="info-extra-data">
+                    <span class="texto-subrayado">Última actualización</span><span class="texto-normal">: {{ envio.fecha_actualizacion }}</span>
+                </div>
+                <div class="estado-envio">
+                    <span class="texto-subrayado">Estado del Envio:</span>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <select name="estado_envio" id="estado_envio" class="form-control select">
+                            {% for estado in estados_envios %}
+                                {% if estado.id == estado_envio.id %}
+                                    <option selected value="{{ estado.id }}">{{ estado.nombre }}</option>
+                                {% else %}
+                                    <option value="{{ estado.id }}">{{ estado.nombre }}</option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                        <input class="boton-submit" type="submit" value="Actualizar">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -57,26 +57,27 @@
     <div id="extra-info">
         <h2 id="productos-venta">Productos en Venta</h2>
         <div id="contenido">
-            <div class="contenido-info">
-                {% if productos|length > 0 %}
+            {% if productos|length > 0 %}
+                <div class="contenido-info">
                     {% for producto in productos %}
                         <div class="producto-data" onclick="window.open('/producto/{{ producto.id }}', '_self')">
                             <img src="/media/{{ producto.imagen.imagen }}">
                             <div class="producto-data-info">
                                 <span class="producto-nombre">{{ producto.nombre }}</span>
                                 <span>{{ producto.stock }} Disponible(s)</span>
-
                                 <span>CLP$ {{ producto.precio }}</span>
                             </div>
                         </div>
                     {% endfor %}
-                {% else %}
+                </div>
+            {% else %}
+                <div class="sin-contenido-info">
                     <div id="no-data-found">
                         <img src="{% static 'BuyBeeApp/assets/images/Error.png' %}">
                         <span>No se han encontrado registros de Productos en Venta</span>
                     </div>
-                {% endif %}
-            </div>
+                </div>
+            {% endif %}
         </div>
     </div>
 </body>

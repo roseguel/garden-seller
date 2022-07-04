@@ -29,7 +29,7 @@
     </nav>
     <div id="inicio">
         <div id="categories">
-          <h1>categorias</h1>
+          <h1>Categorias</h1>
           <div class="categories-row row">
             {% for cat in categorias1 %}
               <div onclick="window.open('categoria/{{ cat.id }}', '_self')" class="cat col-sm-3">
@@ -48,18 +48,32 @@
           </div>
         </div>
         <div id="recomendados">
-            <div id="titulo_rec">Recomendados</div>
-              <div id="prod_container">
-                {% for producto in productos_recomendados %}
-                <div class="prod prod-rec">
-                  <img class="prod_imagen" src="media/{{ producto.imagen.imagen }}">
-                  <div id="prod_data">
-                    <p class="carrito_prod_nombre">{{producto.nombre}}</p>
-                    <p class="carrito_prod_precio">CLP$ {{producto.precio}}</p>
-                  </div>
+          <div class="titulo_rec">Recomendados</div>
+          <div class="prod_container">
+            {% for producto in productos_recomendados %}
+              <div class="prod prod-rec" onclick="window.open('producto/{{ producto.id }}', '_self')" data-bs-toggle="tooltip" data-bs-html="true" title="Precio: {{ producto.precio }}">
+                <img class="prod_imagen" src="media/{{ producto.imagen.imagen }}">
+                <div class="prod_data">
+                  <p class="carrito_prod_nombre">{{producto.nombre}}</p>
+                  <p class="carrito_prod_precio">CLP$ {{producto.precio}}</p>
                 </div>
-              {% endfor %}
-            </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+        <div id="recientes">
+          <div class="titulo_rec">Recientes</div>
+          <div class="prod_container">
+            {% for producto in prod_recientes %}
+              <div class="prod prod-rec" onclick="window.open('producto/{{ producto.id }}', '_self')" data-bs-toggle="tooltip" data-bs-html="true" title="Precio: {{ producto.precio }}">
+                <img class="prod_imagen" src="media/{{ producto.imagen.imagen }}">
+                <div class="prod_data">
+                  <p class="carrito_prod_nombre">{{producto.nombre}}</p>
+                  <p class="carrito_prod_precio">CLP$ {{producto.precio}}</p>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
         </div>
     </div>
   </div>
@@ -79,7 +93,7 @@
       </nav>
     <div id="inicio">
         <div id="categories">
-          <h1>categorias</h1>
+          <h1>Categorias</h1>
           <div class="categories-row row">
             {% for cat in categorias1 %}
               <div onclick="window.open('categoria/{{ cat.id }}', '_self')" class="cat col-sm-3">
@@ -98,12 +112,26 @@
           </div>
         </div>
         <div id="recomendados">
-          <div id="titulo_rec">Recomendados</div>
-          <div id="prod_container">
+          <div class="titulo_rec">Recomendados</div>
+          <div class="prod_container">
             {% for producto in productos_recomendados %}
               <div class="prod prod-rec" onclick="window.open('producto/{{ producto.id }}', '_self')" data-bs-toggle="tooltip" data-bs-html="true" title="Precio: {{ producto.precio }}">
                 <img class="prod_imagen" src="media/{{ producto.imagen.imagen }}">
-                <div id="prod_data">
+                <div class="prod_data">
+                  <p class="carrito_prod_nombre">{{producto.nombre}}</p>
+                  <p class="carrito_prod_precio">CLP$ {{producto.precio}}</p>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+        <div id="recientes">
+          <div class="titulo_rec">Recientes</div>
+          <div class="prod_container">
+            {% for producto in prod_recientes %}
+              <div class="prod prod-rec" onclick="window.open('producto/{{ producto.id }}', '_self')" data-bs-toggle="tooltip" data-bs-html="true" title="Precio: {{ producto.precio }}">
+                <img class="prod_imagen" src="media/{{ producto.imagen.imagen }}">
+                <div class="prod_data">
                   <p class="carrito_prod_nombre">{{producto.nombre}}</p>
                   <p class="carrito_prod_precio">CLP$ {{producto.precio}}</p>
                 </div>

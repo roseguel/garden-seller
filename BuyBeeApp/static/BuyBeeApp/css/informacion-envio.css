@@ -1,0 +1,129 @@
+/* Escritorio */
+body {
+    background-color: #D7D5D4;
+}
+
+@media (min-width: 950px) {
+    #nav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        background-color: #CF7E8E;
+        width: 100%;
+        height: 10vh;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        font-family: 'Quicksand';
+        font-weight: 700;
+        color: #F5FFFD;
+    }
+
+    #salir {
+        position: absolute;
+        left: 1%;
+    }
+
+    #salir img {
+        width: 8vh;
+        height: 8vh;
+    }
+
+    #cuerpo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-self: center;
+    }
+
+    #imagen {
+        margin-top: 2vw;
+        width: 24vh;
+        height: 24vh;
+        background-color: rgba(0, 0, 0, 0);
+        border-radius: 1vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    }
+
+    #imagen img{
+        background-color: #0CA577;
+        width: 24vh;
+        height: 24vh;
+        border-radius: 1vh;
+    }
+
+    #info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .info-extra {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 4vh;
+        margin: 2vh;
+        border: 2px solid #CF8E8E;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    }
+
+    .info-extra-data {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        margin: 1vh;
+    }
+
+    .titulo {
+        font-size: 4vh;
+        font-weight: 600;
+        border-bottom: 1px solid black;
+    }
+
+    .texto-subrayado {
+        border-bottom: 1px solid black;
+        height: 4vh;
+    }
+
+    .texto-normal {
+        font-style: italic;
+        font-weight: 100;
+    }
+
+    .estado-envio {
+        display: flex;
+    }
+
+    .estado-envio form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: 1vh;
+    }
+
+    .estado-envio form select {
+        margin-bottom: 1.5vh;
+        padding: 0vh 1vh;
+    }
+
+    .boton-submit {
+        transition: all .2s ease-in-out;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        color: #CF8E8E;
+        border-radius: 2vh;
+        height: 6vh;
+        width: 16vh;
+        border: 1.5px solid #CF8E8E;
+        text-decoration: none;
+    }
+
+    .boton-submit:hover {
+        transition: all .2s ease-in-out;
+        background-color: #9E8FD4;
+        border: 1.5px solid #9E8FD4;
+        color: whitesmoke;
+    }
+}

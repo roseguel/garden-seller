@@ -96,8 +96,8 @@
     #inicio {
         margin-top: 20vh;
         margin-bottom: -5vw;
-        height: 100vh;
-        width: 100vw;
+        height: 100%;
+        width: 100%;
         display: flex;
         align-items: center;
         flex-direction: column;
@@ -175,6 +175,19 @@
         border-radius: 100%;
     }
 
+    #recientes {
+        background-color: #F5FFFD;
+        border: #402A36 1.5px solid;    
+        border-radius: 2vh;
+        overflow-x: scroll;
+        margin-top: 10vh;
+        height: 30vh;
+        width: 80vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
     #recomendados {
         background-color: #F5FFFD;
         border: #402A36 1.5px solid;    
@@ -186,10 +199,9 @@
         display: flex;
         justify-content: center;
         align-items: center;
-    
     }
     
-    #titulo_rec {
+    .titulo_rec {
         border-radius: 2vh;
         font-weight: 700;
         font-size: 2vh;
@@ -221,7 +233,7 @@
         align-self: flex-start;
     }
     
-    #prod_container {
+    .prod_container {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -259,7 +271,7 @@
         color: #39433F;
     }
     
-    #prod_data {
+    .prod_data {
         left: 0;
         background: #CF8E8E;
         height: 60%;
@@ -290,7 +302,7 @@
 
     body::-webkit-scrollbar {
         width: 0.5em;
-      }
+    }
        
     body::-webkit-scrollbar-track {
         box-shadow: inset 0 0 6px rgb(140, 75, 88);
@@ -312,8 +324,8 @@
        
     div::-webkit-scrollbar-thumb {
        border-radius: 0.2em;
-        background-color: #47BC99;
-        outline: 1px solid #41A486;
+       background-color: #8c4b58;
+       outline: 1px solid #713f49;
     }
 }
 
@@ -394,7 +406,7 @@ Movil
     }
     
     #inicio {
-        height: 75vh;
+        height: 100%;
         width: 100%;
         display: flex;
         align-items: center;
@@ -436,6 +448,19 @@ Movil
         width: 10vh;
         border-radius: 100%;
     }
+
+    #recientes {
+        background-color: #F5FFFD;
+        border: #402A36 1.5px solid;    
+        border-radius: 2vh;
+        overflow-x: scroll;
+        margin-top: 10vh;
+        height: 30vh;
+        width: 80vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
     
     #recomendados {
         background-color: #F5FFFD;
@@ -448,10 +473,9 @@ Movil
         display: flex;
         justify-content: center;
         align-items: center;
-    
     }
     
-    #titulo_rec {
+    .titulo_rec {
         border-radius: 2vh;
         font-weight: 700;
         font-size: 2vh;
@@ -483,7 +507,7 @@ Movil
         align-self: flex-start;
     }
     
-    #prod_container {
+    .prod_container {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -534,7 +558,7 @@ Movil
         color: #39433F;
     }
     
-    #prod_data {
+    .prod_data {
         left: 0;
         background: #CF8E8E;
         height: 60%;
@@ -621,10 +645,11 @@ body {
     background-color:  #F2F2F2;
     padding-left: 1vh;
 }
+
 #extra {
-    margin-top: 0vw;
-    height: 50vh;
-    width: 100vw;
+    margin-top: 6vh;
+    height: 100%;
+    width: 100%;
     display: flex;
     align-items: center;
     flex-direction: column;

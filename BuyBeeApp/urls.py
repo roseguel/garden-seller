@@ -1,7 +1,16 @@
+from email.policy import default
 from BuyBee.urls import path
-from BuyBeeApp.views import carrito, categoria, home, publicarProducto, envio, quienesSomos, ayuda, perfil, producto, iniciarSesion, registrarse, registropersonal, suscripcion, historialCompras, vendedor
+from BuyBeeApp.views import carrito, categoria, detallePedidoViewSet, envioViewSet, estadoEnvioViewSet, estadoPedidoViewSet, home, informacionEnvio, pedidoViewSet, productoImagenViewSet, productoVentaViewSet, publicarProducto, envio, quienesSomos, ayuda, perfil, producto, iniciarSesion, registrarse, registropersonal, suscripcion, usuarioViewSet, vendedor
 from django.contrib.auth.views import LoginView
 from django.urls import path, include
+
+from rest_framework import routers
+
+router = routers.DefaultRouter()
+nombres = ["productoventa", "productoimagen", "estadopedido", "pedido", "estadoenvio", "envio", "detallepedido", "usuario"]
+viewSet = [productoVentaViewSet, productoImagenViewSet, estadoPedidoViewSet, pedidoViewSet, estadoEnvioViewSet, envioViewSet, detallePedidoViewSet, usuarioViewSet]
+for x in range(0, len(nombres), 1):
+    router.register(nombres[x], viewSet[x])
 
 # Patterns
 urlpatterns = [
@@ -14,10 +23,11 @@ urlpatterns = [
     path('registro-personal', registropersonal, name="registro-personal"),
     path('perfil', perfil, name="perfil"),
     path('producto/<id_producto>', producto, name="producto"),
-    path('historial', historialCompras, name="historial"),
     path('vendedor/<vendedor>', vendedor, name="vendedor"),
     path('categoria/<id_categoria>', categoria, name="categoria"),
     path('carrito', carrito, name="carrito"),
     path('publicar-producto', publicarProducto, name="publicar-producto"),
     path('envio', envio, name="envio"),
+    path('informacion-envio/<id_envio>', informacionEnvio, name="informacion-envio"),
+    path('api/', include(router.urls)),
 ]

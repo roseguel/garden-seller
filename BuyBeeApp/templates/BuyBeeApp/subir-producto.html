@@ -8,6 +8,7 @@
     <title>Publicar Producto</title>
     <link rel="stylesheet" href="{% static 'BuyBeeApp/css/fmproductos.css' %}">
     <script src="{% static 'BuyBeeApp/js/fmproductos.js' %}"></script>
+    <script src="{% static 'BuyBeeApp/js/jquery.js' %}"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
@@ -15,30 +16,75 @@
         crossorigin="anonymous"></script>
     <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
 </head>
-<body id="body">
+<body id="body" onload="cambiarImagenes(true)">
     <div id="nav">
         <a id="salir" href="{% url 'home' %}"><img src="{% static 'BuyBeeApp/assets/images/Exit.png' %}" ></a>
         <h2>Publicar producto</h2>
     </div>
-    <img src="{% static 'BuyBeeApp/assets/images/florazul.jpg' %}" class="phproduct mx-auto d-block">
-    <div class="producto">
-        <form method="POST" enctype="multipart/form-data">
-            <div>
-                <div class="mb-3 fotos">
-                    <input accept=".png,.jpg" multiple onchange="cambiarImagenTest()" class="form-control form-control-sm" id="formFileSm" type="file">
+    <div id="error">
+        <div id="error-body">
+            <img id="error-exit" src="{% static 'BuyBeeApp/assets/images/Exit.png' %}">
+            <div id="error-div">
+                <img id="error-img" src="{% static 'BuyBeeApp/assets/images/Error.png' %}">
+                <span id="error-msg"></span>
+            </div>
+        </div>
+        <script>
+            $("#error-exit").click(function() {
+                document.getElementById("error").style.display = "none";
+            })
+            $("#error").click(function(e) {
+                if (document.elementFromPoint(e.clientX, e.clientY).id == "error") {
+                    document.getElementById("error").style.display = "none";
+                }
+            })
+            $(document).keyup(function(e) {
+                if (e.key === "Escape" && document.getElementById("error").style.display != "") {
+                    document.getElementById("error").style.display = "none";
+                }
+           });
+        </script>
+    </div>
+    <div id="producto">
+        <form onsubmit="return validarForm(event);" method="POST" enctype="multipart/form-data" id="prod-frm">
+            {% csrf_token %}
+            <div id="producto-form">
+                <div id="left-side">
+                    <!-- Carrusel -->
+                    <div id="imagenes" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                        <div id="indicadores-carrusel" class="carousel-indicators">
+                        </div>
+                        <div id="inner-carousel" class="carousel-inner" style="height: 100%; border-radius: 2em;">
+                        </div>
+                    </div>
+                    <!-- Fin Carrusel -->
+                    <input form="prod-frm" name="imagen" accept=".png,.jpg" multiple onchange="cambiarImagenes(false)" id="formFileSm" type="file">
                     <label for="formFileSm" class="fileFormLabel">
                         <img src="{% static 'BuyBeeApp/assets/images/Agregar.png' %}">
                         <span>Subir imágenes</span>
                     </label>
                 </div>
-                <label for="Nombre" class="form-label">Nombre producto</label>
-                <input required type="text" class="form-control" id="Nombre" placeholder="Ingrese el título del Producto" name="rosas">
-                <label for="comment">Descripcion Producto</label>
-                <textarea required class="form-control" rows="3" id="Producto" placeholder="Ingrese la descripción del Producto" name="text"></textarea>
-                <label for="precio" class="form-label">Precio</label>
-                <input required type="number" class="form-control" id="precio" placeholder="1000" min="0" name="precio">
-                <div class="publicar">
-                    <button type="Publicar Producto" class="btn btn-primary">Publicar Producto</button>
+                <div id="right-side">
+                    <label for="nombre" class="form-label">Nombre producto</label>
+                    <input form="prod-frm" required type="text" class="form-control" name="nombre" placeholder="Ingrese el título del Producto">
+                    <label for="categoria" class="form-label">Categoria</label>
+                    <select form="prod-frm" required class="form-control" name="categoria" id="categoria">
+                        <option value="default">Categoria</option>
+                        <optgroup label="Categorias">
+                            {% for categoria in categorias %}
+                                <option value="{{ categoria.id }}">{{ categoria.nombre }}</option>
+                            {% endfor %}
+                        </optgroup>
+                    </select>
+                    <label for="descripcion">Descripcion Producto</label>
+                    <textarea form="prod-frm" required class="form-control" rows="3" name="descripcion" placeholder="Ingrese la descripción del Producto"></textarea>
+                    <label for="precio" class="form-label">Precio</label>
+                    <input form="prod-frm" required type="number" class="form-control" name="precio" placeholder="1000" min="0">
+                    <label for="stock" class="form-label">Stock</label>
+                    <input form="prod-frm" required type="number" class="form-control" name="stock" placeholder="5" min="0">
+                    <div class="publicar">
+                        <button type="a" class="btn btn-primary">Publicar Producto</button>
+                    </div>
                 </div>
             </div>
         </form>

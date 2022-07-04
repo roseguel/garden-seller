@@ -12,8 +12,8 @@
     <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
     <link rel="stylesheet" href="{% static 'BuyBeeApp/css/perfil.css' %}">
     <title>Perfil</title>
-    <script src="{% static 'BuyBeeApp/js/perfil.js' %}"></script>
     <script src="{% static 'BuyBeeApp/js/jquery.js' %}"></script>
+    <script src="{% static 'BuyBeeApp/js/perfil.js' %}"></script>
 </head>
 
 <body>
@@ -59,11 +59,99 @@
             $("#salir-modal").click(function() {
                 document.getElementById("modal").style.display = "none";
             })
+            $("#modal").click(function(e) {
+                if (document.elementFromPoint(e.clientX, e.clientY).id == "modal") {
+                    document.getElementById("modal").style.display = "none";
+                }
+            })
+            $(document).keyup(function(e) {
+                if (e.key === "Escape" && document.getElementById("modal").style.display != "") {
+                    document.getElementById("modal").style.display = "none";
+                }
+           });
         </script>
     </div>
-    <div id="modal-pedido">
-        <div id="cuerpo-modal-pedido">
+    <div id="mdl-ped">
+        <div id="cuerpo-mdl-ped">
+            <div id="mdl-ped-left">
+                <img class="mdl-ped-close" src="{% static 'BuyBeeApp/assets/images/Exit.png' %}">
+                <div id="mdl-ped-left-info">
+                    <span id="mdl-ped-resumen">Resumen del Pedido</span>
+                    <div id="mdl-ped-resumen-txt">
+                        <span id="numeropedido" class="modal-pedido-span">Número del Pedido: {numeropedido}</span>
+                        <span id="fechapedido" class="modal-pedido-span">Fecha del Pedido: {fechapedido}</span>
+                        <span id="estadopedido" class="modal-pedido-span">Estado del Pedido: {estadopedido}</span>
+                        <span id="totalpedido" class="modal-pedido-span">Total: ${totalpedido}</span>
+                    </div>
+                </div>
+            </div>
+            <div id="mdl-ped-right">
+                <div id="mdl-ped-right-info">
+                </div>
+            </div>
         </div>
+        <script>
+            $(".mdl-ped-close").click(function() {
+                document.getElementById("mdl-ped").style.display = "none";
+            })
+            $("#mdl-ped").click(function(e) {
+                if (document.elementFromPoint(e.clientX, e.clientY).id == "mdl-ped") {
+                    document.getElementById("mdl-ped").style.display = "none";
+                }
+            })
+            $(document).keyup(function(e) {
+                if (e.key === "Escape" && document.getElementById("mdl-ped").style.display != "") {
+                    document.getElementById("mdl-ped").style.display = "none";
+                }
+           });
+        </script>
+    </div>
+    <div id="mdl-prod">
+        <div id="cuerpo-mdl-prod">
+            <div id="mdl-prod-left">
+                <img class="mdl-prod-close" src="{% static 'BuyBeeApp/assets/images/Exit.png' %}">
+                <div id="mdl-prod-left-info">
+                    <figure id="mdl-prod-figure">
+                        <div id="mdl-prod-figure-data">
+                            <img id="mdl-prod-figure-img" src="">
+                            <figcaption id="mdl-prod-figure-title">{nombreproducto}</figcaption>
+                        </div>
+                        <div id="mdl-prod-figure-extra">
+                            <figcaption id="mdl-prod-figure-precio" class="mdl-prod-figure-extradata"></figcaption>
+                            <figcaption id="mdl-prod-figure-stock" class="mdl-prod-figure-extradata">Stock: {stock}</figcaption>
+                            <figcaption id="mdl-prod-figure-fecha" class="mdl-prod-figure-extradata">Publicación: {publicacion}</figcaption>
+                            <figcaption id="mdl-prod-figure-vistas" class="mdl-prod-figure-extradata">Vistas: {vistas}</figcaption>
+                            <figcaption id="mdl-prod-figure-compras" class="mdl-prod-figure-extradata">Compras: {compras}</figcaption>
+                        </div>
+                        <div id="mdl-prod-boton">
+                            <button id="mdl-prod-button" href="">Página del Producto</button>
+                        </div>
+                    </figure>
+                </div>
+            </div>
+            <div id="mdl-prod-right">
+                <div id="mdl-prod-right-info">
+                </div>
+            </div>
+        </div>
+        <script>
+            $(".mdl-prod-close").click(function() {
+                //document.getElementById("mdl-prod").style.display = "none";
+                salirModal('producto')
+            })
+            $("#mdl-prod").click(function(e) {
+                if (document.elementFromPoint(e.clientX, e.clientY).id == "mdl-prod") {
+                    //document.getElementById("mdl-prod").style.display = "none";
+                    salirModal('producto')
+                }
+            })
+            $(document).keyup(function(e) {
+                if (e.key === "Escape" && document.getElementById("mdl-prod").style.display != "") {
+                    //document.getElementById("mdl-prod").style.display = "none";
+                    salirModal('producto')
+                }
+           });
+        </script>
     </div>
 <!-- Fin Modals -->
     <div id="personal-info">
@@ -160,10 +248,10 @@
             <h2 onclick="cambiarInfo('productos-venta')" class="productos-venta opcion">Productos en Venta</h2>
         </div>
         <div id="contenido">
-            <div class="contenido-info" id="historial-compras">
-                {% if pedidos|length > 0 %}
+            {% if pedidos|length > 0 %}
+                <div class="contenido-info" id="historial-compras">
                     {% for pedido in pedidos %}
-                        <div class="producto-data">
+                        <div id="pedido-{{ pedido.id }}" class="producto-data pedido">
                             <img src="media/{{ pedido.imagen }}">
                             <div class="producto-data-info">
                                 <span class="producto-nombre">Pedido N°{{ pedido.id }}</span>
@@ -172,41 +260,42 @@
                             </div>
                         </div>
                     {% endfor %}
-                {% else %}
+                </div>
+            {% else %}
+                <div class="sin-contenido-info" id="historial-compras">
                     <div id="no-data-found">
                         <img src="{% static 'BuyBeeApp/assets/images/Error.png' %}">
                         <span>No se han encontrado registros de Compras</span>
                     </div>
-                {% endif %}
-            </div>
-            <div class="contenido-info" id="envios" style="display: none;">
-                {% if envios|length > 0 %}
+                </div>
+            {% endif %}
+            {% if envios|length > 0 %}
+                <div class="contenido-info" id="envios" style="display: none;">
                     {% for envio in envios %}
                         <div class="envio-data">
                             <img src="media/{{ envio.imagen_producto }}">
                             <div class="producto-data-info">
                                 <span class="producto-nombre">Envio N°{{ envio.id }}</span>
-                                <span class="estado-envio {{ envio.estado_nombre }}">{{ envio.estado_nombre }}</span>
-                                {% if envio.emisor == usuario.rut %}
-                                    <span>Enviado a {{ envio.receptor_nombre }}</span>
-                                {% else %}
-                                    <span>Enviado por {{ envio.emisor_nombre }}</span>
-                                {% endif %}
+                                <span class="estado-envio estado-{{ envio.id }}">{{ envio.estado_nombre }}</span>
+                                <span>Enviado por {{ envio.emisor_nombre }}</span>
                                 <span class="envio-fecha-emision">El {{ envio.fecha_emision }}</span>
                             </div>
                         </div>
                     {% endfor %}
-                {% else %}
+                </div>
+            {% else %}
+                <div class="sin-contenido-info" id="envios" style="display: none;">
                     <div id="no-data-found">
                         <img src="{% static 'BuyBeeApp/assets/images/Error.png' %}">
                         <span>No se han encontrado registros de Envios</span>
                     </div>
-                {% endif %}
-            </div>
-            <div class="contenido-info" id="productos-venta" style="display: none;">
-                {% if productos|length > 0 %}
+                </div>
+            {% endif %}
+            {% if productos|length > 0 %}
+                <div class="contenido-info" id="productos-venta" style="display: none;">
                     {% for producto in productos %}
-                        <div class="producto-data" onclick="window.open('producto/{{ producto.id }}', '_self')">
+                        <!-- onclick="window.open('producto/{{ producto.id }}', '_self')" -->
+                        <div class="producto-data producto-venta" name="{{ producto.id }}">
                             <img src="media/{{ producto.imagen.imagen }}">
                             <div class="producto-data-info">
                                 <span class="producto-nombre">{{ producto.nombre }}</span>
@@ -215,25 +304,24 @@
                                 <span>CLP$ {{ producto.precio }}</span>
                             </div>
                         </div>
-                    {% endfor %}
-                {% else %}
+                {% endfor %}
+            {% else %}
+                <div class="sin-contenido-info" id="productos-venta" style="display: none;">
                     <div id="no-data-found">
                         <img src="{% static 'BuyBeeApp/assets/images/Error.png' %}">
                         <span>No se han encontrado registros de Productos en Venta</span>
                     </div>
-                {% endif %}
+                </div>
+            {% endif %}
             </div>
         </div>
         <script>
-            function cambiarInfo(e) {
-                if (!document.getElementById(e).classList.contains("activa")) {
-                    id = document.getElementsByClassName("activa")[0].classList[0]
-                    document.getElementById(id).style.display = "none";
-                    document.getElementsByClassName("activa")[0].classList.remove("activa");
-                    document.getElementById(e).style.display = "flex";
-                    document.getElementsByClassName(e)[0].classList.add("activa");
-                }
-            }
+            $(".pedido").click(function() {
+                displayModal('pedido', $(this))
+            })
+            $(".producto-venta").click(function() {
+                displayModal('producto', $(this))
+            })
         </script>
     </div>
 </body>

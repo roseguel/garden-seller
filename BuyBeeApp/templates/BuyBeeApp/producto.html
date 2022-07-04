@@ -64,10 +64,18 @@
     <p class="texto">{{ producto.descripcion }}</p>
     <H2 class="texto">CLP$ {{ producto.precio }}</H2>
     <div id="buttons">
-        <form method="POST">
-            {% csrf_token %}
-            <button type="submit" class="btn btn-primary mb-3 boton">Agregar al Carrito</button>
-        </form>
+        {% if es_vendedor %}
+            <button onclick="window.open('http://127.0.0.1:8000/', '_self')" class="btn btn-primary mb-3 boton">Volver atrás</button>
+        {% else %}
+            <form method="POST">
+                {% csrf_token %}
+                {% if en_carrito %}
+                    <button type="submit" class="btn btn-primary mb-3 boton">Remover del Carrito</button>
+                {% else %}
+                    <button type="submit" class="btn btn-primary mb-3 boton">Agregar al Carrito</button>
+                {% endif %}
+            </form>
+        {% endif %}
     </div>
 </body>
 

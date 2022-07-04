@@ -225,6 +225,19 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        /*
+        justify-content: center;
+        */
+        margin: 2vh 4vh;
+        overflow-x: hidden;
+        overflow-y: auto;
+        height: 76vh;
+    }
+
+    .sin-contenido-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         justify-content: center;
         margin: 2vh 4vh;
         overflow-x: hidden;
@@ -329,25 +342,25 @@
         margin-top: 2vh;
     }
 
-    .estado-envio.No-enviado {
+    .estado-envio.estado-1 {
         color: yellow;
         border: 1px yellow solid;
         border-radius: 1vh;
     }
 
-    .estado-envio.Recibido {
+    .estado-envio.estado-4 {
         color: greenyellow;
         border: 1px greenyellow solid;
         border-radius: 1vh;
     }
 
-    .estado-envio.Rechazado {
+    .estado-envio.estado-3 {
         color: red;
         border: 1px red solid;
         border-radius: 1vh;
     }
 
-    .estado-envio.Enviado {
+    .estado-envio.estado-2 {
         color: whitesmoke;
         border: 1px whitesmoke solid;
         border-radius: 1vh;
@@ -381,6 +394,9 @@
         height: 30em;
         border-radius: 2em;
         filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        animation-name: animacionModal;
+        animation-duration: 0.5s;
+        animation-iteration-count: 1;
     }
 
     #modal-datos {
@@ -436,6 +452,7 @@
         background-color: #CF7E8E;
         border-radius: 2em 2em 0em 0em;
         height: 3.6em;
+        margin-top: -4vh;
         filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     }
 
@@ -456,6 +473,424 @@
         transition: all .2s ease-in-out;
         cursor: pointer;
         transform: scale(120%);
+    }
+
+    /* Modal Pedido */
+    #mdl-ped {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        z-index: 1;
+        padding-top: 100px;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    #cuerpo-mdl-ped {
+        margin-top: -6em;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        background-color: #D7D5D4;
+        width: 50em;
+        height: 30em;
+        border-radius: 2em;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        animation-name: animacionModal;
+        animation-duration: 0.5s;
+        animation-iteration-count: 1;
+    }
+
+    #mdl-ped-left {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        width: 20em;
+        height: 30em;
+        border-radius: 2em 0em 0em 2em;
+        border: 1px solid rgba(0, 0, 0, 0.25);
+        animation-name: animacionModal;
+        animation-duration: 0.5s;
+        animation-iteration-count: 1;
+    }
+
+    .mdl-ped-close {
+        height: 6vh;
+        width: 6vh;
+        margin-left: 2vh;
+        margin-top: 2vh;
+        transition: all .2s ease-in-out;
+        cursor: pointer;
+        animation-name: animacionModal;
+        animation-duration: 0.5s;
+        animation-iteration-count: 1;
+    }
+
+    .mdl-ped-close:hover {
+        transform: scale(125%);
+        transition: all .2s ease-in-out;
+    }
+
+    .mdl-ped-close:active {
+        transform: scale(80%);
+        transition: all .2s ease-in-out;
+    }
+
+    #mdl-ped-left-info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 2vh 4vh;
+        animation-name: animacionModal;
+        animation-duration: 0.5s;
+        animation-iteration-count: 1;
+    }
+
+    #mdl-ped-resumen {
+        justify-self: center;
+        text-align: center;
+        font-size: 2em;
+        animation-name: animacionModal;
+        animation-duration: 0.5s;
+        animation-iteration-count: 1;
+    }
+
+    #mdl-ped-resumen-txt {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 10vh;
+        animation-name: animacionModal;
+        animation-duration: 0.5s;
+        animation-iteration-count: 1;
+    }
+
+    .modal-pedido-span {
+        margin: 1vh 0vh;
+        animation-name: animacionModal;
+        animation-duration: 0.5s;
+        animation-iteration-count: 1;
+    }
+
+    #mdl-ped-right {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 35em;
+        height: 30em;
+        border-radius: 0em 2em 2em 0em;
+        border: 1px solid rgba(0, 0, 0, 0.25);
+        animation-name: animacionModal;
+        animation-duration: 0.5s;
+        animation-iteration-count: 1;
+    }
+
+    #mdl-ped-right-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 2vh 4vh;
+        padding: 4vh;
+        width: 30em;
+        height: 28em;
+        background-color: whitesmoke;
+        border: 1px solid rgba(0, 0, 0, 0.25);
+        border-radius: 2em;
+        overflow-x: hidden;
+        overflow-y: auto;
+        animation-name: animacionModal;
+        animation-duration: 0.5s;
+        animation-iteration-count: 1;
+    }
+
+    .pedido-producto-data {
+        display: flex;
+        flex-direction: row;
+        width: 20em;
+        height: 6em;
+        margin: 1vh;
+        background-color: #CF8E8E;
+        border: #9c5757 2px solid;
+        border-radius: 2vh;
+        cursor: pointer;
+        transition: all .2s ease-in-out;
+        animation-name: animacionModal;
+        animation-duration: 0.5s;
+        animation-iteration-count: 1;
+    }
+
+    .pedido-producto-data:hover {
+        margin: 2vh;
+        transform: scale(110%);
+        transition: all .2s ease-in-out;
+    }
+
+    .pedido-producto-data img {
+        width: 18vh;
+        height: 100%;
+        border-radius: 2vh 0em 0em 2vh;
+        border-right: #9c5757 2px solid;
+        animation-name: animacionModal;
+        animation-duration: 0.5s;
+        animation-iteration-count: 1;
+    }
+
+    .pedido-producto-info {
+        display: flex;
+        flex-direction: column;
+        margin-left: 1vh;
+        animation-name: animacionModal;
+        animation-duration: 0.5s;
+        animation-iteration-count: 1;
+    }
+
+    .pedido-producto-title {
+        font-size: 4vh;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        text-decoration: none;
+        color: black;
+        margin-bottom: 2vh;
+        animation-name: animacionModal;
+        animation-duration: 0.5s;
+        animation-iteration-count: 1;
+    }
+
+    .pedido-producto-info span {
+        font-size: 2vh;
+        animation-name: animacionModal;
+        animation-duration: 0.5s;
+        animation-iteration-count: 1;
+    }
+    
+    /* Modal Producto */
+    #mdl-prod {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        z-index: 1;
+        padding-top: 100px;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    #cuerpo-mdl-prod {
+        margin-top: -6em;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        background-color: #D7D5D4;
+        width: 50em;
+        height: 30em;
+        border-radius: 2em;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        animation-name: animacionModal;
+        animation-duration: 0.5s;
+        animation-iteration-count: 1;
+    }
+
+    #mdl-prod-left {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        width: 20em;
+        height: 30em;
+        border-radius: 2em 0em 0em 2em;
+        border: 1px solid rgba(0, 0, 0, 0.25);
+    }
+
+    .mdl-prod-close {
+        height: 6vh;
+        width: 6vh;
+        margin-left: 2vh;
+        margin-top: 2vh;
+        transition: all .2s ease-in-out;
+        cursor: pointer;
+    }
+
+    .mdl-prod-close:hover {
+        transform: scale(125%);
+        transition: all .2s ease-in-out;
+    }
+
+    .mdl-prod-close:active {
+        transform: scale(80%);
+        transition: all .2s ease-in-out;
+    }
+
+    #mdl-prod-left-info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: 8vh;
+        margin-top: 4vh;
+    }
+
+    #mdl-prod-resumen {
+        justify-self: center;
+        text-align: center;
+        font-size: 2em;
+    }
+
+    #mdl-prod-resumen-txt {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 10vh;
+    }
+
+    .modal-prod-span {
+        margin: 1vh 0vh;
+    }
+
+    #mdl-prod-figure {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #mdl-prod-figure-data {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #mdl-prod-figure-img {
+        width: 30vh;
+        height: 30vh;
+        border: 1.5px solid rgba(0, 0, 0, 0.8);
+    }
+
+    #mdl-prod-figure-title {
+        font-size: 4vh;
+        font-weight: 400;
+        border-bottom: 1.5px solid black;
+    }
+
+    #mdl-prod-figure-extra {
+        margin-top: 2vh;
+    }
+
+    #mdl-prod-boton {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 2vh;
+        width: 32vh;
+    }
+
+    #mdl-prod-boton button {
+        border: 1px solid #CF8E8E;
+        border-radius: 2vh;
+        transition: all .2s ease-in-out;
+    }
+
+    #mdl-prod-boton button:hover {
+        border: 1px solid #9c5757;
+        background-color: rgba(207, 142, 142, 0.6);
+        color: whitesmoke;
+        transition: all .2s ease-in-out;
+    }
+
+    #mdl-prod-right {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 35em;
+        height: 30em;
+        border-radius: 0em 2em 2em 0em;
+        border: 1px solid rgba(0, 0, 0, 0.25);
+    }
+
+    #mdl-prod-right-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 2vh 4vh;
+        padding: 4vh;
+        width: 30em;
+        height: 28em;
+        background-color: whitesmoke;
+        border: 1px solid rgba(0, 0, 0, 0.25);
+        border-radius: 2em;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .mdl-prod-right-info-data {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        width: 50vh;
+        padding: 2vh;
+        border: 1px solid #9c5757;
+        border-radius: 2vh;
+        background-color: #CF8E8E;
+        color: whitesmoke;
+        margin: 0.5vh 0vh;
+    }
+
+    .info-data-user {
+        font-size: 3vh;
+        font-weight: 400;
+    }
+
+    .info-data-fecha {
+        font-size: 2vh;
+    }
+
+    .info-data-envio {
+        font-size: 2vh;
+        border-bottom: 1px whitesmoke solid;
+        font-weight: 600;
+        margin-top: 1vh;
+    }
+
+    .info-data-editarenvio {
+        width: 4vh;
+        height: 4vh;
+        cursor: pointer;
+        transition: all .2s ease-in-out;
+    }
+
+    .info-data-editarenvio:hover {
+        transform: scale(120%);
+        transition: all .2s ease-in-out;
+    }
+
+    .form-envio {
+        margin-top: 1vh;
+        font-size: 2vh;
+        font-weight: 600;
+    }
+
+    .formularioEnvio {
+        width: 45vh;
+        height: 6vh;
+        padding: 0vh 2vh;
+    }
+
+    /* Animaciones */
+    @keyframes animacionModal {
+        from { opacity: 0; }
+        to { opacity: 1; }
     }
 }
 
@@ -664,6 +1099,19 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        /*
+        justify-content: center;
+        */
+        margin: 2vh 4vh;
+        overflow-x: hidden;
+        overflow-y: auto;
+        height: 76vh;
+    }
+
+    .sin-contenido-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         justify-content: center;
         margin: 2vh 4vh;
         overflow-x: hidden;
@@ -772,25 +1220,25 @@
         margin-top: 1vh;
     }
 
-    .estado-envio.No-enviado {
+    .estado-envio.estado-1 {
         color: yellow;
         border: 1px yellow solid;
         border-radius: 1vh;
     }
 
-    .estado-envio.Recibido {
+    .estado-envio.estado-4 {
         color: greenyellow;
         border: 1px greenyellow solid;
         border-radius: 1vh;
     }
 
-    .estado-envio.Rechazado {
+    .estado-envio.estado-3 {
         color: red;
         border: 1px red solid;
         border-radius: 1vh;
     }
 
-    .estado-envio.Enviado {
+    .estado-envio.estado-2 {
         color: whitesmoke;
         border: 1px whitesmoke solid;
         border-radius: 1vh;
@@ -809,7 +1257,6 @@
         width: 100%;
         height: 100%;
         overflow: auto;
-        background-color: rgb(0, 0, 0);
         background-color: rgba(0, 0, 0, 0.6);
     }
 
