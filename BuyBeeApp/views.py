@@ -30,7 +30,7 @@ def AgregarUsuario(r):
         if formulario.is_valid():
             formulario.save()
             data["mensaje"] = "Usuario ingresado"
-            return redirect(to="home") # se debe editar este para volver al crud
+            return redirect(to="administracion") # se debe editar este para volver al crud
         else:
             data["form"] = formulario
             data["mensaje"] = "No se ha ingresado el usuario"
@@ -47,7 +47,7 @@ def ModificarUsuario(r, id):
         if formulario.is_valid():
             formulario.save()
             data["mensaje"] = "Modificacion exitosa"
-            return redirect(to="home") # cuando hacemos algo y queremos redirijir a otra pagina usamos este
+            return redirect(to="administracion") # cuando hacemos algo y queremos redirijir a otra pagina usamos este
         else:
             data["form"] = formulario
             data["mensaje"] = "No se ha guardado el formulario"
@@ -66,7 +66,7 @@ def AgregarPedido(r):
         if formulario.is_valid():
             formulario.save()
             data["mensaje"] = "pedido ingresado"
-            return redirect(to="home") # se debe editar este para volver al crud
+            return redirect(to="administracion") # se debe editar este para volver al crud
         else:
             data["form"] = formulario
             data["mensaje"] = "No se ha ingresado el pedido"
@@ -83,7 +83,7 @@ def ModificarPedido(r, id):
         if formulario.is_valid():
             formulario.save()
             data["mensaje"] = "Modificacion exitosa"
-            return redirect(to="home") # cuando hacemos algo y queremos redirijir a otra pagina usamos este
+            return redirect(to="administracion") # cuando hacemos algo y queremos redirijir a otra pagina usamos este
         else:
             data["form"] = formulario
             data["mensaje"] = "No se ha guardado el formulario"
@@ -102,7 +102,7 @@ def AgregarEnvio(r):
         if formulario.is_valid():
             formulario.save()
             data["mensaje"] = "envio ingresado"
-            return redirect(to="home") # se debe editar este para volver al crud
+            return redirect(to="administracion") # se debe editar este para volver al crud
         else:
             data["form"] = formulario
             data["mensaje"] = "No se ha ingresado el envio"
@@ -119,7 +119,7 @@ def ModificarEnvio(r, id):
         if formulario.is_valid():
             formulario.save()
             data["mensaje"] = "Modificacion exitosa"
-            return redirect(to="home") # cuando hacemos algo y queremos redirijir a otra pagina usamos este
+            return redirect(to="administracion") # cuando hacemos algo y queremos redirijir a otra pagina usamos este
         else:
             data["form"] = formulario
             data["mensaje"] = "No se ha guardado el formulario"
@@ -138,7 +138,7 @@ def AgregarProducto(r):
         if formulario.is_valid():
             formulario.save()
             data["mensaje"] = "producto ingresado"
-            return redirect(to="home") # se debe editar este para volver al crud
+            return redirect(to="administracion") # se debe editar este para volver al crud
         else:
             data["form"] = formulario
             data["mensaje"] = "No se ha ingresado el producto"
@@ -155,7 +155,7 @@ def ModificarProducto(r, id):
         if formulario.is_valid():
             formulario.save()
             data["mensaje"] = "Modificacion exitosa"
-            return redirect(to="home") # cuando hacemos algo y queremos redirijir a otra pagina usamos este
+            return redirect(to="administracion") # cuando hacemos algo y queremos redirijir a otra pagina usamos este
         else:
             data["form"] = formulario
             data["mensaje"] = "No se ha guardado el formulario"
@@ -174,7 +174,7 @@ def AgregarCategoria(r):
         if formulario.is_valid():
             formulario.save()
             data["mensaje"] = "categoria ingresada"
-            return redirect(to="home") # se debe editar este para volver al crud
+            return redirect(to="administracion") # se debe editar este para volver al crud
         else:
             data["form"] = formulario
             data["mensaje"] = "No se ha ingresado la categoria"
@@ -191,7 +191,7 @@ def ModificarCategoria(r, id):
         if formulario.is_valid():
             formulario.save()
             data["mensaje"] = "Modificacion exitosa"
-            return redirect(to="home") # cuando hacemos algo y queremos redirijir a otra pagina usamos este
+            return redirect(to="administracion") # cuando hacemos algo y queremos redirijir a otra pagina usamos este
         else:
             data["form"] = formulario
             data["mensaje"] = "No se ha guardado el formulario"
