@@ -39,6 +39,7 @@ function displayModal(modal, elemento) {
         case 'producto':
             document.getElementById("mdl-prod-right-info").innerHTML = ""
             idProducto = elemento.attr("name")
+            console.log(idProducto)
             // Left Side
             var productoRaw = {"url": `http://127.0.0.1:8000/api/productoventa/?id=${idProducto}`, "method": "GET", "timeout": 0};
             $.getJSON(productoRaw).done(function (productoRawData) {
@@ -49,8 +50,11 @@ function displayModal(modal, elemento) {
                 document.getElementById("mdl-prod-figure-fecha").textContent = `Publicación: ${productoRawData[0]["fecha_publicacion"]}`
                 document.getElementById("mdl-prod-figure-vistas").textContent = `Vistas: ${productoRawData[0]["vistas"]}`
                 document.getElementById("mdl-prod-figure-compras").textContent = `Compras: ${productoRawData[0]["compras"]}`
-                document.getElementById("mdl-prod-button").onclick = function() {
-                    window.open("http://127.0.0.1:8000/producto/" + idProducto, "_self")
+                document.getElementById("mdl-prod-pagina").onclick = function() {
+                    window.open("http://127.0.0.1:8000/producto/" + productoRawData[0]["id"], "_self")
+                }
+                document.getElementById("mdl-prod-editar").onclick = function() {
+                    window.open("http://127.0.0.1:8000/editar-producto/" + productoRawData[0]["id"], "_self")
                 }
             });
             // Right Side
@@ -85,7 +89,8 @@ function salirModal(modal) {
             document.getElementById("mdl-prod-figure-fecha").textContent = ""
             document.getElementById("mdl-prod-figure-vistas").textContent = ""
             document.getElementById("mdl-prod-figure-compras").textContent = ""
-            document.getElementById("mdl-prod-button").onclick = ""
+            document.getElementById("mdl-prod-pagina").onclick = ""
+            document.getElementById("mdl-prod-editar").onclick = ""
         default:
             break;
     }

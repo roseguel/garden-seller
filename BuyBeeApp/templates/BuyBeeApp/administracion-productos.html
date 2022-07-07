@@ -1,0 +1,158 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+    <link rel="stylesheet" href="{% static 'BuyBeeApp/css/admin.css' %}">
+    <script src="{% static 'BuyBeeApp/js/jquery.js' %}"></script>
+    <script src="{% static 'BuyBeeApp/js/admin.js' %}"></script>
+    <title>Administración</title>
+</head>
+
+<body>
+    <div id="nav">
+        <a id="salir" href="{% url 'home' %}"><img src="{% static 'BuyBeeApp/assets/images/Exit.png' %}"></a>
+        <h2 class="titulo">Panel de Administrador</h2>
+    </div>
+    <div id="contenido">
+        <div id="selectores">
+            <div class="selector">
+                <a href="/administracion/usuarios"><img id="usuarios"
+                        src="{% static 'BuyBeeApp/assets/images/Admin/Usuarios.png' %}"></a>
+                <span>Usuarios</span>
+            </div>
+            <div class="selector">
+                <a href="/administracion/pedidos"><img id="pedidos"
+                        src="{% static 'BuyBeeApp/assets/images/Admin/Pedidos.png' %}"></a>
+                <span>Pedidos</span>
+            </div>
+            <div class="selector">
+                <a href="/administracion/envios"><img id="envios" class="active"
+                        src="{% static 'BuyBeeApp/assets/images/Admin/Envios.png' %}"></a>
+                <span>Envios</span>
+            </div>
+            <div class="selector">
+                <img id="productos" src="{% static 'BuyBeeApp/assets/images/Admin/Productos.png' %}">
+                <span>Productos</span>
+            </div>
+        </div>
+        <div id="tablas">
+            <span class="tablas-titulo">Productos</span>
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered border-dark border-1 caption-top">
+                    <caption>
+                        <span class="agregar usuario">+ Agregar producto</span>
+                    </caption>
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col">
+                                ID
+                                <img id="filtro-id" class="filtro activo"
+                                    src="{% static 'BuyBeeApp/assets/images/Admin/Filtro.png' %}">
+                            </th>
+                            <th scope="col">
+                                Categoria
+                                <img id="filtro-categoria" class="filtro"
+                                    src="{% static 'BuyBeeApp/assets/images/Admin/Filtro.png' %}">
+                            </th>
+                            <th scope="col">
+                                Nombre
+                                <img id="filtro-nombre" class="filtro"
+                                    src="{% static 'BuyBeeApp/assets/images/Admin/Filtro.png' %}">
+                            </th>
+                            <th scope="col">
+                                Descripción
+                                <img id="filtro-descripcion" class="filtro"
+                                    src="{% static 'BuyBeeApp/assets/images/Admin/Filtro.png' %}">
+                            </th>
+                            <th scope="col">
+                                Precio
+                                <img id="filtro-precio" class="filtro"
+                                    src="{% static 'BuyBeeApp/assets/images/Admin/Filtro.png' %}">
+                            </th>
+                            <th scope="col">
+                                Stock
+                                <img id="filtro-stock" class="filtro"
+                                    src="{% static 'BuyBeeApp/assets/images/Admin/Filtro.png' %}">
+                            </th>
+                            <th scope="col">
+                                Vendedor
+                                <img id="filtro-vendedor" class="filtro"
+                                    src="{% static 'BuyBeeApp/assets/images/Admin/Filtro.png' %}">
+                            </th>
+                            <th scope="col">
+                                Fecha Publicación
+                                <img id="filtro-fecha_publicacion" class="filtro"
+                                    src="{% static 'BuyBeeApp/assets/images/Admin/Filtro.png' %}">
+                            </th>
+                            <th scope="col">
+                                Vistas
+                                <img id="filtro-vistas" class="filtro"
+                                    src="{% static 'BuyBeeApp/assets/images/Admin/Filtro.png' %}">
+                            </th>
+                            <th scope="col">
+                                Compras
+                                <img id="filtro-compras" class="filtro"
+                                    src="{% static 'BuyBeeApp/assets/images/Admin/Filtro.png' %}">
+                            </th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cuerpo-tablas">
+                        {% for producto in productos %}
+                        <tr>
+                            <th class="text-center" scope="row">{{ producto.id }}</th>
+                            <td>{{ producto.categoria }}</td>
+                            <td>{{ producto.nombre }}</td>
+                            <td>{{ producto.descripcion }}</td>
+                            <td>{{ producto.precio }}</td>
+                            <td>{{ producto.stock }}</td>
+                            <td>{{ producto.vendedor }}</td>
+                            <td>{{ producto.fecha_publicacion }}</td>
+                            <td>{{ producto.vistas }}</td>
+                            <td>{{ producto.compras }}</td>
+                            <td>
+                                <img class="imagen accion editar"
+                                    src="{% static 'BuyBeeApp/assets/images/Admin/Editar.png' %}">
+                                <img class="imagen accion eliminar"
+                                    src="{% static 'BuyBeeApp/assets/images/Admin/Eliminar.png' %}">
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <script>
+                    $(".filtro").click(function (e) {
+                        if ($(this).hasClass("activo")) {
+                            $(this).removeClass("activo")
+                            cambiarFiltro(this, "productos")
+                        } else {
+                            if (document.getElementsByClassName("activo").length > 0) {
+                                $(".activo").removeClass("activo")
+                            }
+                            $(this).addClass("activo")
+                            cambiarFiltro(this, "productos")
+                        }
+                    });
+                    $(".selector").click(function () {
+                        if ($(this).children("img").hasClass("active") == false) {
+                            $(".active").removeClass("active")
+                            $(this).children("img").addClass("active");
+                        }
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

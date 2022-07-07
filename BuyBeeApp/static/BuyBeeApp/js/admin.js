@@ -1,70 +1,90 @@
-const exData = new Map([
-    ['usuarios', ['Moonie;moonie@gmail.com', 'Wacoldo;wacoldo@live.cl', 'Euclides;euclides@microsoft.com']],
-    ['envios', ['10;Puente Alto, Santiago', '20;Los Copihues, Talcahuano', '30;Centinela 1, Talcahuano']],
-    ['pedidos', ['10;Enviado', '20;En Recorrido', '30;Confirmando']]
-]);
-
-const fields = new Map([
-    ['usuarios', 'Usuario Correo'], 
-    ['envios', 'ID Destino'], 
-    ['pedidos', 'ID Estado']
-]);
-
-function changeCrudMode(option) {
-    let old = document.getElementsByClassName("active")[0].id;
-    document.getElementById(old).classList.remove("active");
-    document.getElementById(option.id).classList.add("active");
-    // Ahora cambio los fields
-    document.getElementById("field1").innerHTML = fields.get(option.id).split(' ')[0];
-    document.getElementById("field2").innerHTML = fields.get(option.id).split(' ')[1];
-    loadExampleData(option.id)
-}
-
-function loadExampleData(option) {
-    document.getElementById('tablaDisplay').innerHTML = '';
-    for (let x in exData.get(option)) {
-        let data1 = exData.get(option)[x].split(";")[0];
-        let data2 = exData.get(option)[x].split(";")[1];
-        document.getElementById('tablaDisplay').innerHTML += `
-        <tr id="crudItem${x}">
-            <td class="crudItem${x}-d1">${data1}</td>
-            <td class="crudItem${x}-d2">${data2}</td>
-            <td>
-                <img onclick="editItem(event)" class="crudEditarItem" id="${x}" src="assets/images/Editar.png">
-                <img onclick="removeItem(event)" class="crudEliminarItem" id="${x}" src="assets/images/EliminarItem.png">
-            </td>
-        </tr>`;
-    }
-}
-
-function removeItem(e) {
-    document.getElementById("tablaDisplay").removeChild(document.getElementById(`crudItem` + e.target.id));
-}
-
-function editItem(e) {
-    // Crud Mode
-    crudMode = document.getElementsByClassName("active")[0].id;
-    let edit;
-    switch (crudMode) {
-        case "usuarios":
-            edit = prompt("Ingrese el nuevo nombre de Usuario:");
-            if (edit != null || edit != "") {
-                document.getElementsByClassName(`crudItem${e.target.id}-d1`)[0].innerText = edit;
-            }
-            break;
-        case "envios":
-            edit = prompt("Ingrese el nuevo Destino:");
-            if (edit != null || edit != "") {
-                document.getElementsByClassName(`crudItem${e.target.id}-d2`)[0].innerText = edit;
-            }
-            break;
-        case "pedidos":
-            edit = prompt("Ingrese el nuevo estado del Pedido:");
-            if (edit != null || edit != "") {
-                document.getElementsByClassName(`crudItem${e.target.id}-d2`)[0].innerText = edit;
-            }
-            break;
-        default:
-            alert("¡Input inválido!");
+function cambiarFiltro(elemento, tipoCrud) {
+    tipoFiltro = elemento.id.replace("filtro-", "")
+    if (tipoCrud == "usuarios") {
+        document.getElementById("cuerpo-tablas").innerHTML = "";
+        usuariosRaw = elemento.classList.contains("activo") ? {"url": `http://127.0.0.1:8000/api/usuario/?order=${tipoFiltro}`, "method": "GET", "timeout": 0} : {"url": `http://127.0.0.1:8000/api/usuario/?order=-${tipoFiltro}`, "method": "GET", "timeout": 0}
+        $.getJSON(usuariosRaw).done(function (usuarios) {
+            usuarios.forEach(usuario => {
+                html = `<tr>
+                    <th class="text-center" scope="row">${usuario["rut"]}</th>
+                    <td>${usuario["nombreusuario"]}</td>
+                    <td>${usuario["nombres"]} ${usuario["apellidos"]}</td>
+                    <td>${usuario["email"]}</td>
+                    <td class="text-center">`
+                if (usuario["suscrito"]) {
+                    html += `<img class="imagen si" src="http://127.0.0.1:8000/static/BuyBeeApp/assets/images/Admin/Si.png">`
+                } else {
+                    html += `<img class="imagen no" src="http://127.0.0.1:8000/static/BuyBeeApp/assets/images/Admin/No.png">`
+                }
+                html += `</td>
+                        <td>
+                            <img class="imagen accion editar" src="http://127.0.0.1:8000/static/BuyBeeApp/assets/images/Admin/Editar.png">
+                            <img class="imagen accion eliminar" src="http://127.0.0.1:8000/static/BuyBeeApp/assets/images/Admin/Eliminar.png">
+                        </td>
+                    </tr>`;
+                document.getElementById("cuerpo-tablas").innerHTML += html;
+            });
+        });
+    } else if (tipoCrud == "pedidos") {
+        document.getElementById("cuerpo-tablas").innerHTML = "";
+        pedidosRaw = elemento.classList.contains("activo") ? {"url": `http://127.0.0.1:8000/api/pedido/?order=${tipoFiltro}`, "method": "GET", "timeout": 0} : {"url": `http://127.0.0.1:8000/api/pedido/?order=-${tipoFiltro}`, "method": "GET", "timeout": 0}
+        $.getJSON(pedidosRaw).done(function (pedidos) {
+            pedidos.forEach(pedido => {
+                document.getElementById("cuerpo-tablas").innerHTML += `<tr>
+                    <th class="text-center" scope="row">${pedido["id"]}</th>
+                    <td>${pedido["comprador"]["nombres"]} ${pedido["comprador"]["apellidos"]}</td>
+                    <td>${pedido["estado"]["nombre"]}</td>
+                    <td>${pedido["fecha"]}</td>
+                    <td>${pedido["total"]}</td>
+                    <td>
+                        <img class="imagen accion editar" src="http://127.0.0.1:8000/static/BuyBeeApp/assets/images/Admin/Editar.png">
+                        <img class="imagen accion eliminar" src="http://127.0.0.1:8000/static/BuyBeeApp/assets/images/Admin/Eliminar.png">
+                    </td>
+                    </tr>`;
+            });
+        });
+    } else if (tipoCrud == "envios") {
+        document.getElementById("cuerpo-tablas").innerHTML = "";
+        enviosRaw = elemento.classList.contains("activo") ? {"url": `http://127.0.0.1:8000/api/envio/?order=${tipoFiltro}`, "method": "GET", "timeout": 0} : {"url": `http://127.0.0.1:8000/api/envio/?order=-${tipoFiltro}`, "method": "GET", "timeout": 0}
+        $.getJSON(enviosRaw).done(function (envios) {
+            envios.forEach(envio => {
+                document.getElementById("cuerpo-tablas").innerHTML += `<tr>
+                    <th class="text-center" scope="row">${envio["id"]}</th>
+                    <td>${envio["comprador"]["nombres"]} ${envio["comprador"]["apellidos"]}</td>
+                    <td>${envio["vendedor"]["nombres"]} ${envio["vendedor"]["apellidos"]}</td>
+                    <td>${envio["pedido"]}</td>
+                    <td>${envio["estado"]["nombre"]}</td>
+                    <td>${envio["fecha_emision"]}</td>
+                    <td>${envio["fecha_actualizacion"]}</td>
+                    <td>
+                        <img class="imagen accion editar" src="{% static 'BuyBeeApp/assets/images/Admin/Editar.png' %}">
+                        <img class="imagen accion eliminar" src="{% static 'BuyBeeApp/assets/images/Admin/Eliminar.png' %}">
+                    </td>
+                </tr>`
+            });
+        });
+    } else if (tipoCrud == "productos") {
+        document.getElementById("cuerpo-tablas").innerHTML = "";
+        productosRaw = elemento.classList.contains("activo") ? {"url": `http://127.0.0.1:8000/api/producto/?order=${tipoFiltro}`, "method": "GET", "timeout": 0} : {"url": `http://127.0.0.1:8000/api/producto/?order=-${tipoFiltro}`, "method": "GET", "timeout": 0}
+        $.getJSON(productosRaw).done(function (productos) {
+            productos.forEach(producto => {
+                document.getElementById("cuerpo-tablas").innerHTML += `<tr>
+                    <th class="text-center" scope="row">${producto["id"]}</th>
+                    <td>${producto["categoria"]["nombre"]}</td>
+                    <td>${producto["nombre"]}</td>
+                    <td>${producto["descripcion"]}</td>
+                    <td>${producto["precio"]}</td>
+                    <td>${producto["stock"]}</td>
+                    <td>${producto["vendedor"]["nombres"]} ${producto["vendedor"]["apellidos"]}</td>
+                    <td>${producto["fecha_publicacion"]}</td>
+                    <td>${producto["vistas"]}</td>
+                    <td>${producto["compras"]}</td>
+                    <td>
+                        <img class="imagen accion editar" src="{% static 'BuyBeeApp/assets/images/Admin/Editar.png' %}">
+                        <img class="imagen accion eliminar" src="{% static 'BuyBeeApp/assets/images/Admin/Eliminar.png' %}">
+                    </td>
+                </tr>`
+            });
+        });
     }
 }
