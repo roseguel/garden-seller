@@ -22,12 +22,27 @@ class ProductoSrlz(serializers.ModelSerializer):
         imagenes = [x[0] for x in imagenesRaw]
         return imagenes
 
+class EstadoPedidoSrlz(serializers.ModelSerializer):
+    class Meta:
+        model = EstadoPedido
+        fields = '__all__' #['__all__']
+
 class PedidoSrlz(serializers.ModelSerializer):
+    comprador = UsuarioSrlz(read_only=True)
+    estado = EstadoPedidoSrlz(read_only=True)
     class Meta:
         model = Pedido
         fields = '__all__' #['__all__']
 
+class EstadoEnvioSrlz(serializers.ModelSerializer):
+    class Meta:
+        model = EstadoEnvio
+        fields = '__all__' #['__all__']
+
 class EnvioSrlz(serializers.ModelSerializer):
+    comprador = UsuarioSrlz(read_only=True)
+    vendedor = UsuarioSrlz(read_only=True)
+    estado = EstadoEnvioSrlz(read_only=True)
     class Meta:
         model = Envio
         fields = '__all__' #['__all__']
@@ -53,14 +68,4 @@ class DetallePedidoSrlz(serializers.ModelSerializer):
 class ProductoImagenSrlz(serializers.ModelSerializer):
     class Meta:
         model = ProductoImagen
-        fields = '__all__' #['__all__']
-
-class EstadoPedidoSrlz(serializers.ModelSerializer):
-    class Meta:
-        model = EstadoPedido
-        fields = '__all__' #['__all__']
-
-class EstadoEnvioSrlz(serializers.ModelSerializer):
-    class Meta:
-        model = EstadoEnvio
         fields = '__all__' #['__all__']

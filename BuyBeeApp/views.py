@@ -6,6 +6,7 @@ from django import views
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required, permission_required
 from BuyBeeApp.forms import registrarUsuario, registroPersonal, UsuariosForm, PedidosForm, EnviosForm, ProductosForm, CategoriasForm
+from django.contrib.admin.views.decorators import staff_member_required
 from scripts.metodos import formatNumberToPrice, normalizeName, shrinkProdName
 from django.contrib.auth import login, authenticate
 from django.http import QueryDict
@@ -545,9 +546,6 @@ def publicarProducto(r):
 
     return render(r, "BuyBeeApp/subir-producto.html", contexto)
 
-def envio(r):
-    return render(r,"BuyBeeApp/envio.html")
-
 @login_required(login_url="iniciar-sesion")
 def informacionEnvio(r, id_envio):
     envio = get_object_or_404(Envio, id=id_envio)
@@ -579,6 +577,79 @@ def informacionEnvio(r, id_envio):
         return render(r, "BuyBeeApp/informacion-envio.html", contexto)
     return redirect(to="perfil")
 
+@login_required(login_url="iniciar-sesion")
+@staff_member_required
+def administracion(r, tipo = "usuarios"):
+    if tipo == "usuarios":
+        usuarios = Usuario.objects.all().order_by("-rut")
+        contexto = {
+            "usuarios": usuarios,
+        }
+        return render(r, "BuyBeeApp/administracion-usuarios.html", contexto)
+    elif tipo == "pedidos":
+        pedidos = Pedido.objects.all().order_by("-id")
+        contexto = {
+            "pedidos": pedidos,
+        }
+        return render(r, "BuyBeeApp/administracion-pedidos.html", contexto)
+    elif tipo == "envios":
+        envios = Envio.objects.all().order_by("-id")
+        contexto = {
+            "envios": envios,
+        }
+        return render(r, "BuyBeeApp/administracion-envios.html", contexto)
+    elif tipo == "productos":
+        productos = ProductoVenta.objects.all().order_by("-id")
+        contexto = {
+            "productos": productos,
+        }
+        return render(r, "BuyBeeApp/administracion-productos.html", contexto)
+
+@login_required(login_url="iniciar-sesion")
+def editarProducto(r, id_producto):
+    producto = get_object_or_404(ProductoVenta, id=id_producto)
+    #envio = Envio.objects.filter(id=id_envio).values()[0]
+    vendedor = Usuario.objects.filter(rut=producto.vendedor.rut).values()[0]
+    if r.user.username == vendedor["nombreusuario"]:
+        imagenes = ProductoImagen.objects.filter(producto=producto.id).values()
+        categorias = Categoria.objects.values()
+        categoria_prod = Categoria.objects.filter(nombre=producto.categoria).values()[0]
+        contexto = {
+            "producto": producto,
+            "categorias": categorias,
+            "categoria_prod": categoria_prod,
+            "vendedor": vendedor,
+        }
+        if r.method == "POST":
+            cambios = False
+            if r.POST["nombre"] != producto.nombre:
+                producto.nombre = r.POST["nombre"]
+                cambios = True
+            if r.POST["categoria"] != categoria_prod["id"]:
+                producto.categoria = get_object_or_404(Categoria, id=int(r.POST["categoria"]))
+                cambios = True
+            if r.POST["descripcion"] != producto.descripcion:
+                producto.descripcion = r.POST["descripcion"]
+                cambios = True
+            if r.POST["precio"] != producto.precio:
+                producto.precio = r.POST["precio"]
+                cambios = True
+            if r.POST["stock"] != producto.stock:
+                producto.stock = r.POST["stock"]
+                cambios = True
+            if cambios:
+                producto.save()
+            if len(r.FILES.getlist('imagen')) > 0:
+                for imagen in imagenes:
+                    imagenD = get_object_or_404(ProductoImagen, id=imagen["id"])
+                    imagenD.delete()
+                for imagen in r.FILES.getlist('imagen'):
+                    productoImagen = ProductoImagen(producto=producto, imagen=imagen)
+                    productoImagen.save()
+            return redirect(to=f"/producto/{producto.id}")
+        return render(r, "BuyBeeApp/editar-producto.html", contexto)
+    return redirect(to="perfil")
+
 # ViewSet
 class productoVentaViewSet(viewsets.ModelViewSet):
     queryset = ProductoVenta.objects.all()
@@ -589,19 +660,32 @@ class productoVentaViewSet(viewsets.ModelViewSet):
         id = self.request.GET.get('id')
         vendedor = self.request.GET.get('vendedor')
         categoria = self.request.GET.get('categoria')
+        order = self.request.GET.get('order')
         if nombre != None:
-            #productos = ProductoVenta.objects.filter(nombre=nombre)
-            return ProductoVenta.objects.filter(nombre=nombre)
+            try:
+                return ProductoVenta.objects.filter(nombre=nombre).order_by(order)
+            except:
+                return ProductoVenta.objects.filter(nombre=nombre)
         elif id != None:
-            #productos = ProductoVenta.objects.filter(id=id)
-            return ProductoVenta.objects.filter(id=id)
+            try:
+                return ProductoVenta.objects.filter(id=id).order_by(order)
+            except:
+                return ProductoVenta.objects.filter(id=id)
         elif vendedor != None:
-            #productos = ProductoVenta.objects.filter(vendedor=vendedor)
-            return ProductoVenta.objects.filter(vendedor=vendedor)
+            try:
+                return ProductoVenta.objects.filter(vendedor=vendedor).order_by(order)
+            except:
+                return ProductoVenta.objects.filter(vendedor=vendedor)
         elif categoria != None:
-            return ProductoVenta.objects.filter(categoria=categoria)
+            try:
+                return ProductoVenta.objects.filter(categoria=categoria).order_by(order)
+            except:
+                return ProductoVenta.objects.filter(categoria=categoria)
         else:
-            return ProductoVenta.objects.all()
+            try:
+                return ProductoVenta.objects.all().order_by(order)
+            except:
+                return ProductoVenta.objects.all()
 
 class productoImagenViewSet(viewsets.ModelViewSet):
     queryset = ProductoImagen.objects.all()
@@ -615,6 +699,44 @@ class pedidoViewSet(viewsets.ModelViewSet):
     queryset = Pedido.objects.all()
     serializer_class = PedidoSrlz
 
+    def get_queryset(self):
+        comprador = self.request.GET.get('comprador')
+        id = self.request.GET.get('id')
+        fecha = self.request.GET.get('fecha')
+        estado = self.request.GET.get('estado')
+        total = self.request.GET.get('total')
+        order = self.request.GET.get('order')
+        if comprador != None:
+            try:
+                return Pedido.objects.filter(comprador=comprador).order_by(order)
+            except:
+                return Pedido.objects.filter(comprador=comprador)
+        elif id != None:
+            try:
+                return Pedido.objects.filter(id=id).order_by(order)
+            except:
+                return Pedido.objects.filter(id=id)
+        elif fecha != None:
+            try:
+                return Pedido.objects.filter(fecha=fecha).order_by(order)
+            except:
+                return Pedido.objects.filter(fecha=fecha)
+        elif estado != None:
+            try:
+                return Pedido.objects.filter(estado=estado).order_by(order)
+            except:
+                return Pedido.objects.filter(estado=estado)
+        elif total != None:
+            try:
+                return Pedido.objects.filter(total=total).order_by(order)
+            except:
+                return Pedido.objects.filter(total=total)
+        else:
+            try:
+                return Pedido.objects.order_by(order)
+            except:
+                return Pedido.objects
+
 class estadoEnvioViewSet(viewsets.ModelViewSet):
     queryset = EstadoEnvio.objects.all()
     serializer_class = EstadoEnvioSrlz
@@ -622,6 +744,51 @@ class estadoEnvioViewSet(viewsets.ModelViewSet):
 class envioViewSet(viewsets.ModelViewSet):
     queryset = Envio.objects.all()
     serializer_class = EnvioSrlz
+
+    def get_queryset(self):
+        comprador = self.request.GET.get('comprador')
+        vendedor = self.request.GET.get('vendedor')
+        pedido = self.request.GET.get('pedido')
+        estado = self.request.GET.get('estado')
+        id = self.request.GET.get('id')
+        fecha_emision = self.request.GET.get('fecha_emision')
+        fecha_actualizacion = self.request.GET.get('fecha_actualizacion')
+        order = self.request.GET.get('order')
+        if comprador != None:
+            try:
+                return Envio.objects.filter(comprador=comprador).order_by(order)
+            except:
+                return Envio.objects.filter(comprador=comprador)
+        elif vendedor != None:
+            try:
+                return Envio.objects.filter(vendedor=vendedor).order_by(order)
+            except:
+                return Envio.objects.filter(vendedor=vendedor)
+        elif pedido != None:
+            try:
+                return Envio.objects.filter(pedido=pedido).order_by(order)
+            except:
+                return Envio.objects.filter(pedido=pedido)
+        elif estado != None:
+            try:
+                return Envio.objects.filter(estado=estado).order_by(order)
+            except:
+                return Envio.objects.filter(estado=estado)
+        elif id != None:
+            try:
+                return Envio.objects.filter(id=id).order_by(order)
+            except:
+                return Envio.objects.filter(id=id)
+        elif fecha_emision != None:
+            try:
+                return Envio.objects.filter(fecha_emision=fecha_emision).order_by(order)
+            except:
+                return Envio.objects.filter(fecha_emision=fecha_emision)
+        elif fecha_actualizacion != None:
+            try:
+                return Envio.objects.filter(fecha_actualizacion=fecha_actualizacion).order_by(order)
+            except:
+                return Envio.objects.filter(fecha_actualizacion=fecha_actualizacion)
 
 class detallePedidoViewSet(viewsets.ModelViewSet):
     queryset = DetallePedido.objects.all()
@@ -640,4 +807,54 @@ class detallePedidoViewSet(viewsets.ModelViewSet):
 class usuarioViewSet(viewsets.ModelViewSet):
     queryset = Usuario.objects.all()
     serializer_class = UsuarioSrlz
+
+    def get_queryset(self):
+        rut = self.request.GET.get('rut')
+        nombreusuario = self.request.GET.get('nombreusuario')
+        nombres = self.request.GET.get('nombres')
+        apellidos = self.request.GET.get('apellidos')
+        email = self.request.GET.get('email')
+        numero = self.request.GET.get('numero')
+        suscrito = self.request.GET.get('suscrito')
+        order = self.request.GET.get('order')
+        if rut != None:
+            try:
+                return Usuario.objects.filter(rut=rut).order_by(order)
+            except:
+                return Envio.objects.filter(rut=rut)
+        elif nombreusuario != None:
+            try:
+                return Usuario.objects.filter(nombreusuario=nombreusuario).order_by(order)
+            except:
+                return Envio.objects.filter(nombreusuario=nombreusuario)
+        elif nombres != None:
+            try:
+                return Usuario.objects.filter(nombres=nombres).order_by(order)
+            except:
+                return Envio.objects.filter(nombres=nombres)
+        elif apellidos != None:
+            try:
+                return Usuario.objects.filter(apellidos=apellidos).order_by(order)
+            except:
+                return Envio.objects.filter(apellidos=apellidos)
+        elif email != None:
+            try:
+                return Usuario.objects.filter(email=email).order_by(order)
+            except:
+                return Envio.objects.filter(email=email)
+        elif numero != None:
+            try:
+                return Usuario.objects.filter(numero=numero).order_by(order)
+            except:
+                return Envio.objects.filter(numero=numero)
+        elif suscrito != None:
+            try:
+                return Usuario.objects.filter(suscrito=suscrito).order_by(order)
+            except:
+                return Envio.objects.filter(suscrito=suscrito)
+        else:
+            try:
+                return Usuario.objects.order_by(order)
+            except:
+                return Usuario.objects
 

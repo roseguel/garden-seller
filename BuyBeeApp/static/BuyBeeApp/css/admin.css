@@ -1,89 +1,199 @@
-#nav {
-    padding-top: 1em;
-}
-
-#logo {
-    cursor: pointer;
-    margin-left: 1.5vh;
-    margin-right: 1.5vh;
-    height: 4vh;
-    width: 10vh;
-    background: #47BC99;
-    border-radius: 0.3em;
-    text-align: center;
+body {
+    background-color: #D7D5D4;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-weight: 700;
+    flex-direction: column;
+    margin: 0vh 0vh;
 }
 
-.panelAdmin {
-    padding-top: 2em;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 29px;
-    /* identical to box height */
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
+div {
+    font-family: 'Quicksand';
 }
 
-.tablas {
-    margin-left: 1vh;
-    margin-right: 1vh;
-    margin-top: 2em;
+/* PC */
+@media (min-width: 950px) {
+    #nav{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background-color: #CF8E8E;
+        color: rgb(255, 252, 252);
+        padding: 3vh 0vh;
+        width: 100%;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    }
+
+    .titulo {
+        font-weight: 500;
+        font-size: 5vh;
+    }
+
+    #salir{
+        position: absolute;
+        left: 3vh;
+    }
+
+    /* Cuerpo y Selectores */
+    #contenido {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-self: center;
+    }
+
+    /* Selectores */
+    #selectores {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-self: center;
+        padding: 4vh 12vh;
+        border-bottom: 2px solid rgba(0, 0, 0, 0.8);
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.8));
+    }
+
+    .selector {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-self: center;
+        margin: 0vh 2vh;
+        cursor: pointer;
+        transition: all .2s ease-in-out;
+    }
+
+    .selector > :first-child {
+        transition: all .2s ease-in-out;
+    }
+
+    .selector:hover {
+        margin: 0vh 3vh;
+        transition: all .2s ease-in-out;
+    }
+
+    .selector:hover > :first-child {
+        transform: scale(110%);
+        transition: all .2s ease-in-out;
+    }
+
+    .selector img.active {
+        transform: scale(125%);
+    }
+
+    /* Tablas */
+    #tablas {
+        margin-top: 2vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-self: center;
+    }
+
+    .tablas-titulo {
+        font-size: 5vh;
+        font-weight: 500;
+        border-bottom: 1.5px solid rgba(0, 0, 0, 0.8);
+    }
+
+    .table {
+        margin-top: 2vh;
+    }
+
+    .filtro {
+        cursor: pointer;
+        width: 2.5vh;
+        height: 2.5vh;
+        transform: rotate(0deg);
+        transition: all .4s ease-in-out;
+    }
+
+    .activo {
+        transform: rotate(180deg);
+        transition: all .4s ease-in-out;
+        /*
+        animation-name: rotar;
+        animation-duration: 0.4s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+        */
+    }
+
+    .agregar {
+        cursor: pointer;
+        border-bottom: 1px solid;
+        padding-bottom: 0.5vh;
+        transition: all .2s ease-in-out;
+    }
+
+    .agregar:hover {
+        color: black;
+        transition: all .2s ease-in-out;
+    }
+
+    .imagen {
+        cursor: pointer;
+        width: 4vh;
+        height: 4vh;
+        border-radius: 1vh;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.4));
+    }
+
+    .accion {
+        margin: 0vh 1vh;
+    }
+
+    .si {
+        background-color: #20c997;
+        /*
+        background-color: rgba(32, 201, 151, 0.6);
+        */
+    }
+
+    .no {
+        background-color: #df5663;
+    }
+
+    .editar {
+        background-color: #ffd146;
+    }
+
+    .eliminar {
+        background-color: #dc3545;
+    }
+
+    /* Animaciones */
+    /* No se usó
+    @keyframes rotar {
+        from { transform: rotate(0deg); }
+        to {
+            transform: rotate(180deg);
+        }
+    }
+    */
 }
 
-.opciones {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    text-align: center;
-}
+/* Movil */
+@media (max-width: 950px) {
+    #nav{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background-color: #CF8E8E;
+        color: rgb(255, 252, 252);
+        padding: 2vh 0vh;
+        width: 100%;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    }
 
-.opcion {
-    cursor: pointer;
-    transition: all .2s ease-in-out;
-    background-color: #212529;
-    border: 1px solid rgb(121, 121, 121);
-    width: 5em;
-    color: white;
-}
+    .titulo {
+        font-weight: 300;
+    }
 
-#usuarios {
-    border-radius: 10px 0px 0px 0px;
-}
-
-#pedidos {
-    border-radius: 0px 10px 0px 0px;
-}
-
-.opcion.active {
-    background-color: aquamarine;
-    color: black;
-    transform: scale(110%);
-}
-
-.opcion:hover {
-    transition: all .2s ease-in-out;
-    transform: scale(110%);
-}
-
-.crudEliminarItem, .crudEditarItem {
-    cursor: pointer;
-    width: 4vh;
-    height: 4vh;
-    margin-left: 1vh;
-    margin-right: 1vh;
-    background-color: rgba(188, 188, 188, 0);
-}
-
-.crudEliminarItem:hover, .crudEditarItem:hover {
-    transform: scale(120%);
-    background-color: rgba(188, 188, 188, 0.6);
-    border-radius: 25%;
-    transition: all .2s ease-in-out;
+    #salir{
+        position: absolute;
+        left: 3vh;
+    }
 }

@@ -1,6 +1,6 @@
 from email.policy import default
 from BuyBee.urls import path
-from BuyBeeApp.views import carrito, categoria, detallePedidoViewSet, AgregarUsuario, ModificarUsuario, AgregarCategoria,ModificarCategoria, AgregarEnvio,ModificarEnvio,AgregarPedido,ModificarPedido,AgregarProducto,ModificarProducto, envioViewSet, estadoEnvioViewSet, estadoPedidoViewSet, home, informacionEnvio, pedidoViewSet, productoImagenViewSet, productoVentaViewSet, publicarProducto, envio, quienesSomos, ayuda, perfil, producto, iniciarSesion, registrarse, registropersonal, suscripcion, usuarioViewSet, vendedor
+from BuyBeeApp.views import administracion, carrito, categoria, detallePedidoViewSet, editarProducto, envioViewSet, estadoEnvioViewSet, estadoPedidoViewSet, home, informacionEnvio, pedidoViewSet, productoImagenViewSet, productoVentaViewSet, publicarProducto, quienesSomos, ayuda, perfil, producto, iniciarSesion, registrarse, registropersonal, suscripcion, usuarioViewSet, vendedor, AgregarUsuario, ModificarUsuario, AgregarCategoria,ModificarCategoria, AgregarEnvio,ModificarEnvio,AgregarPedido,ModificarPedido,AgregarProducto,ModificarProducto
 from django.contrib.auth.views import LoginView
 from django.urls import path, include
 
@@ -27,7 +27,6 @@ urlpatterns = [
     path('categoria/<id_categoria>', categoria, name="categoria"),
     path('carrito', carrito, name="carrito"),
     path('publicar-producto', publicarProducto, name="publicar-producto"),
-    path('envio', envio, name="envio"),
     path('informacion-envio/<id_envio>', informacionEnvio, name="informacion-envio"),
 
     path('agregar-usuario', AgregarUsuario, name="agregar-usuario"),
@@ -45,5 +44,9 @@ urlpatterns = [
     path('agregar-categoria', AgregarCategoria, name="agregar-categoria"),
     path('modificar-categoria/<id>/', ModificarCategoria, name="modificar-categoria"),
 
+
+    path('editar-producto/<id_producto>', editarProducto, name="editar-producto"),
+    path('administracion/', administracion, name="administracion"),
+    path('administracion/<tipo>', administracion, name="administracion"),
     path('api/', include(router.urls)),
 ]

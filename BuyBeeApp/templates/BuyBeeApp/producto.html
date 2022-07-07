@@ -56,6 +56,10 @@
             <img src="{% static 'BuyBeeApp/assets/images/Vendedor.png' %}">
             <span class="texto">{{ vendedor.nombreusuario }}</span>
         </div>
+        <div id="stock" class="info-producto-datos" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Stock">
+            <img src="{% static 'BuyBeeApp/assets/images/Stock.png' %}">
+            <span class="texto">{{ producto.stock }}</span>
+        </div>
         <div id="vistos" class="info-producto-datos">
             <img src="{% static 'BuyBeeApp/assets/images/Vistos.png' %}">
             <span class="texto">{{ producto.vistas }}</span>
