@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.forms import ModelForm
 from django.contrib.auth.models import User
 
-from BuyBeeApp.models import Usuario
+from BuyBeeApp.models import ProductoVenta, Usuario, Categoria, Pedido, Envio
 
 # Creo mi propio UserCreationForm, para poder asignar el correo electronico de una vez.
 class registrarUsuario(UserCreationForm):
@@ -24,3 +24,33 @@ class registroPersonal(ModelForm):
     class Meta:
         model = Usuario
         fields = ["rut", "nombreusuario", "nombres", "apellidos", "email"]
+
+class UsuariosForm(forms.ModelForm):
+    
+    class Meta:
+        model = Usuario
+        fields = '__all__'
+
+class PedidosForm(forms.ModelForm):
+    
+    class Meta:
+        model = Pedido
+        fields = '__all__'
+
+class EnviosForm(forms.ModelForm):
+    
+    class Meta:
+        model = Envio
+        fields = '__all__'
+
+class ProductosForm(forms.ModelForm):
+    
+    class Meta:
+        model = ProductoVenta
+        fields = '__all__'
+
+class CategoriasForm(forms.ModelForm):
+    
+    class Meta:
+        model = Categoria
+        fields = '__all__'

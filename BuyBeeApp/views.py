@@ -1,9 +1,11 @@
+# se debe editar el redirect de todos los formularios (estos estan redireccionando al home)
+
 from datetime import datetime
 from math import prod
 from django import views
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required, permission_required
-from BuyBeeApp.forms import registrarUsuario, registroPersonal
+from BuyBeeApp.forms import registrarUsuario, registroPersonal, UsuariosForm, PedidosForm, EnviosForm, ProductosForm, CategoriasForm
 from scripts.metodos import formatNumberToPrice, normalizeName, shrinkProdName
 from django.contrib.auth import login, authenticate
 from django.http import QueryDict
@@ -15,6 +17,186 @@ from rest_framework import viewsets
 from BuyBeeApp.serializers import DetallePedidoSrlz, EnvioSrlz, EstadoEnvioSrlz, EstadoPedidoSrlz, PedidoSrlz, ProductoImagenSrlz, ProductoSrlz, UsuarioSrlz
 
 # Create your views here.
+def AgregarUsuario(r):
+    usuarios = Usuario.objects.all()
+    data = {
+        'form': UsuariosForm(),
+        'usuarios': usuarios
+    }
+
+    if r.method == 'POST':
+        formulario = UsuariosForm(data = r.POST)
+        if formulario.is_valid():
+            formulario.save()
+            data["mensaje"] = "Usuario ingresado"
+            return redirect(to="home") # se debe editar este para volver al crud
+        else:
+            data["form"] = formulario
+            data["mensaje"] = "No se ha ingresado el usuario"
+
+    return render(r, "BuyBeeApp/cruds/agregar.html", data)
+
+def ModificarUsuario(r, id):
+    usuario = get_object_or_404(Usuario, id=id)
+    data = {
+        'form': UsuariosForm(instance=usuario),
+    }
+    if r.method == 'POST':
+        formulario = UsuariosForm(data = r.POST, instance=usuario)
+        if formulario.is_valid():
+            formulario.save()
+            data["mensaje"] = "Modificacion exitosa"
+            return redirect(to="home") # cuando hacemos algo y queremos redirijir a otra pagina usamos este
+        else:
+            data["form"] = formulario
+            data["mensaje"] = "No se ha guardado el formulario"
+
+    return render(r, "BuyBeeApp/cruds/modificar.html", data)
+
+def AgregarPedido(r):
+    pedidos = Pedido.objects.all()
+    data = {
+        'form': PedidosForm(),
+        'pedidos': pedidos
+    }
+
+    if r.method == 'POST':
+        formulario = PedidosForm(data = r.POST)
+        if formulario.is_valid():
+            formulario.save()
+            data["mensaje"] = "pedido ingresado"
+            return redirect(to="home") # se debe editar este para volver al crud
+        else:
+            data["form"] = formulario
+            data["mensaje"] = "No se ha ingresado el pedido"
+
+    return render(r, "BuyBeeApp/cruds/agregar.html", data)
+
+def ModificarPedido(r, id):
+    pedido = get_object_or_404(Pedido, id=id)
+    data = {
+        'form': UsuariosForm(instance=pedido),
+    }
+    if r.method == 'POST':
+        formulario = UsuariosForm(data = r.POST, instance=pedido)
+        if formulario.is_valid():
+            formulario.save()
+            data["mensaje"] = "Modificacion exitosa"
+            return redirect(to="home") # cuando hacemos algo y queremos redirijir a otra pagina usamos este
+        else:
+            data["form"] = formulario
+            data["mensaje"] = "No se ha guardado el formulario"
+
+    return render(r, "BuyBeeApp/cruds/modificar.html", data)
+
+def AgregarEnvio(r):
+    envios = Envio.objects.all()
+    data = {
+        'form': EnviosForm(),
+        'envios': envios
+    }
+
+    if r.method == 'POST':
+        formulario = EnviosForm(data = r.POST)
+        if formulario.is_valid():
+            formulario.save()
+            data["mensaje"] = "envio ingresado"
+            return redirect(to="home") # se debe editar este para volver al crud
+        else:
+            data["form"] = formulario
+            data["mensaje"] = "No se ha ingresado el envio"
+
+    return render(r, "BuyBeeApp/cruds/agregar.html", data)
+
+def ModificarEnvio(r, id):
+    envio = get_object_or_404(Envio, id=id)
+    data = {
+        'form': EnviosForm(instance=envio),
+    }
+    if r.method == 'POST':
+        formulario = EnviosForm(data = r.POST, instance=envio)
+        if formulario.is_valid():
+            formulario.save()
+            data["mensaje"] = "Modificacion exitosa"
+            return redirect(to="home") # cuando hacemos algo y queremos redirijir a otra pagina usamos este
+        else:
+            data["form"] = formulario
+            data["mensaje"] = "No se ha guardado el formulario"
+
+    return render(r, "BuyBeeApp/cruds/modificar.html", data)
+
+def AgregarProducto(r):
+    productos = ProductoVenta.objects.all()
+    data = {
+        'form': ProductosForm(),
+        'productos': productos
+    }
+
+    if r.method == 'POST':
+        formulario = ProductosForm(data = r.POST)
+        if formulario.is_valid():
+            formulario.save()
+            data["mensaje"] = "producto ingresado"
+            return redirect(to="home") # se debe editar este para volver al crud
+        else:
+            data["form"] = formulario
+            data["mensaje"] = "No se ha ingresado el producto"
+
+    return render(r, "BuyBeeApp/cruds/agregar.html", data)
+
+def ModificarProducto(r, id):
+    producto = get_object_or_404(ProductoVenta, id=id)
+    data = {
+        'form': ProductosForm(instance=producto),
+    }
+    if r.method == 'POST':
+        formulario = ProductosForm(data = r.POST, instance=producto)
+        if formulario.is_valid():
+            formulario.save()
+            data["mensaje"] = "Modificacion exitosa"
+            return redirect(to="home") # cuando hacemos algo y queremos redirijir a otra pagina usamos este
+        else:
+            data["form"] = formulario
+            data["mensaje"] = "No se ha guardado el formulario"
+
+    return render(r, "BuyBeeApp/cruds/modificar.html", data)
+
+def AgregarCategoria(r):
+    categorias = Categoria.objects.all()
+    data = {
+        'form': CategoriasForm(),
+        'categorias': categorias
+    }
+
+    if r.method == 'POST':
+        formulario = CategoriasForm(data = r.POST)
+        if formulario.is_valid():
+            formulario.save()
+            data["mensaje"] = "categoria ingresada"
+            return redirect(to="home") # se debe editar este para volver al crud
+        else:
+            data["form"] = formulario
+            data["mensaje"] = "No se ha ingresado la categoria"
+
+    return render(r, "BuyBeeApp/cruds/agregar.html", data)
+
+def ModificarCategoria(r, id):
+    categoria = get_object_or_404(Categoria, id=id)
+    data = {
+        'form': CategoriasForm(instance=categoria),
+    }
+    if r.method == 'POST':
+        formulario = CategoriasForm(data = r.POST, instance=categoria)
+        if formulario.is_valid():
+            formulario.save()
+            data["mensaje"] = "Modificacion exitosa"
+            return redirect(to="home") # cuando hacemos algo y queremos redirijir a otra pagina usamos este
+        else:
+            data["form"] = formulario
+            data["mensaje"] = "No se ha guardado el formulario"
+
+    return render(r, "BuyBeeApp/cruds/modificar.html", data)
+
 def home(r):
     prod_rec = ProductoVenta.objects.order_by('-vistas', '-compras').values()[:15]
     for x in prod_rec:
@@ -458,3 +640,4 @@ class detallePedidoViewSet(viewsets.ModelViewSet):
 class usuarioViewSet(viewsets.ModelViewSet):
     queryset = Usuario.objects.all()
     serializer_class = UsuarioSrlz
+

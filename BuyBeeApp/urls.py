@@ -1,6 +1,6 @@
 from email.policy import default
 from BuyBee.urls import path
-from BuyBeeApp.views import carrito, categoria, detallePedidoViewSet, envioViewSet, estadoEnvioViewSet, estadoPedidoViewSet, home, informacionEnvio, pedidoViewSet, productoImagenViewSet, productoVentaViewSet, publicarProducto, envio, quienesSomos, ayuda, perfil, producto, iniciarSesion, registrarse, registropersonal, suscripcion, usuarioViewSet, vendedor
+from BuyBeeApp.views import carrito, categoria, detallePedidoViewSet, AgregarUsuario, ModificarUsuario, AgregarCategoria,ModificarCategoria, AgregarEnvio,ModificarEnvio,AgregarPedido,ModificarPedido,AgregarProducto,ModificarProducto, envioViewSet, estadoEnvioViewSet, estadoPedidoViewSet, home, informacionEnvio, pedidoViewSet, productoImagenViewSet, productoVentaViewSet, publicarProducto, envio, quienesSomos, ayuda, perfil, producto, iniciarSesion, registrarse, registropersonal, suscripcion, usuarioViewSet, vendedor
 from django.contrib.auth.views import LoginView
 from django.urls import path, include
 
@@ -29,5 +29,21 @@ urlpatterns = [
     path('publicar-producto', publicarProducto, name="publicar-producto"),
     path('envio', envio, name="envio"),
     path('informacion-envio/<id_envio>', informacionEnvio, name="informacion-envio"),
+
+    path('agregar-usuario', AgregarUsuario, name="agregar-usuario"),
+    path('modificar-usuario/<id>/', ModificarUsuario, name="modificar-usuario"),
+    
+    path('agregar-pedido', AgregarPedido, name="agregar-pedido"),
+    path('modificar-pedido/<id>/', ModificarPedido, name="modificar-pedido"),
+    
+    path('agregar-envio', AgregarEnvio, name="agregar-envio"),
+    path('modificar-envio/<id>/', ModificarEnvio, name="modificar-envio"),
+
+    path('agregar-producto', AgregarProducto, name="agregar-producto"),
+    path('modificar-producto/<id>/', ModificarProducto, name="modificar-producto"),
+
+    path('agregar-categoria', AgregarCategoria, name="agregar-categoria"),
+    path('modificar-categoria/<id>/', ModificarCategoria, name="modificar-categoria"),
+
     path('api/', include(router.urls)),
 ]
